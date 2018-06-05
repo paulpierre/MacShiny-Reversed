@@ -1,0 +1,564 @@
+<Resources>
+  <MacCleaner2>
+    <String name="quitAppAlertText" value="Quiting {ProductName} will result in all its active processes being canceled.&#xD;&#xD;Are you sure?" />
+    <String name="quitAppAlertTitle" value="Quit {ProductName}" />
+    <ActivationManagerResources>
+      <String name="activationCodeIsRequired" value="License code is required." />
+      <String name="activationFailed" value="Activation failed. Please, try again." />
+      <String name="invalidActivationCode" value="Your activation code is not valid. Make sure that the serial number you have entered matches the one in your order confirmation e-mail." />
+      <String name="limitReached" value="Warning! You have reached the usage limit for this serial number." />
+      <String name="noInternetConnection" value="No Internet connection. Make sure your connection is active and try again." />
+    </ActivationManagerResources>
+    <ActivationWindowResources>
+      <String name="accessUniqueUtilities" value="Access 16 unique utilities" />
+      <String name="activated" value="Activated" />
+      <String name="activationCode" value="Activation Code" />
+      <String name="activationCodeIsNotValid" value="Your activation code is not valid. Make sure that the serial number you have entered matches the one in your order confirmation e-mail." />
+      <String name="activationCodeIsRequired" value="License code is required." />
+      <String name="activationCodeIsValid" value="Your activation code is valid." />
+      <String name="activationCodeWasSentAfterPurchase" value="Activation code was sent to your email after your purchase." />
+      <String name="activationFailedError" value="Activation failed. Please, try again." />
+      <String name="basketImage" value="images/modal-basket.png" />
+      <String name="cancel" value="Cancel" />
+      <String name="congratulations" value="Congratulations!" />
+      <String name="connectLicense" value="Connect License" />
+      <String name="contactImage" value="images/modal-feedback.png" />
+      <String name="contactOurSupport" value="Contact our customer support 24/7" />
+      <String name="enterActivationCode" value="Enter Activation Code" />
+      <String name="envelopeImage" value="images/modal-envelope.png" />
+      <String name="exclamationMark" value="!" />
+      <String name="getActivationCode" value="Get Activation Code" />
+      <String name="increaseSystemSecurity" value="Increase system security" />
+      <String name="limitReachedError" value="Warning! You have reached the usage limit for this serial number." />
+      <String name="maintainSystemInGoodCondition" value="Maintain you Mac's system in good condition" />
+      <String name="next" value="Activate" />
+      <String name="noActivationCode" value="No Activation Code?" />
+      <String name="noInternetConnectionError" value="No Internet connection. Make sure your connection is active and try again." />
+      <String name="ok" value="Ok" />
+      <String name="productIs" value="{ProductName} is" />
+      <String name="purchaseLicenseToGetFullAccess" value="Purchase a license to get full access to all features of {ProductName}." />
+      <String name="securityImage" value="images/modal-security.png" />
+      <String name="systemImage" value="images/modal-condition.png" />
+      <String name="toYourAccount" value="to your {ProductName} Account" />
+      <String name="utilitiesImage" value="images/modal-utilities.png" />
+    </ActivationWindowResources>
+    <AntiTheftIntroResources>
+      <String name="activate" value="Activate Anti-Theft" />
+      <String name="antiTheft" value="Start Using Anti-Theft" />
+      <String name="antiTheftHeader" value="Anti-Theft" />
+      <String name="antiTheftImage" value="images/anti-theft-plugin-icon.png" />
+      <String name="antiTheftIntroImage" value="images/anti-theft-intro.png" />
+      <String name="antiTheftSubheader" value="Find your Mac if it gets stolen." />
+      <String name="call" value="Instant Call from Support" />
+      <String name="description" value="{ProductName} customer support operator will call you directly after your lost Mac connects to the Internet. This will significantly speed up the rescue process." />
+      <String name="error" value="You need Flash player 8+ and JavaScript enabled to view this video." />
+      <String name="location" value="Location Report" />
+      <String name="locationReportImage" value="images/location-report.png" />
+      <String name="mainPage" value="Continue To Main Page" />
+      <String name="photo" value="iSight photo of the thief that was taken when generating a report." />
+      <String name="police" value="So the police can find it, and you will get your Mac back" />
+      <String name="position" value="Current geographical position of your Mac based on Wi-Fi and network details." />
+      <String name="report" value="If your Mac ever gets stolen, every 5 minutes you will receive:" />
+      <String name="snapshot" value="{ProductName} will identify its location and take a snapshot" />
+      <String name="status" value="View Anti-Theft Status" />
+      <String name="stolen" value="If your Mac gets stolen..." />
+      <String name="supportImage" value="images/anti-theft-support.png" />
+      <String name="text" value="You can also" />
+      <String name="textLink" value="read the manual and see screenshots" />
+      <String name="thiefSnapshot" value="Thief Snapshot" />
+      <String name="thiefSnapshotImage" value="images/thief-snapshot.png" />
+      <String name="tutorialImage" value="images/anti-theft-tutorial.jpg" />
+    </AntiTheftIntroResources>
+    <AntiTheftMainResources>
+      <String name="account" value="{Company} Account" />
+      <String name="activate" value="Activate" />
+      <String name="activatedImage" value="images/anti-theft-plugin-icon.png" />
+      <String name="antiTheft" value="Anti-Theft" />
+      <String name="antiTheftIsService" value="Anti-Theft is a service that will help you find your Mac if it gets stolen." />
+      <String name="byDefault" value="By default, Anti-Theft is NOT activated." />
+      <String name="cameraImage" value="images/anti-theft-camera.png" />
+      <String name="cameraMustBeAttached" value="A camera must be attached or built in" />
+      <String name="companyEula" value="{Company} EULA" />
+      <String name="companyPrivacyPolicy" value="{Company} Privacy Policy" />
+      <String name="currentGeographicalPosition" value="Current geographical position of your Mac based on Wi-Fi and network details." />
+      <String name="errorWindowImage" value="images/anti-theft-activation-error.png" />
+      <String name="errorWindowMessage" value="Anti-Theft activation failed. Please try again." />
+      <String name="errorWindowTitle" value="Anti-Theft activation failed." />
+      <String name="howAntiTheftWorks" value="How Anti-Theft Works?" />
+      <String name="ifMacEverGetsStolen" value="If your Mac ever gets stolen, Anti-Theft will track its location and even make an iSight snapshot of the thief." />
+      <String name="inCaseOfActivated" value="In Case of Activated Anti-Theft Service" />
+      <String name="internetConnection" value="Internet Connection" />
+      <String name="internetImage" value="images/internet-connection.png" />
+      <String name="isActivated" value="Your Anti-Theft service is activated." />
+      <String name="isNotActivated" value="Your Anti-Theft service is not activated." />
+      <String name="justInTimeNotice" value="Just In Time Notice:" />
+      <String name="logInWithAccount" value="Log in with your {Company} account from any computer. Go to the Anti-Theft tab, and then click Report Stolen Computer." />
+      <String name="makeThiefSnapshot" value="Make a Thief Snapshot" />
+      <String name="needsActiveInternetConnection" value="Anti-Theft needs active Internet connection to work properly. Please go online and then use Anti-Theft." />
+      <String name="noInternetConnectionImage" value="images/no-internet-connection.png" />
+      <String name="notActivatedImage" value="images/anti-theft-plugin-icon-inactive.png" />
+      <String name="notificationImage" value="images/anti-theft-popup.png" />
+      <String name="photoOfTheThief" value="iSight photo of the thief that was taken when the report was generated." />
+      <String name="policeBadgeImage" value="images/anti-theft-police.png" />
+      <String name="receiveReport" value="Receive your Mac's location report and thief snapshot." />
+      <String name="reportExampleImage" value="images/anti-theft-map.png" />
+      <String name="reportImage" value="images/anti-theft-report.png" />
+      <String name="reportToPolice" value="Report this data to the police." />
+      <String name="requirements" value="Requirements:" />
+      <String name="tellUs" value="Tell us that your Mac was stolen:" />
+      <String name="thiefImage" value="images/anti-theft-thief.png" />
+      <String name="thisDataHelpPolice" value="This data will help the police find your Mac." />
+      <String name="trackingMacLocationImage" value="images/anti-theft-tracking.png" />
+      <String name="trackLocation" value="Track location of your Mac" />
+      <String name="weWillCollect" value="We will automatically collect the computer's IP address and its geographical position every hour. If the computer gets STOLEN, we will collect IP address, track location, trace route and make snapshots by using the built-in iSight camera or any external camera every five minutes." />
+      <String name="whatIsAntiTheft" value="What is Anti-Theft?" />
+      <String name="whatToDoIfMacIsStolen" value="What to do if your Mac is stolen?" />
+      <String name="whenMacGoesOnline" value="When your Mac goes online, will generate it's location report and send it to you together with the thief snapshot." />
+      <String name="whenYourLostMac" value="When your lost Mac goes online, {ProductName} will start generating reports every 5 minutes. You will be informed about it by email and get a phone call from our customer support representative." />
+      <String name="yourMacIsOffline" value="Your Mac Is Offline" />
+    </AntiTheftMainResources>
+    <AntivirusResources>
+      <String name="activate" value="Activate" />
+      <String name="downloadAntivirus" value="Download Antivirus" />
+    </AntivirusResources>
+    <ApplicationResources>
+      <String name="accountImage" value="images/cyan.png" />
+      <String name="liveSupportTitle" value="Live Support" />
+      <String name="systemStatusAlertLabel" value="menu-alert" />
+      <String name="systemStatusCriticalLabel" value="menu-smile-bad" />
+      <String name="systemStatusGoodLabel" value="menu-smile-good" />
+      <String name="systemStatusMediumLabel" value="menu-smile-medium" />
+      <String name="systemStatusUnknownLabel" value="menu-smile-unknown" />
+    </ApplicationResources>
+    <ApplicationUpdaterMainResources>
+      <String name="clean" value="Clean" />
+    </ApplicationUpdaterMainResources>
+    <AssistantInfoResources>
+      <String name="achievement" value="19627 Macs successfully reviewed" />
+      <String name="achievementImage" value="images/013.png" />
+      <String name="certificate" value="Apple Certified" />
+      <String name="degree" value="Technikal Master Degree" />
+      <String name="degreeImage" value="images/012.png" />
+      <String name="image" value="images/man1.png" />
+      <String name="name" value="MICHAEL" />
+      <String name="role" value="Senior Support Engineer" />
+      <String name="support" value="Support Professional" />
+    </AssistantInfoResources>
+    <AuthenticationManagerResources>
+      <String name="emailIsAlreadyUsed" value="Email is already used" />
+      <String name="emailNotConfirmed" value="Email has not been verified. Please check your mailbox and verify your email address" />
+      <String name="enteredCombinationIsNotValid" value="Email/password is incorrect" />
+      <String name="invalidEmail" value="Invalid email" />
+      <String name="invalidUserName" value="Invalid user name" />
+      <String name="noInternetConnection" value="No Internet connection. Make sure your connection is active and try again." />
+      <String name="unknownError" value="Error occurred while executing operation" />
+      <String name="userNameIsAlreadyUsed" value="User name is already used" />
+      <String name="userNotFound" value="No user is registered with the email address specified" />
+    </AuthenticationManagerResources>
+    <ChatResources>
+      <String name="you" value="You" />
+    </ChatResources>
+    <ConfirmationResources>
+      <String name="avNotDownloadedTitle" value="Antivirus is not downloaded" />
+      <String name="checkConnectionTitle" value="Check your internet connection" />
+      <String name="deleteImage" value="question" />
+      <String name="deleteTitle" value="Are you sure want to delete selected files" />
+      <String name="rebootBlockerImage" value="sandglass" />
+      <String name="rebootBlockerTitle" value="Your Mac is restarting. Please wait." />
+      <String name="rebootImage" value="info" />
+      <String name="rebootTitle" value="Please restart your Mac now to finish cleanup!" />
+      <String name="wifi" value="wifi" />
+    </ConfirmationResources>
+    <DuplicateFinderMainResources>
+      <String name="clean" value="Clean" />
+    </DuplicateFinderMainResources>
+    <EraserMainResources>
+      <String name="clean" value="Clean" />
+    </EraserMainResources>
+    <ErrorWindowResources>
+      <String name="ok" value="OK" />
+      <String name="support" value="Support" />
+    </ErrorWindowResources>
+    <FindFixChatInitialInfoResources>
+      <String name="helpTextToSend" value="Press Return to send your massege" />
+      <String name="timerText" value=" mins left until formalization of the report." />
+      <String name="viewHistoryText" value="View history" />
+    </FindFixChatInitialInfoResources>
+    <FindFixResultResources>
+      <String name="activateTo" value="Activate {ProductName} to:" />
+      <String name="activationAction" value="click &quot;Instant Activation&quot;." />
+      <String name="activationReason" value="To fix the remaining" />
+      <String name="activationReasonThree" value="Get access to a personal Apple Certified technical expert" />
+      <String name="activationReasonTwo" value="Prevent items from occurring on your Mac in the future" />
+      <String name="antiTheftImage" value="images/anti-theft.png" />
+      <String name="applSupport" value="Apple certified support professionals" />
+      <String name="calculating" value="calculating..." />
+      <String name="cleaningImage" value="images/010.png" />
+      <String name="cleaningTabAdvice" value="Free up disk for other files:" />
+      <String name="cleaningTabAdviceItemOne" value="thousands of documents" />
+      <String name="cleaningTabAdviceItemThree" value="movies and more" />
+      <String name="cleaningTabAdviceItemTwo" value="hundreds of photos" />
+      <String name="cleaningTabArrowImage" value="images/line-arrow-right.png" />
+      <String name="cleaningTabDisplayImage" value="images/after-scan-display.png" />
+      <String name="cleaningTabDisplayImageFrontText" value="on your Mac" />
+      <String name="cleaningTabHeader" value="Junk files are unneeded files that may take space on hard drive and reduce system performance. {ProductName} easily removes junk files from your Mac." />
+      <String name="cleaningTabItemsSizeText" value="of junk files" />
+      <String name="cleaningTitle" value="Cleaning" />
+      <String name="continueFix" value="Continue Fix" />
+      <String name="demoVersionLimit" value="You have reached the demo version limit." />
+      <String name="excellentEmotionImage" value="images/026.png" />
+      <String name="excellentPointImage" value="images/017.png" />
+      <String name="finish" value="Finish" />
+      <String name="fix" value="Fix" />
+      <String name="Fixed" value="fixed" />
+      <String name="fixItemsSafelyButtonTitle" value="Fix Issues Safely" />
+      <String name="forFree" value="for FREE" />
+      <String name="Found" value="found" />
+      <String name="haveLicenseLink" value="I already have a license" />
+      <String name="header" value="Find &amp; Fix" />
+      <String name="headerImage" value="images/014.png" />
+      <String name="hideActivationDetails" value="Hide Activation Details" />
+      <String name="hideDetailsButtonImage" value="images/019.png" />
+      <String name="hideDetailsButtonTitle" value="Hide Details" />
+      <String name="highCriticalityMeasurementTitle" value="Critical" />
+      <String name="instantActivationButton" value="Instant Activation" />
+      <String name="internetSecurityImage" value="images/internet-security.png" />
+      <String name="Left" value="left" />
+      <String name="lowCriticalityMeasurementTitle" value="Good" />
+      <String name="mediumCriticalityMeasurementTitle" value="Medium" />
+      <String name="mediumEmotionImage" value="images/025.png" />
+      <String name="mediumPointImage" value="images/018.png" />
+      <String name="percentTitle" value="Fixed" />
+      <String name="performanceTabGoToUpdateTracker" value="Go to Update Tracker" />
+      <String name="performanceTabHeader" value="Software developers release new software updates in case of bugs, ineffective consumption of resources or a need for program modification. That's why it so important to keep apps up to date." />
+      <String name="performanceTabViewAndManage" value="You can view and manage application updates in Update Tracker." />
+      <String name="performanceTitle" value="Performance" />
+      <String name="recommendedBy" value="Recommended by:" />
+      <String name="Remaining" value="remaining" />
+      <String name="remainingItems" value="remaining items now" />
+      <String name="scanYourMac" value="Scan your Mac once every three months" />
+      <String name="securityTabActivated" value="Activated" />
+      <String name="securityTabActivateLink" value="Click to Activate" />
+      <String name="securityTabAntiTheftDescription" value="If your Mac gets lost or stolen, Anti-Theft will track its location, collect all possible information and even make an iSight snapshot of the thief. Then the police representatives can easily find your possessions by using the provided information." />
+      <String name="securityTabAntiTheftText" value="Anti-theft:" />
+      <String name="securityTabHeader" value="Security items define your Mac's total level of protection against malware, Internet threats and physical theft. Inactive securtity features may lead to data corruption, theft of personal information and problems with software." />
+      <String name="securityTabInternetSecurityDescription" value="Internet Security is a set of features that protects your system from most kinds of threats. The set includes the following features: Real-Time Safe Browsing, Antivirus, and Scheduling. Internet Security automatically blocks threats and vulnerabilities." />
+      <String name="securityTabInternetSecurityText" value="Internet Security:" />
+      <String name="securityTabOfflineProtectionText" value="Offline Protection" />
+      <String name="securityTabOnlineProtectionText" value="Online Protection" />
+      <String name="securityTitle" value="Security" />
+      <String name="seriousEmotionImage" value="images/016.png" />
+      <String name="seriousExclamationMarkImage" value="images/015.png" />
+      <String name="seriousPointImage" value="images/027.png" />
+      <String name="seriousTooltipImage" value="images/021.png" />
+      <String name="showActivationDetails" value="Show Activation Details" />
+      <String name="subheader" value="Find and Fix items that may affect your Mac's System Status" />
+      <String name="supportImage" value="images/man2.png" />
+      <String name="supportLabel" value="Your Expert" />
+      <String name="supportTeamImage" value="images/dudes.png" />
+      <String name="systemStatusNotChanged" value="Your system status is still" />
+      <String name="systemStatusTitle" value="System Status" />
+      <String name="tabItemsText" value="issues" />
+      <String name="tabNoItemsText" value="No issues" />
+      <String name="tabOneItemText" value="One issue" />
+      <String name="tipFromExperts" value="Tip from Experts:" />
+      <String name="tooltipText" value="Click any category to view details" />
+      <String name="viewDetailsButtonImage" value="images/020.png" />
+      <String name="viewDetailsButtonTitle" value="View Details" />
+    </FindFixResultResources>
+    <FindFixScanResources>
+      <String name="percentTitle" value="Scanning..." />
+      <String name="secondSingle" value="second" />
+      <String name="secondsPlural" value="seconds" />
+      <String name="stepDescription1" value="Scan your Mac" />
+      <String name="stepDescription2" value="Support 24 hours / 7 days" />
+      <String name="stepDescription3" value="Fix all issues" />
+      <String name="stepDescription4" value="Enjoy optimized Mac!" />
+      <String name="stepImage1" value="images/slide1.png" />
+      <String name="stepImage2" value="images/slide2.png" />
+      <String name="stepImage3" value="images/slide3.png" />
+      <String name="stepImage4" value="images/slide4.png" />
+      <String name="stepName1" value="1. " />
+      <String name="stepName2" value="2. " />
+      <String name="stepName3" value="3. " />
+      <String name="stepName4" value="4. " />
+      <String name="timeTitle" value="Time left:" />
+      <String name="title" value="How does Find &amp; Fix work" />
+      <String name="undefinedTimeLeftText" value="..." />
+    </FindFixScanResources>
+    <FindFixStartResources>
+      <String name="allScansAnalyzedBy" value="All scans are individually analyzed by Apple Certified Professionals." />
+      <String name="appleCertifications" value="Apple certifications are designed for IT professionals who support Mac OS X, such as help desk staff, system administrators, and service technicians." />
+      <String name="appleCertified" value="APPLE CERTIFIED" />
+      <String name="appleCertifiedProfessionals" value="Apple Certified Professionals" />
+      <String name="click" value="Click" />
+      <String name="customerSupport" value="{ProductName} Customer Support" />
+      <String name="expertsWillHelp" value="and our experts will help you to:" />
+      <String name="junkFiles" value="junk files" />
+      <String name="junkFilesAreUnneeded" value="Junk files are unneeded files that may take up space on your hard drive and reduce system performance." />
+      <String name="keepApps" value="Keep Apps" />
+      <String name="keepAppsUpToDate" value="Keep Apps Up-to-Date" />
+      <String name="macImage" value="images/imac.png" />
+      <String name="peopleImage" value="images/dude.png" />
+      <String name="productEasilyRemoves" value="{ProductName} easily removes junk files from your Mac." />
+      <String name="remove" value="Remove" />
+      <String name="removeImage" value="images/recycl.png" />
+      <String name="removeJunkFiles" value="Remove junk files" />
+      <String name="secure" value="Secure" />
+      <String name="secureImage" value="images/protect.png" />
+      <String name="secureYourMac" value="Secure yuor Mac" />
+      <String name="softwareDevelopersRelease" value="Software developers release new software updates in case of bugs, ineffective consumption of resources or a need for program modification. That's why it is so important to keep apps up to date." />
+      <String name="startScan" value="Start Scan" />
+      <String name="supportProfessional" value="Support Professional" />
+      <String name="upToDate" value="Up-to-Date" />
+      <String name="upToDateImage" value="images/mih.png" />
+      <String name="weRecommend" value="We recommend updating applications to the latest versions." />
+      <String name="willProtect" value="Internet Security will protect your Mac from malware and other Internet threats. Anti-Theft will help you locate your Mac in case you lose it or it gets stolen." />
+      <String name="willProtectOnlineOffline" value="{ProductName}'s Internet Security and Anti-Theft features will protect you both online and offline." />
+      <String name="yourMac" value="your Mac" />
+    </FindFixStartResources>
+    <FooterResources>
+      <String name="hideLiveSupport" value="Hide Live Support" />
+      <String name="instantActivation" value="Instant Activation" />
+      <String name="learnMore" value="Learn more about each feature in the Live Support bar on the right." />
+      <String name="leftArrow" value="&amp;raquo;" />
+      <String name="rightArrow" value="&amp;laquo;" />
+      <String name="showLiveSupport" value="Show Live Support" />
+    </FooterResources>
+    <FormResources>
+      <String name="cancelButton" value="Cancel" />
+      <String name="commentsPlaceholder" value="Leave your comments" />
+      <String name="emailPlaceholder" value="Email" />
+      <String name="fieldRequired" value="This field is required." />
+      <String name="incorrectEmail" value="Invalid email address." />
+      <String name="messagePlaceholder" value="Enter your message here" />
+      <String name="namePlaceholder" value="Name" />
+      <String name="phonePlaceholder" value="Phone" />
+      <String name="sendButton" value="Send" />
+      <String name="submitButton" value="Submit" />
+    </FormResources>
+    <IntroResources>
+      <String name="benefits" value="Benefits" />
+      <String name="extraRibbon" value="images/extra-ribbon.png" />
+      <String name="overview" value="Overview" />
+      <String name="tutorial" value="Tutorial" />
+    </IntroResources>
+    <IntroViewResources>
+      <String name="applicationUpdaterDescription" value="'Update' control to check if all your applications are freshly updated and ensure that none are slowing your Mac down" />
+      <String name="applicationUpdaterImage" value="out-of-date" />
+      <String name="duplicateFinderDescription" value="Discover and remove unnedded file copies" />
+      <String name="duplicateFinderImage" value="duplicate" />
+      <String name="eraserDescription" value="Securely delete all files that didn't went into Trash folders somehow but must be wiped out from your system without any chance recovery" />
+      <String name="eraserImage" value="erase" />
+      <String name="extensionsManagerDescription" value="Safely get rid of extensions you don't use anymore" />
+      <String name="extensionsManagerImage" value="extensions" />
+      <String name="largeFilesDescription" value="Look up and remove large folders, files that you don't use for a long time" />
+      <String name="largeFilesImage" value="large-and-old" />
+      <String name="securityDescription" value="Update Apps and Enable Firewall" />
+      <String name="securityImage" value="security" />
+      <String name="trashCleanupDescription" value="With Trash Cleanup you are able to delete all trash folders at once, because MacShiny scans yours Mac thoroughly and finds all those folders" />
+      <String name="trashCleanupImage" value="trash" />
+      <String name="uninstallerDescription" value="Remove unneeded or unused apps from your system" />
+      <String name="uninstallerImage" value="uninstaller" />
+    </IntroViewResources>
+    <LargeAndOldMainResources>
+      <String name="clean" value="Clean" />
+    </LargeAndOldMainResources>
+    <LiveSupportAboutResources>
+      <String name="aboutTabUpdateInfoDescription" value="Description text." />
+      <String name="aboutTabUpdateInfoHomeImage" value="images/icon-blue-house.png" />
+      <String name="aboutTabUpdateInfoHomeText" value="Show Welcome Screen" />
+      <String name="aboutTabUpdateInfoListItem1" value="Security Tools: Checks whether the Internet Security and Anti-Theft plugins are installed." />
+      <String name="aboutTabUpdateInfoListItem2" value="Junk Files: Runs Fast Cleanup and shows you how many junk files have been found on your Mac." />
+      <String name="aboutTabUpdateInfoListItem3" value="Optimization Tweaks: Searches for outdated applications." />
+      <String name="aboutTabUpdateInfoTitle" value="What is " />
+      <String name="antiTheftDescription" value="If your Mac gets lost or stolen, Anti-Theft will track its location and even take an iSight snapshot of the thief. Please turn on Anti-Theft right now, then remember the instructions on the Anti-Theft tab and follow them if you lose your Mac." />
+      <String name="imagePath" value="images/023.png" />
+      <String name="systemStatusDescription" value="System Status shows the overall state of your Mac, your license information and allows you to manage it on the account page. System Status displays all found items for you to fix them with one click. There are three categories of tools to fix the found items:" />
+      <String name="title" value="About" />
+    </LiveSupportAboutResources>
+    <LiveSupportContactResources>
+      <String name="bubbleImage" value="images/icon-white-msg.png" />
+      <String name="competence" value="Technical competence:" />
+      <String name="courtesy" value="Courtesy of agent:" />
+      <String name="failedSendMessage" value="Failed to send message." />
+      <String name="feedbackInfoHeading" value="Please rate your customer support experience. It will take you only a minute." />
+      <String name="greetingMessageBody" value="An expert has joined the chat." />
+      <String name="greetingMessageHeader" value="Thank you for waiting." />
+      <String name="hint" value="Call us 24/7 with any questions. Toll free." />
+      <String name="imageAU" value="images/icon-au-flag.png" />
+      <String name="imageExpert" value="images/expert-photo.png" />
+      <String name="imagePath" value="images/011.png" />
+      <String name="imagePhoneCall" value="images/icon-call.png" />
+      <String name="imagePhoneSkype" value="images/icon-skype-2.png" />
+      <String name="imageSkype" value="images/icon-skype.png" />
+      <String name="imageUK" value="images/icon-uk-flag.png" />
+      <String name="imageUS" value="images/icon-us-flag.png" />
+      <String name="liveChatInfoHeading" value="Live Chat" />
+      <String name="mailImage" value="images/icon-white-mail.png" />
+      <String name="messageSent" value="Your message has been sent." />
+      <String name="phoneAU" value="1 (800) 462-715" />
+      <String name="phoneSkype" value="1 (888) 189-1280" />
+      <String name="phoneUK" value="1 (808) 189-1280" />
+      <String name="phoneUS" value="1 (888) 572-5876" />
+      <String name="quality" value="Overall support quality:" />
+      <String name="sendMessageButton" value="Send Message" />
+      <String name="sendMessageButtonHint" value="Get answer in 24 hours" />
+      <String name="startLiveChatButton" value="Start Live Chat" />
+      <String name="startLiveChatButtonHint" value="24/7 {ProductName} Expert" />
+      <String name="timeliness" value="Timeliness of answers:" />
+      <String name="title" value="Contact" />
+      <String name="titleAU" value="Australia" />
+      <String name="titleSkype" value="Skype" />
+      <String name="titleUK" value="UK" />
+      <String name="titleUS" value="USA" />
+      <String name="yourMacIsOffline" value="YOUR MAC IS OFFLINE" />
+    </LiveSupportContactResources>
+    <LiveSupportHelpResources>
+      <String name="helpTabInitialInfoContactUsText" value="Contact Us" />
+      <String name="helpTabInitialInfoTitle" value="Choose the nature of problem" />
+      <String name="imagePath" value="images/024.png" />
+      <String name="title" value="Help" />
+    </LiveSupportHelpResources>
+    <MenuItemResources>
+      <String name="AdvancedUtilitiesGroupLabel" value="ADVANCED UTILITIES" />
+      <String name="antiTheftImage" value="images/anti-theft-navigation-icon.png" />
+      <String name="antiTheftLabel" value="Anti Theft" />
+      <String name="antivirusLabel" value="Antivirus" />
+      <String name="antivirusMenuImage" value="antivirus" />
+      <String name="applicationUpdaterMenuImage" value="updater" />
+      <String name="applicationUpdaterMenuLabel" value="Updater" />
+      <String name="duplicateFinderMenuImage" value="duplicates-finder" />
+      <String name="duplicateFinderMenuLabel" value="Duplicates Finder" />
+      <String name="eraserImage" value="eraser" />
+      <String name="eraserMenuLabel" value="Eraser" />
+      <String name="ExperimentalGroupLabel" value="EXPERIMENTAL" />
+      <String name="extensionsManagerMenuImage" value="extensions" />
+      <String name="extensionsManagerMenuLabel" value="Extensions Manager" />
+      <String name="FindFixGroupLabel" value="FIND AND FIX" />
+      <String name="findFixImage" value="images/find-fix-navigation-icon.png" />
+      <String name="findFixLabel" value="Find &amp; Fix" />
+      <String name="geekOnDemandImage" value="images/geek-on-demand-navigation-icon.png" />
+      <String name="geekOnDemandLabel" value="Geek on Demand" />
+      <String name="humanAssistanceLabel" value="Human Assistance" />
+      <String name="internetSecurityLabel" value="Internet Security" />
+      <String name="largeFilesMenuImage" value="large-and-old" />
+      <String name="largeFilesMenuLabel" value="Large &amp; Old Files" />
+      <String name="rootLabel" value="." />
+      <String name="securityLabel" value="Security" />
+      <String name="securityMenuImage" value="security" />
+      <String name="securityMenuLabel" value="Security" />
+      <String name="systemScanLabel" value="System Scan" />
+      <String name="systemScanMenuImage" value="system-scan" />
+      <String name="systemStatusGroupLabel" value="System Status Group" />
+      <String name="systemStatusLabel" value="System Status" />
+      <String name="systemStatusMenuImage" value="system-status" />
+      <String name="trashCleanupMenuImage" value="trash" />
+      <String name="trashCleanupMenuLabel" value="Trash Cleanup" />
+      <String name="undefinedLabel" value="!!!===NONAMED===!!!" />
+      <String name="undefinedMenuImage" value="_dummy" />
+      <String name="uninstallerMenuImage" value="uninstaller" />
+      <String name="uninstallerMenuLabel" value="Uninstaller" />
+    </MenuItemResources>
+    <NoInternetWindowResources>
+      <String name="noInternetImage" value="NoInternetImage" />
+      <String name="pleaseCheckInternet" value="Please check your internet connection to continue the Find &amp; Fix procedure." />
+      <String name="yourMacIsOffline" value="Your Mac Is Offline" />
+    </NoInternetWindowResources>
+    <QuickHelpResources>
+      <String name="quickHelpDoesNotHelpText" value="It Doesn't Help Me" />
+      <String name="quickHelpGotItText" value="Okay! I Got it!" />
+      <String name="quickHelpSolutionText" value="Solution" />
+      <String name="quickHelpSubtitle" value="Customer Support Feature" />
+      <String name="quickHelpTitle" value="Quick Help" />
+      <String name="quickHelpTitleImage" value="images/icon-quick-help.png" />
+    </QuickHelpResources>
+    <RegistrationWindowResources>
+      <String name="alreadyHaveAccount" value="Already have {ProductName} account?" />
+      <String name="and" value="and" />
+      <String name="back" value="Back" />
+      <String name="byClickingYouAccept" value="By clicking Continue Fixing items you accept" />
+      <String name="certificatesImage" value="images/signup-partners.jpg" />
+      <String name="checkYourInbox" value="Check your Inbox and follow the instructions in the message. Please note that the message might get into Spam folder." />
+      <String name="continueFixingItems" value="CONTINUE FIXING ITEMS" />
+      <String name="createYou" value="Create You" />
+      <String name="doNotHaveAnAccount" value="Don't have an account yet?" />
+      <String name="emailIsAlreadyUsed" value="This email address is already used." />
+      <String name="emailIsRequired" value="Email is required." />
+      <String name="emailNotConfirmed" value="Email not confirmed." />
+      <String name="emailNotFound" value="Email not found." />
+      <String name="enteredCombinationIsNotValid" value="Entered combination of username and password is not valid." />
+      <String name="enterUsernameAndPassword" value="Enter both username and password." />
+      <String name="enterYouEmail" value="Enter your email" />
+      <String name="enterYourPassword" value="Enter your password" />
+      <String name="forgotPassword" value="Forgot Password?" />
+      <String name="forgotYourPassword" value="Forgot your password?" />
+      <String name="freeProductNameAccount" value="FREE {ProductName} Account" />
+      <String name="freeSignUp" value="FREE SIGN UP" />
+      <String name="logIn" value="Log In" />
+      <String name="logInWithFacebook" value="Log In with Facebook" />
+      <String name="privacyPolicy" value="Privacy Policy." />
+      <String name="receiveTutorials" value="Receive tutorials, tips, and special offers" />
+      <String name="send" value="Send" />
+      <String name="signUpForFree" value="Sign Up for FREE" />
+      <String name="termsOfUse" value="Terms of Use" />
+      <String name="toAccessAllFeatures" value="to Access All {ProductName} Features" />
+      <String name="toActivateAntiTheft" value="to Activate Anti-Theft." />
+      <String name="toContinueFix" value="to Continue Fix" />
+      <String name="toUseGeekOnDemand" value="to Use Geek on Demand." />
+      <String name="unknownError" value="Unknown error" />
+      <String name="wrongEmailAddress" value="Wrong email address." />
+    </RegistrationWindowResources>
+    <SecurityResources>
+      <String name="activate" value="Activate" />
+      <String name="activated" value="Activated" />
+    </SecurityResources>
+    <SystemStatusResources>
+      <String name="activatedImage" value="images/activated-account.png" />
+      <String name="activateProduct" value="Activate {ProductName}" />
+      <String name="activateYourLicense" value="Activate your license" />
+      <String name="changePassword" value="Change Password" />
+      <String name="cleaning" value="Cleaning" />
+      <String name="continueToLiveReview" value="Continue to Live Review" />
+      <String name="createFreeAccount" value="Create a FREE account" />
+      <String name="excellent" value="Excellent" />
+      <String name="findFix" value="Find &amp; Fix" />
+      <String name="fixItemsSafely" value="Fix Items Safely" />
+      <String name="initialCount" value="?" />
+      <String name="instantActivation" value="Instant Activation" />
+      <String name="itemSingle" value="item" />
+      <String name="itemsPlural" value="items" />
+      <String name="logIn" value="Log In" />
+      <String name="logInWithYourAccount" value="Log in with your {Company} account to access all features of {ProductName}" />
+      <String name="logOut" value="Log Out" />
+      <String name="macIsOfflineImage" value="images/offline-account.png" />
+      <String name="macText" value="Mac" />
+      <String name="manageAccount" value="Manage Account" />
+      <String name="medium" value="Medium" />
+      <String name="notActivatedImage" value="images/not-activated-account.png" />
+      <String name="or" value="or" />
+      <String name="performance" value="Performance" />
+      <String name="rescan" value="Rescan" />
+      <String name="security" value="Security" />
+      <String name="serious" value="Serious" />
+      <String name="shareResults" value="Please share the scan results with your tech expert in" />
+      <String name="startFindFix" value="Start Find &amp; Fix" />
+      <String name="startScan" value="Start Scan" />
+      <String name="startToAnalyze" value="To analyze your Mac and identify any items start" />
+      <String name="stopScan" value="Stop Scan" />
+      <String name="systemStatus" value="SYSTEM STATUS" />
+      <String name="unknown" value="Unknown" />
+      <String name="useToKeepInGoodCondition" value="To keep your Mac in a good condition every 3 months use" />
+      <String name="viewReport" value="View Expert Report and fix all found items in" />
+      <String name="yourLicenseIsActivated" value="Your license is activated" />
+      <String name="yourMacIsOffline" value="Your Mac Is Offline" />
+      <String name="yourSystemStatusIs" value="Your system status is" />
+    </SystemStatusResources>
+    <UninstallerMainResources>
+      <String name="clean" value="Clean" />
+    </UninstallerMainResources>
+    <UpdaterResources>
+      <String name="update" value="Update" />
+    </UpdaterResources>
+  </MacCleaner2>
+</Resources>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration version="1" revision="1" ManualXml="1" LogLevelNotifications="1" MasterFile="Notifications_N01.xml">
+
+
+  <ConditionDefs>
+    <DateCondition    name="BlackFriday"                    DateFrom="25/11/2016" DateTo="25/11/2016" />
+    <DateCondition    name="Monday"                         DateFrom="28/11/2016" DateTo="28/11/2016" />
+  </ConditionDefs>
+
+
+  <Notifications>
+    
+<!--    -->
+
+    <Notification name="DiscountOffer018Monday" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <Conditions>
+        <Monday/>   <!--        case sensitive-->
+      </Conditions>
+
+      <ContentUrl>http://macshiny.com/lp/gWebNotif1/notif_018_monday</ContentUrl>
+      <UrlParams>onlyType=scan</UrlParams>
+      <Width>370</Width>
+      <Height>260</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+       <BuyNowUrl>https://macshiny.com/buy-now?ref=notif&#038;apage=DiscountOffer018Monday</BuyNowUrl>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+
+        <!-- Discount  018 Friday-->
+
+    <Notification name="DiscountOffer018Friday" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <Conditions>
+        <BlackFriday/>   <!--        case sensitive-->
+      </Conditions>
+
+      <ContentUrl>http://macshiny.com/lp/gWebNotif1/notif_018_friday</ContentUrl>
+      <UrlParams>onlyType=scan</UrlParams>
+      <Width>370</Width>
+      <Height>260</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+       <BuyNowUrl>https://macshiny.com/buy-now?ref=notif&#038;apage=DiscountOffer018Monday</BuyNowUrl>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+  </Notifications>
+</configuration>

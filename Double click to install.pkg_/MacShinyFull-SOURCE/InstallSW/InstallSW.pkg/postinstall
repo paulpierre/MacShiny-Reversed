@@ -1,0 +1,72 @@
+#!/bin/sh
+#  postinstall.sh
+echo "Presets\scripts\SWScripts\postinstall"
+echo "PID: $$; PPID: $PPID; Args: $(ps -o args= $$)"
+
+######################### sendStat begin
+urlencode()
+{
+	local length="${#1}"
+	for (( i = 0; i < length; i++ ))
+	do
+		local c="${1:i:1}"
+		case $c in
+			[a-zA-Z0-9.~_-]) printf "$c" ;;
+			*) printf '%%%02X' "'$c"
+		esac
+	done
+}
+
+os_ver=$(sw_vers -productVersion)
+
+serialExact="$(ioreg -c IOPlatformExpertDevice -d 2 | grep IOPlatformSerialNumber | sed -e 's/.*\"\(.*\)\"/\1/')"
+
+serial=$(echo $serialExact | openssl base64 -e)
+garbage="qwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnm"
+result=""
+
+
+for (( i=0; i<${#serial}; i++ ))
+do
+	sumbol=${serial:$i:1}
+	result+=$sumbol
+	result+=${garbage:$i:1}
+done
+
+serial=$result
+
+guidFile="/Library/Preferences/.2935B9C3-6E77-4C62-A7E6-01A7326DCBEB"
+guid=""
+if [ -f "$guidFile" ]
+then
+	read -r guid < "$guidFile"
+fi
+t=$(date +"%d/%m/%Y%k:%M:%S")
+t=$(urlencode "$t")
+
+
+sendStat()
+{
+	local phaseName=$1
+	local url="http://ev.macshiny.com/version.aspx?statsType=InstallEvent&product=MacShiny&step=OnInstall&subject=$serial&caller=InstallerFull&OSVersion=$os_ver&localtime=$t&guid=$guid&Phase=$phaseName"
+	echo $url
+	curl -L $url
+}
+
+######################### sendStat end
+
+USER=`ls -la /dev/console | cut -d " " -f 4`
+
+chown -R "$USER":wheel /Library/Application\ Support/CyanSoft/SupportWizard.app
+chmod -R 755 /Library/Application\ Support/CyanSoft/SupportWizard.app
+
+if [ -f "/Users/$USER/Library/CyanSoft/Updates/com.cyan.MacShiny/Update.pkg" ]
+then
+	echo "deleting Update.pkg"
+	rm -f "/Users/$USER/Library/CyanSoft/Updates/com.cyan.MacShiny/Update.pkg"
+fi
+
+mkdir "/Library/Application Support/CyanSoft/SupportWizard"
+chmod 777 "/Library/Application Support/CyanSoft/SupportWizard"
+
+exit 0

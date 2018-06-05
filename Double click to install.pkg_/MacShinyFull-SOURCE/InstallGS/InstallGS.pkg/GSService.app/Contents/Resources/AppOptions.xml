@@ -1,0 +1,10 @@
+<AppOptions>
+  <Assembly name="GSService">
+    <Field name="AtAgentStatusCheckingUrl" value="http://crm-api.macshiny.com/at/getAtAgentStatus?computerId={0}" />
+  </Assembly>
+  <Assembly name="Util">
+    <Field name="getPreferredBrowserUrl" value="http://macshiny.com/downloads/GetInstallInfo?pkgGuid={0}" />
+    <Field name="appSharedDirPath" value="~/Library/CyanSoft" />
+    <Field name="connectToGSServiceInDebugger" value="False" />
+  </Assembly>
+</AppOptions>

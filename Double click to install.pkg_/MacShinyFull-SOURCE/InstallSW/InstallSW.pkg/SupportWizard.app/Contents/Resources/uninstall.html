@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="uninstall.css" rel="stylesheet"/>
+    <script src="jquery-1.8.2.js"></script>
+</head>
+<body  
+ unselectable="on"
+ onselectstart="return false;"> 
+ <input type="hidden" id="selectedReason" value=""/>
+ <input type="hidden" id="selectedCheckBoxes" value=""/>
+ <input type="hidden" id="textBlockText" value=""/>
+    <div class="wrapper" > 
+        <header class="header">
+            <center>
+            <div id="headerContent" style="height:78px;border-bottom:1px solid #dfdfdf;background:#f0f0f0;">
+                <div class="up" id="headerTitle">
+                    After you click “Uninstall MacShiny”, you can be asked for password to delete all processes related to MacShiny
+                </div>
+			</div>
+            </center>
+        </header><!-- .header-->
+        <main class="content" id="mainContent">
+            <center>
+                <div class="mid">
+                    <p class="title" id="uninstallReason">What is the reason for uninstalling?</p>
+                    <div style="overflow: hidden;">
+                        <div class="left" style="border: 0solid red;">
+                            <div class="radio-demo">
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="radio-group" id="first-choice" value="other" onclick="setActive(this)"/>
+                                        <label for="first-choice" id="reinstallReason">Reinstallation / Other</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="radio-group" id="second-choice" value="price" onclick="setActive(this)" />
+                                        <label for="second-choice" id="badPriceReason" >Unreasonable price</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="radio-group" id="third-choice" value="adverise" onclick="setActive(this)" />
+                                        <label for="third-choice" id="advertiseReason">Advertising / Marketing</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="radio-group" id="four-choice" value="notneed" onclick="setActive(this)" />
+                                        <label for="four-choice" id="notNeedReason" >I don’t need this software</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="radio-group" id="five-choice" value="badsupport" onclick="setActive(this)" />
+                                        <label for="five-choice" id="badSupportReason" >Support</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="right1" id="default-choise-content" style="border: 0 solid blue;">
+                            <img src="images/text.png" />
+                        </div> 
+                        <div class="right2" id="first-choice-content" style="display: none;">
+                            <textarea id="feedback1" name="feedback" maxlength="3000" placeholder="Your comment" unselectable="off"></textarea>
+                        </div> 
+                        <div class="right3" id="second-choice-content" style="display: none;">
+                            <div class=" checkbox-demo">
+                                <input type="checkbox" name="checkbox-group" id="001" value="not_disclosed" />
+                                <label id="notDisclosedPrice" for="001">Price was not disclosed before instalattion</label><br />
+                                <input type="checkbox" name="checkbox-group" id="002" value="high_price" />
+                                <label id="highPrice" for="002">Price is too hight</label>
+                            </div>
+                            <textarea id="feedback2" name="feedback" maxlength="3000" placeholder="Your comment" ></textarea>
+                        </div> 
+                        <div class="right4" id="third-choice-content" style="display: none;">
+                            <textarea id="feedback3" name="feedback" maxlength="3000" placeholder="Your comment" ></textarea>
+                        </div> 
+                        <div class="right5" id="four-choice-content" style="display: none; ">
+                            <div class="checkbox-demo">
+                                <input type="checkbox" name="checkbox-group" id="011" value="unneeded_features" />
+                                <label id="unnededFeatures" for="011">I don’t use these features</label><br />
+                                <input type="checkbox" name="checkbox-group" id="012" value="too_complex" />
+                                <label id="tooComplex" for="012">Too complex to use</label>  <br />
+                                <input type="checkbox" name="checkbox-group" id="013" value="slowed_mac" />
+                                <label id="slowedMac" for="013">Slowed down my Mac</label>
+                            </div>
+                            <textarea id="feedback4" name="feedback" maxlength="3000" placeholder="Your comment" ></textarea>
+                        </div> 
+                        <div class="right6" id="five-choice-content" style="display: none;">
+                            <div class="checkbox-demo">
+                                <input type="checkbox" name="checkbox-group" id="101" value="slow_response" />
+                                <label id="slowResponse" for="101">Slow response</label><br />
+                                <input type="checkbox" name="checkbox-group" id="102" value="lack_prof" />
+                                <label id="lackProfessionalism" for="102">Lack of professionalism</label>
+                            </div>
+                            <textarea id="feedback5" name="feedback" maxlength="3000" placeholder="Your comment" ></textarea>
+                        </div> 
+                    </div>
+                </div>
+            </center>
+        </main><!-- .content --> 
+        <main class="content" id="thanksContent" style="display: none;">
+            <center>
+                <div class="mid_th">
+                    <p id="thankYou" class="title_th">Thank you</p>
+                    <p id="thanksDescription" style="color:#303030; text-align: center;">for always making me feel spesial</p> 
+                </div>
+            </center>
+        </main><!-- .content -->
+    </div><!-- .wrapper --> 
+    <footer class="footer"> 
+        <center>
+            <div class="footer_bg"> 
+                <div class="down1" >
+                    <img src="images/arrow_small.png" style="float: left;" />
+                    <div id="descriptionWithArrow">Please help us make MacShiny better and specify the reason for uninstalling it</div>
+                </div>
+                <div class="down2" style="display: none;">
+                    <a class="button grey" id="btnUninstall"  onclick="readInputData()">Uninstall MacShiny</a>
+                    &nbsp;&nbsp;<span id="buttonsDelimeter">or</span>&nbsp;&nbsp;
+                    <a class="button blue" id="btnGetFree" onclick="readInputData()">Get MacShiny for FREE!</a>
+                </div>
+                <div class="down3"  style="display: none;">
+                    <a class="button blue" id="btnClose">Close</a>
+                </div>
+            </div>
+        </center>
+    </footer><!-- .footer --> 
+    <script type="text/javascript">
+        function setActive(senderElement) {
+            var founded = null;
+            // find class activated before
+            var elementId='#'+senderElement.id;
+            $('li.active').each(function (idx, foundedItem) {
+                if (foundedItem) { 
+                        $(foundedItem).removeClass('active');
+                        var foundedId = (foundedItem).children[0].id;
+                        founded = true;
+                        if (foundedId) {
+                            $('#' + foundedId + '-content').fadeOut(200, function () {
+                                $(elementId + '-content').fadeIn(200);
+                            });
+                        } 
+                }
+            });
+            if (founded === null) {
+                $('.down1').hide();
+                $('.down2').show();
+                $('#default-choise-content').fadeOut(200, function () {
+                    $(elementId + '-content').fadeIn(200);
+                });
+            }
+            $(elementId).parent('li').addClass('active');
+            $('#selectedReason').val(senderElement.value);
+        } 
+        function readInputData(){ 
+         $('li.active').each(function (idx, foundedItem){
+         var foundedId = (foundedItem).children[0].id;
+         if (foundedId) {
+             var inputText=   $('#' + foundedId + '-content').children('textarea').val();
+             $('#textBlockText').val(inputText);
+
+             var checkBoxesPlaceholder= $($('#' + foundedId + '-content').children('div'));
+             var selectedResult=[];
+             $(checkBoxesPlaceholder).children("input[type='checkbox']:checked").each(function(){
+             selectedResult.push($(this).val());
+             });
+
+             $('#selectedCheckBoxes').val(selectedResult.join(','));
+             } 
+          });  
+          displayThanksPage();
+        }
+        function displayThanksPage() {
+            $('#mainContent').hide();
+            $('#headerContent').hide(); 
+            $('.down2').hide();
+            $('#thanksContent').show();
+            $('.down3').show();
+        }
+    </script> 
+</body>
+</html>

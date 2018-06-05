@@ -1,0 +1,37 @@
+<div class="OD-offer-modal-header">
+    <svg class="OD-offer-modal-header__icon">
+        <use xlink:href="#ico-warning" />
+    </svg>
+    <div class="OD-offer-modal-header__title" 
+        bind-html-compile="ngDialogData.setCommonTrialWindowText()"></div>
+</div>
+
+<div class="OD-offer-modal-body">
+    <div class="OD-offer-modal-body__image"></div>
+    <div class="OD-offer-modal-body__content">
+        <ul class="OD-offer-modal-list">
+            <li class="OD-offer-modal-list__item OD-offer-modal-list__item--font-weight">
+                {{::$root.app.resources.fixAllIssuesForOneDollar}}
+            </li>
+            <li class="OD-offer-modal-list__item">
+                {{::$root.app.resources.speedUpYourMac}}
+            </li>
+            <li class="OD-offer-modal-list__item">
+                {{::$root.app.resources.protectOnlinePrivacy}}
+            </li>
+        </ul>
+
+        <button class="OD-offer-modal-button" type="button" ng-click="$root.app.openActivationLink({
+            location: $root.enums.ElementLocation.SecondaryWindow,
+            window: 'TrialIssuesLimitExceedWindow',
+            comment: 'apop_btn',
+            urlParams: 'ref=apop_btn'
+        })">
+            {{::$root.app.resources.fixIssuesSafely}}
+        </button>
+    </div>
+</div>
+
+<div class="OD-offer-modal-footer">
+    {{::$root.app.resources.ifMacIsOlderThanSixMonth}}
+</div>

@@ -1,0 +1,16 @@
+<div class="SD">
+    <div class="SD-bg" ng-click="closeThisDialog()"></div>
+    <div class="SD-inner">
+        <div class="SD-top-triangle"></div>
+        <div class="SD-header">
+            <p class="SD-header__title">System info</p>
+            <div class="SD-close" ng-click="closeThisDialog()"></div>
+        </div>
+
+        <div class="SD-body">
+            <pre class="SD-body__text"
+                ng-if="$ctrl.systemInfo">{{::$ctrl.systemInfo}}</pre>
+            <pre class="SD-body__text">{{::$ctrl.scanDetailsData}}</pre>
+        </div>
+    </div>
+</div>

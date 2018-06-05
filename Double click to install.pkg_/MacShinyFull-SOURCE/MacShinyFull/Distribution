@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<installer-gui-script minSpecVersion="1">
+    <title>MacShiny</title>
+    <background alignment="topleft" file="bg.png" mime-type="image/png" scaling="none"/>
+    <welcome file="Welcome.rtf"/>
+    <conclusion file="Conclusion.rtf"/>
+    <allowed-os-versions>
+        <os-version min="10.6"/>
+    </allowed-os-versions>
+    <pkg-ref id="com.cyan.GSService">
+        <bundle-version>
+            <bundle CFBundleShortVersionString="4.0.6" CFBundleVersion="23168" id="com.cyan.GSService" path="GSService.app"/>
+        </bundle-version>
+    </pkg-ref>
+    <pkg-ref id="com.cyan.TrayAgent">
+        <bundle-version>
+            <bundle CFBundleShortVersionString="4.0.6" CFBundleVersion="23168" id="com.cyan.TrayAgentMS" path="TrayAgentMS.app"/>
+        </bundle-version>
+    </pkg-ref>
+    <pkg-ref id="com.cyan.SupportWizard">
+        <bundle-version>
+            <bundle CFBundleShortVersionString="4.0.6" CFBundleVersion="23168" id="com.cyan.SupportWizard" path="SupportWizard.app"/>
+        </bundle-version>
+    </pkg-ref>
+    <pkg-ref id="com.cyan.MacCleaner3">
+        <bundle-version>
+            <bundle CFBundleShortVersionString="4.0.6" CFBundleVersion="23168" id="com.cyan.MacShiny" path="MacShiny.app"/>
+        </bundle-version>
+    </pkg-ref>
+    <options customize="never" require-scripts="false"/>
+    <choices-outline>
+        <line choice="default">
+            <line choice="com.cyan.GSService"/>
+            <line choice="com.cyan.TrayAgent"/>
+            <line choice="com.cyan.SupportWizard"/>
+            <line choice="com.cyan.MacCleaner3"/>
+        </line>
+    </choices-outline>
+    <choice id="default"/>
+    <choice id="com.cyan.GSService" visible="false">
+        <pkg-ref id="com.cyan.GSService"/>
+    </choice>
+    <pkg-ref id="com.cyan.GSService" version="4.0.6" onConclusion="none" installKBytes="18906">#InstallGS.pkg</pkg-ref>
+    <choice id="com.cyan.TrayAgent" visible="false">
+        <pkg-ref id="com.cyan.TrayAgent"/>
+    </choice>
+    <pkg-ref id="com.cyan.TrayAgent" version="4.0.6" onConclusion="none" packageIdentifier="com.cyan.TrayAgentMS" installKBytes="13116">#InstallTAMS.pkg</pkg-ref>
+    <choice id="com.cyan.SupportWizard" visible="false">
+        <pkg-ref id="com.cyan.SupportWizard"/>
+    </choice>
+    <pkg-ref id="com.cyan.SupportWizard" version="4.0.6" onConclusion="none" installKBytes="12362">#InstallSW.pkg</pkg-ref>
+    <choice id="com.cyan.MacCleaner3" visible="false">
+        <pkg-ref id="com.cyan.MacCleaner3"/>
+    </choice>
+    <pkg-ref id="com.cyan.MacCleaner3" version="4.0.6" onConclusion="none" packageIdentifier="com.cyan.MacShiny" installKBytes="17609">#MacShiny.pkg</pkg-ref>
+</installer-gui-script>

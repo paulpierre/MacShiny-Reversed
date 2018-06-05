@@ -1,0 +1,191 @@
+#!/bin/bash
+
+os_ver=$(sw_vers -productVersion | head -c 4)
+
+if [ "$os_ver" == "10.5" ]
+then
+	osascript -e "tell application \"System Events\"" -e "activate" -e "display dialog \"Sorry, your Mac OS version isn't supported. MacShiny supports Mac OS X 10.6.8 and higher versions.\" buttons {\"Ok\"} default button \"Ok\" with title \"MacShiny\" " -e "end tell"
+	exit
+fi
+
+sourceDirectory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+user=`ls -la /dev/console | cut -d " " -f 4`
+
+cd "$sourceDirectory"
+
+echo "force update"
+if [ -f "/Users/$user/Library/CyanSoft/Updates/com.cyan.MacShiny/Update.pkg" ]
+then
+	mv -f "/Users/$user/Library/CyanSoft/Updates/com.cyan.MacShiny/Update.pkg" "/tmp/MacShinyUpdate.pkg"
+	serial="$(ioreg -c IOPlatformExpertDevice -d 2 | grep IOPlatformSerialNumber | sed -e 's/.*\"\(.*\)\"/\1/')"
+	
+	serial=$(echo $serial | openssl base64 -e)
+	garbage="qwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnm"
+	result=""
+	
+	
+	for (( i=0; i<${#serial}; i++ ))
+	do
+		sumbol=${serial:$i:1}
+		result+=$sumbol
+		result+=${garbage:$i:1}
+	done
+	
+	serial=$result
+	
+	if [ -f "/Users/$user/Library/CyanSoft/Updates/com.cyan.MacShiny/responseNC_DISABLED" ]
+	then
+		url="http://ev.macshiny.com/version.aspx?statsType=InstallEvent&product=MacShiny&step=OnUpdate&subject=$serial&Phase=updateNC"
+		echo $url
+		curl $url
+		cp -r "/Library/Application Support/CyanSoft/TrayAgent.app" "/tmp/TrayAgent.app"
+		"/tmp/TrayAgent.app/Contents/MacOS/TrayAgent" -installupdate "/tmp/MacShinyUpdate.pkg"
+	else
+		url="http://ev.macshiny.com/version.aspx?statsType=InstallEvent&product=MacShiny&step=OnUpdate&subject=$serial&Phase=updaterApp"
+		echo $url
+		curl $url
+		cp -r "MacShiny updater.app" "/tmp/MacShiny updater.app"
+		open "/tmp/MacShiny updater.app"
+	fi
+	
+	exit
+fi
+
+export MONO_RUNTIME="/Library/Frameworks/Momi.framework/Versions/3.12.1"
+export DYLD_FALLBACK_LIBRARY_PATH="/Library/Frameworks/Momi.framework/Versions/3.12.1/lib:/Library/Frameworks/Momi.framework/Versions/Current/lib:/lib:/usr/lib:/Library/Developer/CommandLineTools/usr/lib:/usr/local/lib"
+
+macShinyAppDirectory="$(dirname $sourceDirectory)"
+macShinyAppDirectory="$(dirname $macShinyAppDirectory)"
+
+dateVar=$(date +"%Y.%m.%d")
+dateVar+="_"
+timeVar=$(date +"%H.%M.%S")
+
+echo  "mkdir: /Users/$USER"
+mkdir "/Users/$USER"
+
+echo  "mkdir: /Users/$USER/Library"
+mkdir "/Users/$USER/Library"
+
+echo  "mkdir: /Users/$USER/Library/Logs"
+mkdir "/Users/$USER/Library/Logs"
+
+echo  "mkdir+chmod: /Users/$USER/Library/Logs/CyanSoft"
+mkdir "/Users/$USER/Library/Logs/CyanSoft"
+chmod 777 "/Users/$USER/Library/Logs/CyanSoft"
+
+logPath="/Users/$user/Library/Logs/CyanSoft/MacShiny_console_log_"
+fullLogPath="$logPath$dateVar$timeVar.txt"
+
+#mkdir $(dirname "$fullLogPath")
+
+
+######### probe logging
+
+echo "TEST1" >> "$fullLogPath"
+exit_code_log=$?
+
+if [ $exit_code_log != 0 ]
+then
+	logpath="/Library/Logs/CyanSoft/MacShiny_console_log_"
+	fullLogPath="$logPath$dateVar$timeVar.txt"
+	echo "TEST2" >> "$fullLogPath"
+	exit_code_log=$?
+fi
+
+########### check 2nd instance of MacShinyMono (10.13.* only)
+
+echo "PID: $$; PPID: $PPID; Args: $(ps -o args= $$)" >> "$fullLogPath"
+
+Exit_If_MacShiny_Running()
+{
+echo "Exit_If_MacShiny_Running" >> "$fullLogPath"
+APP_RUNNING=0
+
+SERVICE='MacShinyMono'
+
+if pgrep -xq -- "${SERVICE}"; then
+APP_RUNNING=1
+echo "APP_RUNNING=1" >> "$fullLogPath"
+fi
+
+if [ $APP_RUNNING == 1 ]; then
+echo "running" >> "$fullLogPath"
+nohup sh -c "sleep 3; osascript -e 'activate application \"MacShiny\"'" &
+echo "activate 1st instance" >> "$fullLogPath"
+#OK:                                                        osascript -e 'activate application "Finder"'
+#hangs because it tries to active current process:          osascript -e 'activate application "MacShiny"'
+exit_code=$?
+echo "osascript: $exit_code" >> "$fullLogPath"
+echo "exit" >> "$fullLogPath"
+exit
+fi
+}
+
+
+os_ver=$(sw_vers -productVersion | head -c 5)
+if [[ ! "$os_ver" < "10.13" ]]
+then
+	echo "macOS >= 10.13: $os_ver" >> "$fullLogPath"
+	Exit_If_MacShiny_Running
+	echo "2nd MacShinyMono not running, starting new instance" >> "$fullLogPath"
+fi
+
+echo "2nd MacShinyMono not running, starting new instance2" >> "$fullLogPath"
+
+########### start MacShinyMono
+if [ $exit_code_log != 0 ]
+then
+	./MacShinyMono $1 $2
+else
+	./MacShinyMono $1 $2 &> "$fullLogPath"
+fi
+
+exit_code=$?
+
+newVar=$(date +"%Y:%m:%d %H:%M:%S")
+echo "$newVar ====================" >> "$fullLogPath"
+
+############ SW event in case of crash:
+
+urlencode()
+{
+local length="${#1}"
+for (( i = 0; i < length; i++ )); do
+local c="${1:i:1}"
+case $c in
+[a-zA-Z0-9.~_-]) printf "$c" ;;
+*) printf '%%%02X' "'$c"
+esac
+done
+}
+serial="$(ioreg -l | grep IOPlatformSerialNumber | sed -e 's/.*\"\(.*\)\"/\1/')"
+
+serial=$(echo $serial | openssl base64 -e)
+garbage="qwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnm"
+result=""
+
+
+for (( i=0; i<${#serial}; i++ )); do
+sumbol=${serial:$i:1}
+result+=$sumbol
+result+=${garbage:$i:1}
+done
+
+serial=$result
+
+if [ $exit_code != 0 ] && [ $exit_code != 137 ] && [ $exit_code != 143 ]
+then
+	url="http://ev.macshiny.com/version.aspx?statsType=Crash&product=MacShiny&step=appExit&subject=$serial&Phase=StartSW&exit_code=$exit_code"
+	echo $url >> "$fullLogPath"
+	curl $url
+fi
+############
+
+if [ $exit_code != 0 ] && [ $exit_code != 137 ] && [ $exit_code != 143 ]
+then
+	echo "Application exit code: $exit_code. Starting SupportWizard..." >> "$fullLogPath"
+	echo "Application exit code: $exit_code. Starting SupportWizard..." >> "$fullLogPath.crash.txt"
+fi
+	open "/Library/Application Support/CyanSoft/SupportWizard.app" --args "$macShinyAppDirectory" -e "$exit_code"
+echo "Application closed. Exit code: $exit_code" >> "$fullLogPath"

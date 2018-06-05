@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources>
+    <WizardIcons>
+        <Image name="RemoveFile" value="Remove_button.png" />
+        <Image name="Icon" value="Support.icns" />
+        <Image name="Succes" value="Succes.png" />
+        <Image name="Info" value="Info.png" />
+    </WizardIcons>
+    <WizardStrings>
+        <String name="InfoText" value="Welcome to {MAIN_PRODUCT_NAME} Support Wizard! {nl}Please enter your contact details, provide feedback or describe the software problem occurred in the form below. The {MAIN_PRODUCT_NAME} Support Team will immediately receive your message and process it. {nl}Please mind that logs report will be sent together with the message automatically." />
+        <String name="InfoUninstallText" value="It seems you're about to uninstall {MAIN_PRODUCT_NAME}. Would you please let us know why? {nl}Please provide your contact details below and let us know the purpose of uninstalling {MAIN_PRODUCT_NAME} from your Mac" />
+        <String name="InfoExceptionText" value="Oops... An unexpected error occurred while using {MAIN_PRODUCT_NAME}. {nl}Please provide your contact details below and kindly let us know 5 last steps you made by means of {MAIN_PRODUCT_NAME} before it has crashed. Also would appreciate you attaching a screenshot of any error messages that appeared when using the application and prior to the crash." />
+        <String name="Title" value="Support Wizard" />
+        <String name="Name" value="Your name:" />
+        <String name="Email" value="E-mail:" />
+        <String name="MessageSending" value="Sending message..." />
+        <String name="MoreReport" value="Would you like to send one more message?" />
+        <String name="AttachInfo" value="Attach files (up to 5 items or 20 MB)" />
+        <String name="AttachmentOverflow" value="You are trying to attach more than 5 files or the total size of files exceeds 20Mb. Please attach less files" />
+        <String name="AttachmentButtonToolTip" value="Remove this item from the list" />
+    </WizardStrings>
+    <UninstallStrings>
+        <String name="Title" value="Uninstall {MAIN_PRODUCT_NAME}" />
+        <String name="HeaderTitle" value="After you click “Uninstall {MAIN_PRODUCT_NAME}”, you can be asked for password to delete all processes related to {MAIN_PRODUCT_NAME}" />
+        <String name="UninstallReason" value="What is the reason for uninstalling?" />
+        <String name="ReinstallReason" value="Reinstallation / Other" />
+        <String name="BadPriceReason" value="Unreasonable price" />
+        <String name="AdvertiseReason" value="Advertising / Marketing" />
+        <String name="NotNeedReason" value="I don’t need this software" />
+        <String name="BadSupportReason" value="Support" />
+        <String name="Feedback1PlaceHolder" value="Your comment" />
+        <String name="NotDisclosedPrice" value="Price was not disclosed before installation" />
+        <String name="HighPrice" value="Product is too pricey" />
+        <String name="Feedback2PlaceHolder" value="Your comment" />
+        <String name="Feedback3PlaceHolder" value="Your comment" />
+        <String name="UnnededFeatures" value="I don't use these features" />
+        <String name="TooComplex" value="Too complex to use" />
+        <String name="SlowedMac" value="Slowed down my Mac" />
+        <String name="Feedback4PlaceHolder" value="Your comment" />
+        <String name="SlowResponse" value="Slow response" />
+        <String name="LackProfessionalism" value="Lack of professionalism" />
+        <String name="Feedback5PlaceHolder" value="Your comment" />
+        <String name="ThankYou" value="Thank you" />
+        <String name="ThanksDescription" value="for providing your valuable feedback!" />
+        <String name="DescriptionWithArrow" value="Please help us make {MAIN_PRODUCT_NAME} better and specify the reason for uninstalling it" />
+        <String name="BtnUninstall" value="Uninstall {MAIN_PRODUCT_NAME}" />
+        <String name="ButtonsDelimeter" value="or" />
+        <String name="BtnGetFree" value="Get {MAIN_PRODUCT_NAME} for FREE!" />
+        <String name="BtnClose" value="Close" />
+        <String name="GetFreeUrl" value="http://www.trialpay.com/productpage/?c=084ddc3{amp}tid=6rpbpx1" />
+    </UninstallStrings>
+    <SendingResultStrings>
+        <String name="SMTPServerError" value="Connection to the SMTP server failed" />
+        <String name="UncorrectInformation" value="Message not sent. Please check if the details you have provided are correct and try again" />
+        <String name="IOError" value="Error while compressing attachment" />
+        <String name="EmptyLetter" value="You wrote nothing in the body of the message" />
+        <String name="Succes" value="Message sent successfully" />
+        <String name="UnexpectedError" value="An unexpected error occured. Please try again later." />
+    </SendingResultStrings>
+    <WizardButtonStrings>
+        <String name="Open" value="Open..." />
+        <String name="Send" value="Send" />
+        <String name="Exit" value="Exit" />
+        <String name="Yes" value="Yes" />
+        <String name="No" value="No" />
+        <String name="SendAnyway" value="Send anyway" />
+        <String name="Back" value="Back" />
+    </WizardButtonStrings>
+    <ControlColor>
+        <Color name="AttachmentControlColor" value="054,054,054,070" />
+    </ControlColor>
+    <ControlFont>
+        <Font name="AttachmentControlFont" value="Lucida Grande, 11" />
+    </ControlFont>
+    <ControlRectangle>
+        <Rect name="AttachmentControlRectangle" value="100, 258, 500, 30" />
+    </ControlRectangle>
+    <ControlSizeFloats>
+        <Float name="Width" value="92" />
+        <Float name="Height" value="20" />
+        <Float name="LabelWidth" value="68" />
+        <Float name="InnerHeight" value="20" />
+        <Float name="BorderWidth" value="0.5" />
+        <Float name="CornerRadius" value="10" />
+    </ControlSizeFloats>
+    <ControlSizeIntegers>
+        <Integer name="ButtonSize" value="15" />
+        <Integer name="LabelMarginX" value="2" />
+        <Integer name="LabelMarginY" value="-3" />
+        <Integer name="ButtonMarginY" value="-3" />
+    </ControlSizeIntegers>
+</Resources>

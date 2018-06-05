@@ -1,0 +1,506 @@
+<Resources>
+    <MacCleaner2>
+        <Initial>
+            <String name="startScan" value="Start scan to:" />
+            <String name="startScanBtn" value="Start Scan" />
+            <String name="imageMac" value="images/find-fix-start.png" />
+            <String name="protectYourMac" value="Protect your Mac" />
+            <String name="removeJunk" value="Remove junk" />
+            <String name="boostPerformance" value="Boost performance" />
+            <String name="tooltipText1"
+                value="Secure your Mac from all kinds of unsafe Internet data
+                by enabling Firewall settings. Keep your Mac healthy and all
+                the apps on it up-to-date!" />
+            <String name="tooltipText2"
+                value="Get rid of junk files which have pilled up on your Mac.
+                Free up valuable space and use it for new better apps. Clean
+                your Mac from junk safely!" />
+            <String name="tooltipText3"
+                value="Improve your Mac performance by removing unused old and
+                large data. Speed up your Mac by updating the apps you use to
+                the latest version - all at once!" />
+        </Initial>
+        <SystemStatus>
+            <!-- SYSTEM SCAN -->
+            <String name="total" value="Overall Status:" />
+            <String name="security" value="Security" />
+            <String name="cleaning" value="Cleaning" />
+            <String name="performance" value="Performance" />
+            <String name="safeguardYourMac" value="Safeguard your Mac against
+                online threats, malware and thieves" />
+            <String name="freeTons" value="Free tons of hard drive
+                space from junk files" />
+            <String name="optimizeYourMac" value="Optimize your Mac by keeping
+                your system up to date" />
+            <String name="numOfIssues" value="issues" />
+            <String name="oneIssue" value="issue" />
+            <String name="issuesFixed" value="Issues fixed" />
+            <String name="systemIssuesFixed" value="System issues fixed" />
+            <String name="forFree" value=" for free" />
+            <String name="leftForFix" value="System issues left to fix" />
+            <String name="analyzingInformation"
+                value="Analyzing system information... Please wait" />
+            <String name="percent" value="%" />
+            <String name="scanned" value="scanned" />
+            <String name="cleaned" value="cleaned" />
+            <String name="scanningSystemProtection" value="Scanning system protection" />
+            <String name="scanningForJunkFiles" value="Scanning for junk files" />
+            <String name="scanningForSpeedIssues" value="Scanning for speed issues" />
+            <String name="seconds" value="sec" />
+            <String name="timeLeft" value="time left" />
+            <String name="noIssuesFound" value="No issues" />
+            <String name="found" value=" found" />
+            <String name="criticalityStatusCleaningGood" value="Clean" />
+            <String name="criticalityStatusCleaningMedium" value="Littered" />
+            <String name="criticalityStatusCleaningCritical" value="Dirty" />
+            <String name="criticalityStatusSecurityGood" value="Safe" />
+            <String name="criticalityStatusSecurityMedium" value="Risky" />
+            <String name="criticalityStatusSecurityCritical" value="Dangerous" />
+            <String name="criticalityStatusPerformanceGood" value="Fast" />
+            <String name="criticalityStatusPerformanceMedium" value="Medium" />
+            <String name="criticalityStatusPerformanceCritical" value="Slow" />
+            <String name="trialExceedWindowTemplateCommon" value="Your Mac status
+                is still ${0} ${b} To fix the remaining ${1},
+                click ${2}" />
+            <String name="hardDriveSpace" value="Free tons of hard drive space" />
+            <String name="protectMacFrom" value="Protect your Mac from online threats" />
+            <String name="protectMacAgainst" value="Protect your Mac against threats" />
+            <String name="optimizeMac" value="Optimize your Mac's speed" />
+            <String name="pressButtonToClean" value="Press &quot;${0}&quot; to clean, speed up ${b} 
+                and protect your Mac against online threats" />
+            <String name="pressButtonToFix" value="Press &quot;${0}&quot; to fix left issues on your Mac" />
+            <String name="clickButtonToClean" value="Click &quot;${0}&quot; to clean the remaining issues now" />
+            <String name="clickButtonToFix" value="Click &quot;${0}&quot; to fix the remaining issues now" />
+            <String name="useToKeep" value="Use MacShiny ${0} to keep ${b} your Mac ${1}" />
+            <String name="scanToKeep" value="Click &quot;${0}&quot; to keep ${b}  your Mac ${1}" />
+            <String name="whatMacShinyScanning" value="what MacShiny is scanning" />
+            <String name="yourMacStatus" value="Your Mac OS Status" />
+            <String name="unfixedIssues" value="Unfixed issues" />
+            <String name="keepYourMacFast" value="Keep your Mac running fast and error free" />
+            <String name="issuesLeftToFix" value="Issues left to fix" />
+            <String name="cleanProtectOptimize" value="Clean, protect and optimize your Mac" />
+            <String name="hide" value="Hide" />
+            <String name="systemScan" value="System Scan" />
+            <String name="allIssuesFixed" value="All issues are fixed" />
+            <String name="useEveryTwoWeeks" value="Use MacShiny every 2 weeks" />
+            <String name="toKeepFast" value="to keep your Mac fast and protected" />
+            <String name="leftToFix" value="Left to fix" />
+            <String name="fixed" value="Fixed" />
+            <String name="avAssistantWindowCommon" value="${0} critical ${1} found"/>
+            <String name="siriAssistantWindowCommon" value="System status: ${0} ${1} found" />
+            <String name="oneDollarOfferWindowCommon" value="System Status: ${0} ${1} found" />
+            <String name="adultReachLimitWindowCommon" value="${0} Porn traces and system issues found" />
+
+            <!-- TOOLTIP INFORMATION -->
+            <String name="securityTooltipTitleGood" value="Safe" />
+            <String name="securityTooltipTitleMedium" value="Risky" />
+            <String name="securityTooltipTitleCritical" value="Dangerous" />
+            <String name="securityTooltipTextGood" value="All the security
+                settings of your Mac are activated. Your System is secured." />
+            <String name="securityTooltipTextMedium" value="Some security
+                settings are inactive. It is highly recommended to fix all
+                issues immediately." />
+            <String name="securityTooltipTextCritical" value="We detected that
+                your security settings are off. Prevent your Mac from malware or
+                spyware attacks by fixing all issues now." />
+
+            <String name="cleaningTooltipTitleGood" value="Clean" />
+            <String name="cleaningTooltipTitleMedium" value="Littered" />
+            <String name="cleaningTooltipTitleCritical" value="Dirty" />
+            <String name="cleaningTooltipTextGood" value="Your Mac contains no
+                junk files. The system is clean and organized. Nothing to worry
+                about!" />
+            <String name="cleaningTooltipTextMedium" value="There are too many
+                junk files on your System. They clutter up your Mac and occupy
+                valuable space on hard drive." />
+            <String name="cleaningTooltipTextCritical" value="Your Mac is shockingly
+                dirty. We recommend fixing all the issues detected during scan
+                immediately." />
+
+            <String name="performanceTooltipTitleGood" value="Fast" />
+            <String name="performanceTooltipTitleMedium" value="Medium" />
+            <String name="performanceTooltipTitleCritical" value="Slow" />
+            <String name="performanceTooltipTextGood" value="Your Mac performance
+                is excellent. No problems have been detected during scan." />
+            <String name="performanceTooltipTextMedium" value="Your Mac performance is medium. 
+                There are some issues decreasing the speed of your Mac." />
+            <String name="performanceTooltipTextCritical" value="Unfortunately
+                your system performs slower than it should. To boost your Mac
+                performance at once we advise to fix all the issues associated." />
+
+            <String name="totalTooltipTextGood" value="Your System in a Good
+                state. Although we recommend improving your system condition by
+                repairing the issues found during the recent scan." />
+            <String name="totalTooltipTextMedium" value="Your System is in a
+                Risky state. Please fix the System issues detected on your Mac
+                to make it work smoothly." />
+            <String name="totalTooltipTextCritical" value="Your System is in a
+                Critical state. We take your System health seriously, and thus
+                recommend fixing all the issues detected immediately." />
+
+            <!-- SYSTEM STATUS -->
+            <String name="issuesFound" value="issues" />
+            <String name="criticalStatus" value="Your System is at risk!" />
+            <String name="mediumStatus" value="Your system is under threat!" />
+            <String name="goodStatus" value="Your System is healthy!" />
+            <String name="unknownStatus" value="Please click &quot;Start Scan&quot; to scan your Mac" />
+            <String name="cleanStatus" value="The issues are being fixed..." />
+            <String name="scanStatus" value="Your System is being scanned..." />
+            <String name="unknownTotalStatus" value="Good" />
+            <String name="showDetails" value="Show details" />
+            <String name="hideDetails" value="Hide details" />
+
+            <!-- SYSTEM DETAILS -->
+            <String name="securityDetails" value="Security" />
+            <String name="cleaningDetails" value="Cleaning" />
+            <String name="performanceDetails" value="Performance" />
+            <String name="mustBeActivated" value="Must be Activated" />
+            <String name="activated" value="Activated" />
+            <String name="onlineProtection" value="Online protection" />
+            <String name="updater" value="Updater" />
+                <!-- SECURITY -->
+                <String name="protectYourMac" value="Protect your Mac from
+                    Internet threats and malware - just enable Antivirus settings." />
+                <String name="antiTheft" value="Anti-Theft: " />
+                <String name="firewall" value="Firewall: " />
+                <String name="antivirus" value="Antivirus" />
+                <String name="secureYourMac" value="Secure your Mac by setting
+                    reliable Antivirus protection so your Mac will never know any
+                    malware attacks or other Internet threats." />
+                <!-- CLEANING -->
+                <String name="slash" value="/" />
+                <String name="numOfJunkData" value=" of junk data" />
+                <String name="getRidOfJunk" value="Get rid of junk files which
+                    have piled up on your Mac. Free up valuable space and use
+                    it for better apps!" />
+                <String name="numOfJunkDataOnMac" value=" of junk data on your Mac" />
+                <String name="regainDiskSpace" value="Regain disk space for new
+                    files:" />
+                <String name="hundredsOfDocuments" value="Hundreds of Documents" />
+                <String name="collectionsOfPhotos" value="Collections of Photos" />
+                <String name="moviesAndMusic" value="Movies and Music" />
+                <!-- PERFORMANCE -->
+                <String name="preventYourComputer" value="Prevent your computer
+                    from being corrupted - update important apps now!" />
+                <String name="updateApps" value="Update Apps: " />
+                <String name="noOutdatedApps" value="No outdated apps" />
+                <String name="keepYourMac" value="Keep your Mac healthy and all
+                    the apps up to date. Enable automatic update of the apps on
+                    your Mac so you'll always have the latest versions working
+                    and possible bugs fixed immediately." />
+        </SystemStatus>
+        <SystemStatusScan>
+            <String name="analyzingInformation"
+                value="Analyzing system information... Please wait" />
+            <String name="percent" value="%" />
+            <String name="scanned" value="scanned" />
+            <String name="scanningSystemProtection" value="Scanning system protection" />
+            <String name="scanningForJunkFiles" value="Scanning for junk files" />
+            <String name="scanningForSpeedIssues" value="Scanning for speed issues" />
+            <String name="seconds" value="sec" />
+            <String name="timeLeft" value="time left" />
+        </SystemStatusScan>
+        <SystemStatusResult>
+            <String name="totalTooltipTextGood" value="Your System in a Good
+                state. Although we recommend improving your system condition by
+                repairing the issues found during the recent scan." />
+            <String name="totalTooltipTextMedium" value="Your System is in a
+                Risky state. Please fix the System issues detected on your Mac
+                to make it work smoothly." />
+            <String name="totalTooltipTextCritical" value="Your System is in a
+                Critical state. We take your System health seriously, and thus
+                recommend fixing all the issues detected immediately." />
+            <String name="cleaningText"
+                value="Junk and unneeded system files takes space on your hard drive" />
+            <String name="optimizationText"
+                value="Your Mac can be faster without any lost to system or private data" />
+            <String name="cleaning" value="Cleaning" />
+            <String name="arrow" value="images/ar-up-blue.png" />
+            <String name="cleaningDetails" value="Cleaning details" />
+            <String name="numOfIssues" value="issues" />
+            <String name="numOfJunkData" value=" of junk data" />
+            <String name="extensions" value="Extensions" />
+            <String name="issues" value="Issues" />
+            <String name="size" value="Size" />
+            <String name="updater" value="Updater" />
+            <String name="currentVersion" value="Current version" />
+            <String name="availableVersion" value="Available version" />
+            <String name="optimization" value="Optimization" />
+            <String name="oneHundredPercent" value="100%" />
+            <String name="scanned" value="scanned" />
+            <String name="percent" value="%" />
+            <String name="fixed" value="fixed" />
+            <String name="loaderTextGood" value="Good" />
+            <String name="loaderTextMedium" value="Medium" />
+            <String name="loaderTextCritical" value="Critical" />
+            <String name="oneIssue" value="issue" />
+            <!--<SystemStatusTrial>-->
+            <String name="trialVersionExpired" value="Trial version expired" />
+            <String name="you" value="Your " />
+            <String name="systemStatus" value="System Status " />
+            <String name="is" value="is " />
+            <String name="toContinue" value=" to continue and fix " />
+            <String name="issuesLowerCase" value=" issues " />
+            <String name="click" value=" click" />
+            <String name="instantActivation" value="Instant Activation" />
+            <String name="button" value=" button" />
+            <String name="hide" value="Hide" />
+            <String name="optimizationDetails" value="Optimization details" />
+            <String name="appsOutOfDate" value="Applications are out of date" />
+        </SystemStatusResult>
+        <DuplicatesFinder>
+            <String name="duplicatesFinderImg" value="images/hd/duplicates_finder.svg" />
+            <String name="duplicateInfo"
+                value="Discover and remove unneeded file copies" />
+            <String name="cleanBtn" value="Clean" />
+            <String name="duplicate" value="duplicates" />
+            <String name="duplicateDetails" value="Duplicates details" />
+            <String name="trialExceedWindowTemplate" value="You have ${0} duplicates to continue and clean ${1} ${b}click ${2} button" />
+            <String name="trialExceedWindowTemplateCommon" value="You have ${0} duplicates. To continue cleaning ${b} your system click &quot;Instant Activation&quot;" />
+            <String name="avAssistantWindowCommon" value="${0} critical of ${1} found"/>
+            <String name="siriAssistantWindowCommon" value="System status: ${0} of ${1} found" />
+            <String name="oneDollarOfferWindowCommon" value="System Status: ${0} of ${1} found" />
+            <String name="adultReachLimitWindowCommon" value="${0} Porn traces and system issues found" />
+        </DuplicatesFinder>
+        <LargeAndOld>
+            <String name="largeAndOldInfo" value="Look and remove large folders, files that you don't use for a long time" />
+            <String name="largeAndOld" value="Large &amp; Old" />
+            <String name="largeAndOldDetails" value="Large &amp; Old files details" />
+        </LargeAndOld>
+        <Common>
+            <!-- Navigation -->
+            <String name="licenseIcon" value="images/licence-icon.png" />
+            <String name="enterLicenseCode" value="Enter License Code Here" />
+            <String name="instantActivationBtn" value="Instant Activation" />
+            <String name="activated" value="Activated" />
+            <String name="hi" value="Hi," />
+            <String name="yourPersonalAssistant" value="I'm your personal assistant." />
+            <String name="contactMe" value="Contact me in case of any questions." />
+            <String name="anthonyJohnson" value="Anthony Johnson" />
+            <String name="MacOSCare" value="MacOS Care" />
+            <String name="personalAssistant" value="Your Personal Assistant" />
+            <!-- License Activation -->
+            <String name="licenseActivationTitle" value="License activation" />
+            <String name="licenceActivationImg" value="images/license-activation.svg" />
+            <String name="enterActivationLicense"
+                value="Please enter your Activation License" />
+            <String name="activateBtn" value="Activate" />
+            <String name="successActivationImg"
+                value="images/licence-activation-good.png" />
+            <String name="thankYouMessage" value="Thank you for using our software!" />
+            <String name="click" value="Click " />
+            <String name="continue" value="Continue" />
+            <String name="btnToFix" value="button to fix all found issues" />
+            <String name="detailsToggleArrow" value="images/hd/ico-arrow-double.svg" />
+            <String name="detailsSelectAll" value="Select all" />
+            <String name="detailsDeselectAll" value="Deselect all" />
+            <String name="detailsSortBySize" value="Sort by size" />
+            <String name="showDetails" value="Show details" />
+            <String name="hideDetails" value="Hide details" />
+            <String name="hide" value="Hide" />
+            <String name="startScanBtn" value="Start Scan" />
+            <String name="of" value="of" />
+            <String name="addFolder" value="Add folder" />
+            <String name="add" value="Add" />
+            <String name="ok" value="OK" />
+            <String name="successfullyActivated" value="MacShiny successfully Activated!" />
+            <!-- Authorization window -->
+            <String name="antiTheftActivation" value="Anti-theft activation" />
+            <String name="signUp" value="Sign Up" />
+            <String name="registerMe" value="Register me" />
+            <String name="pleaseSignUp" value="Please sign up to use Anti-Theft for the first time" />
+            <String name="or" value="or" />
+            <String name="login" value="Login" />
+            <String name="pleaseLogIn" value="Please log in here if you are a registered user" />
+            <String name="emailPasswordIncorrect" value="Email/Password is incorrect" />
+            <String name="enterEmail" value="Please enter your email" />
+            <!-- Activation window -->
+            <String name="issuesFound" value="issues have been fixed" />
+            <String name="reachedDemoLimit" value="You have reached the demo version limit" />
+            <String name="instantlyActivate" value="Instantly activate MacShiny to:" />
+            <String name="fixRemaining" value="Fix remaining" />
+            <String name="issues" value="issues" />
+            <String name="rightNow" value="right now" />
+            <String name="protectYourSystem" value="Protect your System from future threats and issues automatically" />
+            <String name="receiveTechSupport" value="Receive professional tech support 24 hours a day" />
+            <String name="toFixRemaining" value="To fix remaining" />
+            <String name="issuesRightNow" value="issues right now please click" />
+            <String name="activateNow" value="Activate Now" />
+            <String name="alreadyHaveLicense" value="I already have a MacShiny license" />
+            <String name="trialVersionExpired" value="Trial Version Expired" />
+            <String name="trialVersionLimit" value="You have reached your trial version limit" />
+            <String name="haveLicenseCode" value="Already have license code?" />
+            <String name="avNotActivated" value="Attention: Antivirus is not activated" />
+            <String name="activateAvToProtectMac" value="Activate antivirus now to protect your 
+                Mac device from malware, adware, security threats." />
+            <String name="ifMacIsOlderThanSixMonth" value="If your Mac is older than 6 months, there might be a lot of junk files, system cache, unused apps 
+                and extensions that slow down your startup speed and overall OS X performance. It is recommended 
+                to remove these files and free up your disc space." />
+            <String name="fixIssuesSafely" value="Fix Issues Safely" />
+            <String name="protectOnlinePrivacy" value="Protect your online privacy" />
+            <String name="cleanOnlineTraces" value="Clean all online traces" />
+            <String name="speedUpYourMac" value="Speed up your Mac" />
+            <String name="fixAllIssuesForOneDollar" value="Fix all system issues for just $1" />
+            <String name="pornVideosWatching" value="Your colleagues, your boss, your wife or kid can spot 
+                all porn videos you were watching." />
+            <!-- Common -->
+            <String name="foldersToScan" value="Folders to scan:" />
+            <String name="selectFilesFromList" value="Select files from the list
+                you want to remove from your Mac" />
+            <String name="trialScanWindowTemplate" value="Your Mac status
+                is still ${0} ${b} To fix the remaining ${1},
+                click ${2}" />
+            <String name="pressBtn" value="Press" />
+            <String name="toRemoveIssues" value="to remove all traces and issues" />
+            <!--  -->
+        </Common>
+        <Uninstaller>
+            <String name="appsImg" value="images/hd/apps.svg" />
+            <String name="leftoversImg" value="images/hd/leftovers.svg" />
+            <String name="appInfo"
+                value="Remove unneeded or unused apps from your system" />
+            <String name="leftoverInfo" value="Remove leftovers of unused apps from your system" />
+            <String name="cleanBtn" value="Clean" />
+            <String name="appDetails" value="Application Details" />
+            <String name="leftoverDetails" value="Leftovers Details" />
+            <String name="app" value="apps" />
+            <String name="leftover" value="leftovers" />
+            <String name="trialExceedWindowTemplate" value="To clean ${0} of unneeded Apps and Leftovers ${b}click ${1} button" />
+            <String name="trialExceedWindowTemplateCommon" value="To clean ${0} of unneeded Apps and Leftovers ${b} click &quot;Instant Activation&quot;" />
+            <String name="avAssistantWindowCommon" value="${0} critical of ${1} found"/>
+            <String name="siriAssistantWindowCommon" value="System status: ${0} of ${1} found" />
+            <String name="oneDollarOfferWindowCommon" value="System Status: ${0} of ${1} found" />
+            <String name="adultReachLimitWindowCommon" value="${0} Porn traces and system issues found" />
+        </Uninstaller>
+        <Security>
+            <String name="yourMacStolen" value="If your Mac ever gets stolen, Security track its location" />
+            <String name="pressActivate" value="Press &quot;Activate&quot; button and enter your email to protect your Mac" />
+            <String name="firstDetailsHeader" value="Please turn on Security right now, then remember the instructions and
+            follow if you lose your Mac." />
+            <String name="firstDetailsItemHead1" value="Tell us that your Mac was stolen" />
+            <String name="firstDetailsItemBody1" value="Contact us from any device to inform that your Mac was stolen" />
+            <String name="firstDetailsItemHead2" value="Receive your Mac's location report" />
+            <String name="firstDetailsItemBody2" value="iSight photo of thief that was taken when the report was
+                generate it's location report and send it to you together
+                with the thief snapshot" />
+            <String name="firstDetailsItemHead3" value="Report this data to the police" />
+            <String name="firstDetailsItemBody3" value="This data will help the police find your Mac" />
+            <String name="secondDetailsHeader" value="If your Mac ever gets stolen, Security will track its location and even
+                make an iSight snapshot of the thief." />
+            <String name="secondDetailsItemHead1" value="Track location of your Mac" />
+            <String name="secondDetailsItemBody1" value="Current geographical position of your Mac based on WI-FI
+                and network details" />
+            <String name="secondDetailsItemHead2" value="Make a Thief Snapshot" />
+            <String name="secondDetailsItemBody2" value="iSight photo of thief that was taken when the report was
+                generated" />
+            <String name="secondDetailsItemHead3" value="Requirments" />
+            <String name="secondDetailsItemBody3" value="Internet Connection Cyan Account" />
+            <String name="iconInfo" value="images/hd/ico-info.svg" />
+            <String name="securityService" value="Security service is" />
+            <String name="notActivated" value="not activated" />
+            <String name="activated" value="activated" />
+            <String name="howItWorks" value="How it Works?" />
+            <String name="whatToDo" value="What to do?" />
+        </Security>
+        <Extensions>
+            <String name="extensionsInfo"
+                value="Safely get rid of extensions you don't use anymore" />
+            <String name="extensions" value="extensions" />
+            <String name="extensionsDetails" value="Extensions manager details" />
+        </Extensions>
+        <TrashCleanup>
+            <String name="trash" value="Trash" />
+            <String name="trashInfo" value="Safely get rid of junk files which have pilled up on your Mac" />
+            <String name="trashDetails" value="Trash cleanup details" />
+        </TrashCleanup>
+        <Eraser>
+            <String name="erase" value="eraser" />
+            <String name="eraseInfo" value="Shred any files on your Mac to
+                 safely delete them for good" />
+            <String name="eraseDetails" value="eraser details" />
+        </Eraser>
+        <Updater>
+            <String name="outOfDate" value="out of date" />
+            <String name="upToDate" value="up to date" />
+            <String name="outOfDateInfo" value="Out of Date Apps" />
+            <String name="upToDateInfo" value="Up to Date Apps" />
+            <String name="outOfDateDetails" value="out of date details" />
+            <String name="upToDateDetails" value="up to date details" />
+            <String name="apps" value="apps" />
+        </Updater>
+        <LicenseModalWindow>
+            <String name="macShinyActivation" value="MacShiny Activation" />
+            <String name="applicationCopy" value="Your copy of the application
+                is in use for 15 days now and a part of MacShiny's functionality
+                became disabled." />
+            <String name="buyLicenseToAccess" value="Buy a license to access all
+                the excellent features and enjoy the benefits of cleaning up
+                your Mac" />
+            <String name="pleaseEnterLicense" value="Please enter your
+                Activation License" />
+            <String name="thankYou" value="Thank you for using our software" />
+            <String name="buyLicense" value="Buy License" />
+            <String name="later" value="Later" />
+            <String name="enterActivationNumber" value="Enter Activation Number" />
+            <String name="cancel" value="Cancel" />
+            <String name="activate" value="Activate" />
+            <String name="continue" value="Continue" />
+        </LicenseModalWindow>
+        <Antivirus>
+            <String name="overview" value="Overview" />
+            <String name="benefits" value="Benefits" />
+            <String name="whatIsAntivirus" value="What is MacShiny Antivirus?" />
+            <String name="highProtection" value="High Protection with MacShiny
+                Antivirus" />
+            <String name="antivirusService" value="Antivirus service is " />
+            <String name="activated" value="activated" />
+            <String name="notActivated" value="not activated" />
+            <String name="macShinyMakesInternet" value="MacShiny makes the
+                Internet a safer place by blocking all threats and
+                vulnerabilities automatically." />
+            <String name="theInternetIsFull" value="The Internet is full of
+                threats, such as identity theft, credit card fraud, Trojan
+                horses, malware, and phishing." />
+            <String name="useToScan" value="Use to scan your volumes and
+                connected flash drives for viruses. Or use real-time antivirus
+                protection to be safe every minute." />
+            <String name="antivirusDatabaseUpdates" value="Antivirus database
+                updates are granted for the first 12 months from the date of
+                MacShiny Antivirus installation and should be renewed every
+                next 12 months." />
+            <String name="antivirusProtection" value="Protection" />
+            <String name="dailyUpdates" value="Daily Updates" />
+            <String name="safeBrowsing" value="Safe Browsing" />
+            <String name="onDemandVirusScans" value="On demand Virus Scans" />
+            <String name="quickDetection" value="Quick detection and instant
+                removal of malware and other threats." />
+            <String name="virusDatabase" value="Virus database is updated up to
+                5 times a day." />
+            <String name="protectionFromThreats" value="Protection from online
+                threats, such as identity theft, credit card fraud, phishing etc." />
+            <String name="runAntivirusScan" value="Run antivirus scan any time you need it. It is 
+                recommended to scan your mac twice per month." />
+            <String name="infected" value="Infected" />
+            <String name="clean" value="Clean" />
+            <String name="quarantine" value="Quarantine" />
+            <String name="scannedFiles" value="Scanned files" />
+            <String name="antivirusDetails" value="Infected files" />
+            <String name="scanYourMac" value="Scan your Mac for viruses ${b} and online threats" />
+            <String name="scanProcessTakesTime" value="Scan process might take some time." />
+            <String name="macShinyWillNotify" value="MacShiny will notify you at the end of the scan." />
+            <String name="macIsClean" value="Your Mac is clean" />
+            <String name="lastScan" value="Last scan date" />
+            <String name="antivirusInfo" value="Select infected files ${b} and press &quot;Clean&quot; to remove" />
+            <String name="areYouSure" value="Are you sure want to delete selected files?" />
+            <String name="downloadingAntivirus" value="Downloading Antivirus. Please wait" />
+            <String name="downloaded" value="downloaded" />
+            <String name="seconds" value="sec" />
+            <String name="timeLeft" value="time left" />
+            <String name="internetSecurity" value="Internet Security" />
+            <String name="internetSecurityForMac" value="Internet Security for Your Mac" />
+            <String name="internetSecurityProvides" value="Internet Security of MacShiny provides high-level
+                anti-virus Protection according to Mac Security Review from AV
+                Comparatives and VB100 test" />
+        </Antivirus>
+    </MacCleaner2>
+</Resources>

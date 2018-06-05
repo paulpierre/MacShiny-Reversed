@@ -1,0 +1,32 @@
+<div class="AV-assistant-modal-header">
+    <svg class="AV-assistant-modal-header__icon">
+        <use xlink:href="#ico-warning" />
+    </svg>
+    <div class="AV-assistant-modal-header__title">
+        {{::$root.app.resources.avNotActivated}}
+    </div>
+</div>
+
+<div class="AV-assistant-modal-body">
+    <div class="AV-assistant-modal-body__image"></div>
+    <div class="AV-assistant-modal-body__content">
+        <div class="AV-assistant-modal-chat">
+            {{::$root.app.resources.activateAvToProtectMac}}
+        </div>
+        <div class="AV-assistant-modal-chat AV-assistant-modal-chat--issues"
+            bind-html-compile="ngDialogData.setCommonTrialWindowText()"></div>
+
+        <button class="AV-assistant-modal-button" type="button" ng-click="$root.app.openActivationLink({
+            location: $root.enums.ElementLocation.SecondaryWindow,
+            window: 'TrialIssuesLimitExceedWindow',
+            comment: 'apop_btn',
+            urlParams: 'ref=apop_btn'
+        })">
+            {{::$root.app.resources.fixIssuesSafely}}
+        </button>
+    </div>
+</div>
+
+<div class="AV-assistant-modal-footer">
+    {{::$root.app.resources.ifMacIsOlderThanSixMonth}}
+</div>

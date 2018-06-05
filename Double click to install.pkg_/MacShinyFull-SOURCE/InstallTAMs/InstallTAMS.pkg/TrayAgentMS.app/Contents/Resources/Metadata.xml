@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Metadata baseLocation="." >
+  
+  <!-- Languages -->
+  <!---<Languages default = "en">
+    <Language name="en" />
+    <Language name="ru" />
+  </Languages>
+  -->
+  
+  <!-- Skins -->
+  <Skins>
+    
+  </Skins>
+  
+</Metadata>

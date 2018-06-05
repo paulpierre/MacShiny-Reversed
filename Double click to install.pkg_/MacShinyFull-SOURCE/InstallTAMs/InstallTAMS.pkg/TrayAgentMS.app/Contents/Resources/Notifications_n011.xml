@@ -1,0 +1,1325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration version="1" revision="1" ManualXml="1" LogLevelNotifications="1" MasterFile="Notifications_N01.xml">
+
+  <Triggers>
+
+   <DiskSpaceTrigger    name="DiskSpaceTrigger1GB"   Threshold="1gb" UserIdleTimeSeconds="5m">
+      <conditions>
+        <IsMainAppNotActive/>
+      </conditions>
+    </DiskSpaceTrigger>
+
+    <DiskSpaceTrigger    name="DiskSpaceTrigger5GB"   Threshold="5gb" UserIdleTimeSeconds="5m">
+      <conditions>
+        <IsMainAppNotActive/>
+      </conditions>
+    </DiskSpaceTrigger>
+
+    <DiskSpaceTrigger    name="DiskSpaceTrigger1000GB"   Threshold="1000gb" UserIdleTimeSeconds="5m">
+      <conditions>
+        <IsMainAppNotActive/>
+      </conditions>
+    </DiskSpaceTrigger>
+
+
+    <FreeMemoryTrigger    name="MemoryTrigger500MB"   Threshold="500mb" UserIdleTimeSeconds="5m">
+      <conditions>
+        <IsMainAppNotActive/>
+      </conditions>
+    </FreeMemoryTrigger>
+    
+   <FreeMemoryTrigger    name="MemoryTrigger1GB"   Threshold="1gb" UserIdleTimeSeconds="5m">
+      <conditions>
+        <IsMainAppNotActive/>
+      </conditions>
+    </FreeMemoryTrigger>
+
+    <FreeMemoryTrigger    name="MemoryTrigger1000GB"   Threshold="1000gb" UserIdleTimeSeconds="5m">
+      <conditions>
+        <IsMainAppNotActive/>
+      </conditions>
+    </FreeMemoryTrigger>
+
+    <VolumeMounted    name="VolumeMounted"    UserIdleTimeSeconds="5m">
+      <conditions>
+        <IsMainAppNotActive/>
+      </conditions>
+    </VolumeMounted>
+
+    <VolumeMounted    name="VolumeMounted_1h"  MinDateDiffSameName="1h"  UserIdleTimeSeconds="5m">
+      <conditions>
+        <IsMainAppNotActive/>
+      </conditions>
+    </VolumeMounted>
+
+    <VolumeMounted    name="VolumeMounted_Max2"  MaxCountPerName="2"  UserIdleTimeSeconds="5m">
+      <conditions>
+        <IsMainAppNotActive/>
+      </conditions>
+    </VolumeMounted>
+
+
+    <!--
+    <NetworkConnected    name="NetworkConnected"    UserIdleTimeSeconds="5m">
+      <conditions>
+        <IsMainAppNotActive/>
+      </conditions>
+    </NetworkConnected>-->
+
+    <WifiTrigger    name="WifiTrigger"    UserIdleTimeSeconds="5m">
+      <conditions>
+        <IsMainAppNotActive/>
+      </conditions>
+    </WifiTrigger>
+
+
+    <WifiTrigger    name="WifiTrigger_Unsecure"  OnlyUnsecure="1"  UserIdleTimeSeconds="5m">
+      <conditions>
+        <IsMainAppNotActive/>
+      </conditions>
+    </WifiTrigger>
+
+
+    <WifiTrigger    name="WifiTrigger_NoFirewall"  FirewallDisabled="1"  UserIdleTimeSeconds="5m">
+      <conditions>
+        <IsMainAppNotActive/>
+      </conditions>
+    </WifiTrigger>
+
+     <WifiTrigger    name="WifiTrigger_1h"  MinDateDiffSameName="1h"  UserIdleTimeSeconds="5m">
+      <conditions>
+        <IsMainAppNotActive/>
+      </conditions>
+    </WifiTrigger>
+
+     <WifiTrigger    name="WifiTrigger_Max2"  MaxCountPerName="2"  UserIdleTimeSeconds="5m">
+      <conditions>
+        <IsMainAppNotActive/>
+      </conditions>
+    </WifiTrigger>
+
+    <BatteryTrigger    name="BatteryTrigger_50"  Threshold="50"  UserIdleTimeSeconds="5m">
+      <conditions>
+        <IsMainAppNotActive/>
+      </conditions>
+    </BatteryTrigger>
+    
+  </Triggers>
+    
+
+  <Notifications>
+
+    <!-- NO SCAN - scan offer n1 -->
+
+    <Notification name="FirstScanOffer_010" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>NoScan</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/lp/gWebNotif1/notif_010</ContentUrl>
+      <UrlParams>onlyType=scan</UrlParams>
+      <Width>350</Width>
+      <Height>210</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+
+    </Notification>
+
+    <!-- NO SCAN - scan offer n1 -->
+
+    <Notification name="FirstScanOffer_N1" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>NoScan</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_n1</ContentUrl>
+      <UrlParams>onlyType=scan</UrlParams>
+      <Width>860</Width>
+      <Height>550</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatSystemInfo>1</JDatSystemInfo>  <!-- computer name -->
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+      
+      <SharedNotifSettings_SubsetOnly>
+        <SharedNotifSetting_SubsetOnly>subsetRight1</SharedNotifSetting_SubsetOnly>
+      </SharedNotifSettings_SubsetOnly>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+
+    </Notification>
+
+
+    <!-- scan offer n2 -->
+
+    <Notification name="FirstScanOffer_N2" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>NoScan</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_n2</ContentUrl>
+      <UrlParams>onlyType=scan</UrlParams>
+      <Width>515</Width>
+      <Height>100</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+
+    </Notification>
+
+
+
+    <!-- scan offer n3 -->
+
+    <Notification name="FirstScanOffer_N3" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>NoScan</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_n3</ContentUrl>
+      <UrlParams>onlyType=scan</UrlParams>
+      <Width>345</Width>
+      <Height>60</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+    <!-- activate offer N010: -->
+
+    <Notification name="ActivateOffer_010" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_010</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>350</Width>
+      <Height>210</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDat>1</JDat>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+
+  </Notification>
+    
+    <!-- activate offer N011: -->
+
+    <Notification name="ActivateOffer_011" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_011_Activate</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>350</Width>
+      <Height>340</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDat>1</JDat>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+
+    </Notification>
+    
+    <!-- activate offer N012: -->
+
+    <Notification name="ActivateOffer_012" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_012_Activate_Detailed</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>364</Width>
+      <Height>360</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDat>2</JDat>       <!--  retrieve from server -->
+      
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+      
+    </Notification>
+
+
+    <!-- activate offer 013: -->
+
+    <Notification name="ActivateOffer_013" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_013_Activate_Detailed</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>350</Width>
+      <Height>385</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDat>2</JDat>       <!--  retrieve from server -->
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+
+    </Notification>
+
+
+
+    <!-- activate offer 017: -->
+
+    <Notification name="ActivateOffer_017" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_017_Activate</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>410</Width>
+      <Height>320</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDat>2</JDat>
+      <!--  retrieve from server -->
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+
+    </Notification>
+
+
+    <!-- activate offer AV 025: -->
+
+    <Notification name="ActivateOfferAv_025" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_025_Activate_av</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>540</Width>
+      <Height>140</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDat>2</JDat>
+      <!--  retrieve from server -->
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+
+    </Notification>
+
+    
+
+    <!-- activate offer Anti-Theft 025: -->
+
+    <Notification name="ActivateOfferAt_025" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_025_Activate_at</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>540</Width>
+      <Height>140</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDat>2</JDat>
+      <!--  retrieve from server -->
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+
+    </Notification>
+
+    <!-- discount offer 031: -->
+
+    <Notification name="DailyDiscountOffer_031" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_031_discount</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>380</Width>
+      <Height>260</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+
+    </Notification>
+
+
+    <!-- notif_028_DiskSpace: -->
+
+    <Notification name="DiskSpace5gb_028" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>DiskSpaceTrigger5GB</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_028_DiskSpace</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>375</Width>
+      <Height>230</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatFreeDiskSpace>1</JDatFreeDiskSpace>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+
+    </Notification>
+
+
+    <!-- notif_037_DiskSpace: -->
+
+    <Notification name="DiskSpace5gb_037" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>DiskSpaceTrigger5GB</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_037_DiskSpace</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>520</Width>
+      <Height>100</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatFreeDiskSpace>1</JDatFreeDiskSpace>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+
+    </Notification>
+
+
+
+    <!-- notif_028_Memory: -->
+
+    <Notification name="Memory500mb_028" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>MemoryTrigger500MB</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_028_Memory</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>375</Width>
+      <Height>230</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatSystemInfo>1</JDatSystemInfo>
+      <JDatFreeMemory>1</JDatFreeMemory>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+
+    </Notification>
+
+
+
+    <!-- notif_037_Memory: -->
+
+    <Notification name="Memory500mb_037" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>MemoryTrigger500MB</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_037_Memory</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>490</Width>
+      <Height>100</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatSystemInfo>1</JDatSystemInfo>
+      <JDatFreeMemory>1</JDatFreeMemory>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+
+    </Notification>
+
+
+    <!-- VolumeMountedAv_032: -->
+    
+    <Notification name="VolumeMountedAv_032" ToXml="0" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>VolumeMounted</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_032_VolumeMounted_av</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>540</Width>
+      <Height>180</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatVolumeMounted>1</JDatVolumeMounted>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+    </Notification>
+
+
+    <!-- VolumeMounted_1h_Av_032: -->
+
+    <Notification name="VolumeMounted_1h_Av_032" ToXml="0" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>VolumeMounted_1h</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_032_VolumeMounted_av</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>540</Width>
+      <Height>180</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatVolumeMounted>1</JDatVolumeMounted>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+    </Notification>
+
+    <!-- VolumeMounted_Max2_Av_032: -->
+
+    <Notification name="VolumeMounted_Max2_Av_032" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>VolumeMounted_Max2</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_032_VolumeMounted_av</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>540</Width>
+      <Height>180</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatVolumeMounted>1</JDatVolumeMounted>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+    </Notification>
+
+
+
+
+
+    <!-- NetworkConnectedAv_032: -->
+    
+    <Notification name="NetworkConnectedAv_032" ToXml="0" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>WifiTrigger</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_032_NetworkConnected_av</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>540</Width>
+      <Height>180</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatNetworkConnected>1</JDatNetworkConnected>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+
+    </Notification>
+
+
+    
+    <Notification name="Wifi_NoFirewall_av_032" ToXml="0" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>WifiTrigger_NoFirewall</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_tst_032_Wifi_NoFirewall_av</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>540</Width>
+      <Height>180</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatNetworkConnected>1</JDatNetworkConnected>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+    </Notification>
+
+
+    
+    <Notification name="Wifi_Unsecure_av_032" ToXml="0" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>WifiTrigger_Unsecure</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_tst_032_Wifi_Unsecure_av</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>540</Width>
+      <Height>180</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatNetworkConnected>1</JDatNetworkConnected>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+    </Notification>
+
+
+    <Notification name="Wifi_1h_av_032" ToXml="0" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>WifiTrigger_1h</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_032_NetworkConnected_av</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>540</Width>
+      <Height>180</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatNetworkConnected>1</JDatNetworkConnected>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+    </Notification>
+
+
+    <Notification name="Wifi_Max2_av_032" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>WifiTrigger_Max2</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_032_NetworkConnected_av</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>540</Width>
+      <Height>180</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatNetworkConnected>1</JDatNetworkConnected>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+    </Notification>
+
+
+    <Notification name="Wifi_Max2_av_035" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>WifiTrigger_Max2</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_035_Wifi</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>540</Width>
+      <Height>180</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatNetworkConnected>1</JDatNetworkConnected>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+    </Notification>
+
+
+    <Notification name="Wifi_Max2_av_035_white" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>WifiTrigger_Max2</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_035_Wifi</ContentUrl>
+      <UrlParams>onlyType=activate&#038;style=white</UrlParams>
+      <Width>540</Width>
+      <Height>180</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatNetworkConnected>1</JDatNetworkConnected>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+    </Notification>
+
+
+
+    <Notification name="Wifi_Max2_av_037" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>WifiTrigger_Max2</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_037_Wifi</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>530</Width>
+      <Height>100</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatNetworkConnected>1</JDatNetworkConnected>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+    </Notification>
+
+    
+
+    <Notification name="VolumeMounted_Max2_Av_036" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>VolumeMounted_Max2</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_036_Volume</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>570</Width>
+      <Height>150</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatVolumeMounted>1</JDatVolumeMounted>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+    </Notification>
+
+
+    <Notification name="VolumeMounted_Max2_Av_036_white" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>VolumeMounted_Max2</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_036_Volume</ContentUrl>
+      <UrlParams>onlyType=activate&#038;style=white</UrlParams>
+      <Width>570</Width>
+      <Height>150</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatVolumeMounted>1</JDatVolumeMounted>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+    </Notification>
+
+
+    <Notification name="VolumeMounted_Max2_Av_037" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>VolumeMounted_Max2</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_037_Volume</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>530</Width>
+      <Height>100</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatVolumeMounted>1</JDatVolumeMounted>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+    </Notification>
+
+
+    <!-- activate offer 037 antitheft: -->
+
+    <Notification name="ActivateOfferAt_037" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_037_Antitheft</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>465</Width>
+      <Height>100</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDat>2</JDat>
+      <!--  retrieve from server -->
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+
+    </Notification>
+
+
+    <!-- activate offer 037 AV: -->
+
+    <Notification name="ActivateOfferAv_037" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_037_Antivirus</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>460</Width>
+      <Height>100</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDat>2</JDat>
+      <!--  retrieve from server -->
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+
+    </Notification>
+
+
+    <!-- discount offer 037: -->
+
+    <Notification name="DailyDiscountOffer_037" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_037_Discount</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>460</Width>
+      <Height>116</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+    </Notification>
+
+
+    <!-- activate offer 037: -->
+
+    <Notification name="ActivateOffer_037" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_037_SystemStatus</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>530</Width>
+      <Height>100</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDat>2</JDat>
+      <!--  retrieve from server -->
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+
+    <!-- Battery_038: -->
+
+    <Notification name="Battery_038" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>BatteryTrigger_50</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_038_LowBattery</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>580</Width>
+      <Height>150</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatBattery>1</JDatBattery>
+      <!--  retrieve from server -->
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+    <!-- Battery_038_white0: -->
+
+    <Notification name="Battery_038_white0" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>BatteryTrigger_50</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_038_LowBattery</ContentUrl>
+      <UrlParams>onlyType=activate&#038;style=white0</UrlParams>
+      <Width>420</Width>
+      <Height>160</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatBattery>1</JDatBattery>
+      <!--  retrieve from server -->
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+
+    <!-- Battery_038_white1: -->
+
+    <Notification name="Battery_038_white1" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>BatteryTrigger_50</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_038_LowBattery</ContentUrl>
+      <UrlParams>onlyType=activate&#038;style=white1</UrlParams>
+      <Width>530</Width>
+      <Height>100</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatBattery>1</JDatBattery>
+      <!--  retrieve from server -->
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+    <!-- UnpluggedPower_038: -->
+
+    <Notification name="UnpluggedPower_038" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>BatteryTrigger_50</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_038_UnpluggedPower</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>470</Width>
+      <Height>150</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatBattery>1</JDatBattery>
+      <!--  retrieve from server -->
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+    <!-- UnpluggedPower_038_white0: -->
+
+    <Notification name="UnpluggedPower_038_white0" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>BatteryTrigger_50</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_038_UnpluggedPower</ContentUrl>
+      <UrlParams>onlyType=activate&#038;style=white0</UrlParams>
+      <Width>470</Width>
+      <Height>150</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatBattery>1</JDatBattery>
+      <!--  retrieve from server -->
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+    <!-- UnpluggedPower_038_white1: -->
+
+    <Notification name="UnpluggedPower_038_white1" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>BatteryTrigger_50</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_038_UnpluggedPower</ContentUrl>
+      <UrlParams>onlyType=activate&#038;style=white1</UrlParams>
+      <Width>475</Width>
+      <Height>100</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatBattery>1</JDatBattery>
+      <!--  retrieve from server -->
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+  </Notifications>
+</configuration>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources>
+  <MenuTitles>
+    <String name="Open" value="Open {MAIN_PRODUCT_NAME}" />
+    <!--Open MainProgramName-->
+    <String name="Feedback" value="Leave a feedback" />
+    <String name="Chat" value="Personal assistant" />
+  </MenuTitles>
+  <Sounds>
+    <String name="Arpeggio" value="arpeggio.mp3" />
+  </Sounds>
+  <!-- Create icons that measure no more than 19x19 pixels.
+    Make the outline sharp and clear.
+    Use a straight-on perspective.
+    Use black (add transparency only as necessary to suggest dimensionality).
+    Use anti-aliasing.
+    Alternate image to be displayed when a status bar item is highlighted-->
+  <Icons>
+    <Image name="WarningIcon" value="warning17.png" />
+    <Image name="TrayIcon" value="bubbles2.png" />
+    <Image name="AlternativeTrayIcon" value="bubbles2.png" />
+    <Image name="TrashImage" value="trash_cleanup.png" />
+    <Image name="AppMacshinyImage" value="ApplicationIconMS.icns" />
+    <Image name="QuitButtonOver" value="close_over.png" />
+    <Image name="QuitButtonOut" value="close_out.png" />
+    <Image name="WhiteButtonOver" value="big_over.png" />
+    <Image name="WhiteButtonOut" value="big_out.png" />
+    <Image name="AlertImage" value="alert.png" />
+  </Icons>
+  <StyledStrings>
+    <StyledString name="LaunchOver" value="OK" style="ForegroundColor={Colors.ButtonTextOver};Font=Helvetica, 14" />
+    <StyledString name="LaunchOut" value="OK" style="ForegroundColor={Colors.ButtonTextOut};Font=Helvetica, 14" />
+    <StyledString name="ActivateOver" value="Activate" style="ForegroundColor={Colors.ButtonTextOver};Font=Helvetica, 14" />
+    <StyledString name="ActivateOut" value="Activate" style="ForegroundColor={Colors.ButtonTextOut};Font=Helvetica, 14" />
+    <StyledString name="BuyOver" value="Buy" style="ForegroundColor={Colors.ButtonTextOver};Font=Helvetica, 14" />
+    <StyledString name="BuyOut" value="Buy" style="ForegroundColor={Colors.ButtonTextOut};Font=Helvetica, 14" />
+    <StyledString name="CancelOver" value="Cancel" style="ForegroundColor={Colors.ButtonTextOver};Font=Helvetica, 14" />
+    <StyledString name="CancelOut" value="Cancel" style="ForegroundColor={Colors.ButtonTextOut};Font=Helvetica, 14" />
+    <StyledString name="DonotShowAgainOver" value="Don't show again" style="ForegroundColor={Colors.ButtonTextOver};Font=Helvetica, 14" />
+    <StyledString name="DonotShowAgainOut" value="Don't show again" style="ForegroundColor={Colors.ButtonTextOut};Font=Helvetica, 14" />
+    <StyledString name="CloseOver" value="Close" style="ForegroundColor={Colors.ButtonTextOver};Font=Helvetica, 14" />
+    <StyledString name="CloseOut" value="Close" style="ForegroundColor={Colors.ButtonTextOut};Font=Helvetica, 14" />
+    <StyledString name="Title" value="Title" style="ForegroundColor={Colors.MessageTitle};Font=Helvetica, 14" />
+    <StyledString name="Message" value="Message" style="ForegroundColor={Colors.MessageText};Font=Helvetica Light, 12" />
+  </StyledStrings>
+  <Strings>
+    <!--<String name="TrashAlertTitle" value="You have moved an application to Trash in order to remove it"/>
+    <String name="TrashAlertMsg" value="Would you like to launch {MAIN_PRODUCT_NAME} to uninstall the application correctly, including all its related components?"/>
+    <String name="TrashAlertSettingsButton" value="Settings..."/>
+    <String name="TrashAlertLaunchButton" value="Launch {MAIN_PRODUCT_NAME}"/>
+    <String name="TrashAlertIgnoreButton" value="Cancel"/>
+    -->
+    <!--<String name="TrashTopLabel" value="Trash cleaning"/>
+    <String name="TrashBottomLabel" value="Would like to clean it with {MAIN_PRODUCT_NAME}?"/>-->
+    <String name="TrashTitle" value="You have moved {0} to the Trash" />
+    <String name="TrashMessage" value="Would you like to launch {MAIN_PRODUCT_NAME} to delete the leftovers?" />
+    <String name="SeveralAppsMovedToTrashTitle" value="You have moved {0} apps to the Trash" />
+    <String name="SeveralAppsMovedToTrashMessage" value="Would you like to launch {MAIN_PRODUCT_NAME} to delete the leftovers?" />
+    <String name="RunProgramTitle" value="Forgot to clean up your Mac today?" />
+    <String name="RunProgramMessage" value="Launch {MAIN_PRODUCT_NAME} and run a scan now" />
+    <String name="ToolExpiredTitle" value="Activate {MAIN_PRODUCT_NAME} now and Save up to 90% on purchase" />
+    <String name="ToolExpiredMessage" value="" />
+    <!--        <String name="ToolExpiredTitle" value="Your free {MAIN_PRODUCT_NAME} cleanup tool has expired" />
+        <String name="ToolExpiredMessage" value="Would you like to buy a license and continue using it?" />  -->
+    <String name="BigTrashSizeTitle" value="Your trash size is {0}" />
+    <String name="BigTrashSizeMessage" value="Would like to clean it with {MAIN_PRODUCT_NAME}?" />
+    <String name="DaysLeftToActivateTitle" value="{0} days left for using {MAIN_PRODUCT_NAME} free" />
+    <String name="DaysLeftToActivateMessage" value="Would you like to activate the full version?" />
+    <String name="BuyLicenseTitle" value="Your free {MAIN_PRODUCT_NAME} cleanup tool has expired" />
+    <String name="BuyLicenseMessage" value="Would like to buy a license and continue using it?" />
+    <String name="LowDiskSpaceTitle" value="Too little space is left on your startup disk." />
+    <String name="LowDiskSpaceMessage" value="Would you like to launch {MAIN_PRODUCT_NAME} and clean up junk files?" />
+    <String name="CriticallyLowDiskSpaceTitle" value="Critically low disk space!{nl}Launch {MAIN_PRODUCT_NAME} to safely remove unneeded junk files and apps" />
+    <String name="CriticallyLowDiskSpaceMessage" value="" />
+    <String name="ActivateSuggestionTitle" value="Safely fix all issues that affect your system status by{nl}activating {MAIN_PRODUCT_NAME}" />
+    <String name="ActivateSuggestionMessage" value="" />
+    <String name="UpdateAvailableTitle" value="Update available" />
+    <String name="UpdateAvailableMessage" value="New {MAIN_PRODUCT_NAME} update available" />
+    <String name="SubmitButtonTitleLaunch" value="OK" />
+    <String name="SubmitButtonTitleActivate" value="Activate" />
+    <String name="SubmitButtonTitleBuy" value="Buy Now" />
+    <String name="CancelButtonTitleCancel" value="Cancel" />
+  </Strings>
+  <Colors>
+    <Color name="Background" value="242,215,215,217" />
+    <Color name="NotificationBorder" value="255,68,68,68" />
+    <Color name="ButtonTextOut" value="255,68,68,68" />
+    <Color name="ButtonTextOver" value="255,68,68,68" />
+    <Color name="MessageText" value="255,68,68,68" />
+    <Color name="MessageTitle" value="255,68,68,68" />
+  </Colors>
+  <Sizes>
+    <Size name="DefaultMessageSize" value="238, 15" />
+    <Size name="SmallMessageSize" value="238, 15" />
+    <Size name="MiddleMessageSize" value="238, 45" />
+    <Size name="LargeMessageSize" value="238, 75" />
+    <Size name="DefaultTitleSize" value="238, 18" />
+    <Size name="LargeTitleSize" value="238, 36" />
+    <Size name="DefaultPanelSize" value="400, 40" />
+    <!-->Height will be calculated dynamically<-->
+  </Sizes>
+  <Floats>
+    <Float name="NotificationWindowYAdjustment" value="30" />
+    <Float name="NotificationWindowXAdjustment" value="30" />
+    <Float name="CornerRadius" value="7" />
+    <Float name="AppearAnimationDuration" value="2" />
+    <Float name="WaitingBeforeClose" value="120000" />
+    <Float name="LongShowNotificationPeriod" value="60000" />
+    <Float name="FadeAnimationDuration" value="2" />
+    <Float name="MessageMargin" value="110" />
+    <Float name="MessageVerticalMarginWithImage" value="10" />
+    <Float name="MessageHorizontalMarginWithImage" value="5" />
+    <Float name="BorderWidthMouseInside" value="1.5" />
+    <Float name="BorderWidthMouseOut" value="0" />
+  </Floats>
+</Resources>

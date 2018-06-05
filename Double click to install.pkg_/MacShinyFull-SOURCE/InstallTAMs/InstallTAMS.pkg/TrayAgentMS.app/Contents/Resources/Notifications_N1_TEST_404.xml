@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration version="1" revision="1" ManualXml="1" TEST_FasterTime="1" LogLevelNotifications="3" MasterFile="Notifications_N1.xml">
+
+  <OnlyNotifications>
+    <Name>FirstScanOffer</Name>
+  </OnlyNotifications>
+
+  <Notifications>
+      <Notification name="FirstScanOffer" Kind="WebPage">
+        <UrlParams>test_error=404</UrlParams>
+      </Notification>
+  </Notifications>
+  
+</configuration>

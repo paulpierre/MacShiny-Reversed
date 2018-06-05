@@ -1,0 +1,36 @@
+<AppOptions>
+  <Assembly name="MacCleaner2">
+    <Field name="internalProductName" value="P3" />
+    <Field name="resourceFileName" value="ViewResources.xml" />
+    <Field name="skinName" value="skin1" />
+    <Field name="systemStatus" value="3sliders" />
+    <Field name="pluginStateStorageDirPath" value="~/Library/CyanSoft/PluginStateStorage" />
+    <Field name="serviceStateStorageDirPath" value="~/Library/CyanSoft/ServiceStateStorage" />
+    <Field name="termsOfUseLink" value="http://crm.macshiny.com/terms" />
+    <Field name="privacyPolicyLink" value="http://crm.macshiny.com/privacy" />
+    <Field name="accountLink" value="http://crm.macshiny.com/account" />
+    <Field name="recoverLink" value="http://crm.macshiny.com/recover" />
+    <Field name="teamLink" value="http://www.TODO.com" />
+    <Field name="helpLink" value="http://www.TODO.com" />
+    <Field name="quickHelpQuestionsPath" value="LiveSupportQuestions_en.xml" />
+    <Field name="MainWindowShowIntervalsSeconds" value="30, 90, 180" />
+  </Assembly>
+  <Assembly name="Util">
+    <Field name="getPreferredBrowserUrl" value="http://macshiny.com/downloads/GetInstallInfo?pkgGuid={0}" />
+    <Field name="appSharedDirPath" value="~/Library/CyanSoft" />
+    <Field name="connectToGSServiceInDebugger" value="False" />
+  </Assembly>
+  <Assembly name="McModel">
+    <Field name="UpdateApplicationListPeriodMilliseconds" value="0" />
+    <Field name="DuplicateGroupsLimit" value="1000" />
+    <Field name="_vc_" value="AAACgACYtG7TSQYqbh9h5wICyl7+Rl7eF7wso6TmPBCuqQDsR1cqLiXuJeEqqx5uPlJVmb+c6nL5+UhzEW6kTbwiNXh3xnzXem4buz9YVlWc+ll7rE/nXuZJKMvMyWCaqRW3j0+VtCEHtZvQuUjscom/ujlmra5RSMhK25+g88hXwggYMwMAAQAB" />
+    <Field name="_ac_" value="https://lic.macshiny.com/activate/index" />
+    <Field name="_tlc_" value="FgIEAUP4iGv0gM8BDwCHMnckzTlVLtHtuV8cEZhtc/LqsHdZWxGfudoB3EFZCGO2/ZWGJ2t49djgS5nYrD+olTwTBfHUZnVSMEvu3bK3B4mAE6UIqAv65IP2090spO7YXfUufLueIIOdka2ynThpuEkKC0eKIBVb/GyB6Cc/HA+WUWF/y2BEFJ56N30VLQ==" />
+    <Field name="MaxTrialCleaningCriticality" value="1" />
+    <Field name="MaxTrialPerformanceCriticality" value="1" />
+    <Field name="MaxTrialSecurityCriticality" value="1" />
+  </Assembly>
+  <Assembly name="ApplicationFramework">
+    <Field name="CompanyName" value="Cyan" />
+  </Assembly>
+</AppOptions>

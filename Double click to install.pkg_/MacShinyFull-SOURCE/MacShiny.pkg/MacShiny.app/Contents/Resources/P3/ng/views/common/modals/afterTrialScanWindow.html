@@ -1,0 +1,78 @@
+<div class="AT">
+    <div class="modal-close" ng-click="cancel()"></div>
+    <div class="AT-top">
+        <svg class="AT-top__img">
+            <use xlink:href="#ico-warning"/>
+        </svg>
+        <p class="AT-top__issues-text"
+            bind-html-compile="insertTemplate">
+        </p>
+    </div>
+
+    <ul class="AT-list">
+        <li class="AT-list__item AT-list__item--title">These issues may cause:</li>
+        <li class="AT-list__item ">
+            <svg class="AT-list__item-icon">
+                <use xlink:href="#ico-cross-1"/>
+            </svg>
+            System slowdown
+        </li>
+        <li class="AT-list__item AT-list__item--issue">
+            <svg class="AT-list__item-icon">
+                <use xlink:href="#ico-cross-1"/>
+            </svg>
+            Permanent Data loss
+        </li>
+        <li class="AT-list__item AT-list__item--issue">
+            <svg class="AT-list__item-icon">
+                <use xlink:href="#ico-cross-1"/>
+            </svg>
+            Inability to save files
+        </li>
+        <li class="AT-list__item AT-list__item--issue">
+            <svg class="AT-list__item-icon">
+                <use xlink:href="#ico-cross-1"/>
+            </svg>
+            Slow Internet connection
+        </li>
+    </ul>
+
+    <div class="AT-cta">
+        <button class="AT-cta__btn" type="button" ng-click="ok('btn')">
+            {{buttonText}}
+        </button>
+        <button class="AT-cta__link" ng-click="ok('footlink')">
+            {{buttonText}}
+        </button>
+    </div>
+
+    <div class="AT-footer">
+        <div class="AT-footer__rating">
+            <p class="AT-footer__editor-choice">
+                Editor choice
+            </p>
+            <svg class="AT-footer__star">
+                <use xlink:href="#ico-star"/>
+            </svg>
+            <svg class="AT-footer__star">
+                <use xlink:href="#ico-star"/>
+            </svg>
+            <svg class="AT-footer__star">
+                <use xlink:href="#ico-star"/>
+            </svg>
+            <svg class="AT-footer__star">
+                <use xlink:href="#ico-star"/>
+            </svg>
+            <svg class="AT-footer__star">
+                <use xlink:href="#ico-star"/>
+            </svg>
+        </div>
+        <div class="AT-footer__support">
+            <p class="AT-footer__support-title">Mac Certified</p>
+            <p class="AT-footer__support-text">Support Professionals</p>
+        </div>
+        <svg class="AT-footer__norton">
+            <use xlink:href="#norton"/>
+        </svg>
+    </div>
+</div>

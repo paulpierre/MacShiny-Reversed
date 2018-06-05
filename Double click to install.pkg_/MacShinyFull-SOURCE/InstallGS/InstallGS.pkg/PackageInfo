@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<pkg-info overwrite-permissions="true" relocatable="false" identifier="com.cyan.GSService" postinstall-action="none" version="4.0.6" format-version="2" generator-version="InstallCmds-403 (13E28)" install-location="/Library/Application Support/CyanSoft/gsservice/" auth="root">
+    <payload numberOfFiles="29" installKBytes="18906"/>
+    <bundle path="./GSService.app" id="com.cyan.GSService" CFBundleShortVersionString="4.0.6" CFBundleVersion="23168"/>
+    <bundle-version/>
+    <upgrade-bundle>
+        <bundle id="com.cyan.GSService"/>
+    </upgrade-bundle>
+    <update-bundle/>
+    <atomic-update-bundle/>
+    <strict-identifier>
+        <bundle id="com.cyan.GSService"/>
+    </strict-identifier>
+    <relocate/>
+    <scripts>
+        <preinstall file="./preinstall"/>
+        <postinstall file="./postinstall"/>
+    </scripts>
+</pkg-info>

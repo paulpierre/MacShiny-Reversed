@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration version="1" revision="1" ManualXml="1" TEST_FasterTime="1" LogLevelNotifications="3">
+  <Triggers>
+
+    <UserBecameActive name="UserBecameActive" />
+
+    <RemoteSettingsTrigger name="RemoteSettingsTrigger"/>
+
+  </Triggers>
+  <Notifications> 
+    
+    <!-- NO AV - Activate AV -->
+
+    <Notification name="ActivateAV" Kind="WebPage">
+      <Triggers>
+        <Trigger>UserBecameActive</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AVIsActivated/>
+      </ExpiredConditions>
+
+      <!--<Title>System is ready for scan</Title>
+            <Message>Press "Start scan" button to run system scan.</Message>-->
+      <SubmitButtonText>Start scan</SubmitButtonText>
+      <RejectButtonText>Later</RejectButtonText>
+      <SubmitCommand>OpenBuyNow_AV</SubmitCommand>
+      <RejectCommand>None</RejectCommand>
+      <Icon>AlertImage</Icon>
+      <PanelSize>Middle</PanelSize>
+
+      <PeriodSeconds>3600</PeriodSeconds>
+      <!--every 1 hour-->
+
+      <StartDelaySeconds>0</StartDelaySeconds>
+      <!--every 3 days-->
+
+
+      <ContentUrl>https://sites.fastspring.com/macshiny/product/macshinydeluxe_sc14</ContentUrl>
+      <!--<ContentUrl>http://macshiny.com/LP/gWebNotif1/webnotif_nag_AV1</ContentUrl>-->
+      <Width>300</Width>
+      <Height>300</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>0</NoCloseTitle>
+      <NoScroll>0</NoScroll>
+      <JDat>1</JDat>
+
+      <CapAfterShowCount>3</CapAfterShowCount>
+      <!--after 3 times - only every 24hrs -->
+      <PeriodSecondsCap>86400</PeriodSecondsCap>
+    </Notification>
+
+
+    <!-- REMOTE WEB NOTIF -->
+
+
+    <Notification name="WebNotification" Kind="Web">
+      <Triggers>
+        <Trigger>RemoteSettingsTrigger</Trigger>
+      </Triggers>
+      <SubmitCommand>StartMainApplication</SubmitCommand>
+      <DisplayPosition>Center</DisplayPosition>
+    </Notification>
+
+  </Notifications>
+</configuration>

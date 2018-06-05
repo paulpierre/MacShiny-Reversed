@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration version="1" revision="1" ManualXml="1" LogLevelNotifications="1" LogTimer_Minutes="15,25">
+
+
+<SharedNotifSettings>
+    <SharedNotifSetting name="set1">
+      <Intervals>30m,30m,1h,1h,2h,12h,12h,1d,2d</Intervals>
+    </SharedNotifSetting>
+</SharedNotifSettings>
+
+ <SharedNotifSettings_SubsetOnly>
+    <SharedNotifSetting_SubsetOnly name="subsetRight1">
+        <Intervals>2d,7d</Intervals>
+    </SharedNotifSetting_SubsetOnly>
+ </SharedNotifSettings_SubsetOnly>
+
+  <Triggers>
+    <AppMovedToTrash         name="AppMovedToTrash"/>
+    <SeveralAppMovedToTrash  name="SeveralAppMovedToTrash"/>
+
+    <RestoredPluginResult    name="NoScan"                    Plugin="AutomaticCleaner" Operation="Scan" MaxEventCount="0" MaxCount="0" UserIdleTimeSeconds="5m">
+      <conditions>
+        <IsMainAppNotActive/>
+      </conditions>
+    </RestoredPluginResult>
+
+    <PluginOperationFinished name="UninstallerFinish"         Plugin="Uninstaller"      Operation="Scan"                UserIdleTimeSeconds="1m"/>
+    <PluginOperationFinished name="DuplicateFinderFinish"     Plugin="DuplicateFinder"  Operation="Scan"                UserIdleTimeSeconds="1m"/>
+<!--    <PluginOperationFinished name="ScanFinish"                Plugin="AutomaticCleaner" Operation="Scan"  MinCount="1"  UserIdleTimeSeconds="5m"/>
+    <PluginOperationFinished name="ScanFinishTime1"           Plugin="AutomaticCleaner" Operation="Scan"  MinCount="1"  UserIdleTimeSeconds="9m"/>-->
+
+    <RestoredPluginResult    name="ScanFinish"                Plugin="AutomaticCleaner" Operation="Scan"  MinCount="1"  UserIdleTimeSeconds="5m"
+                     JsonAppEvent="Scan_Finished">
+      <conditions>
+        <IsMainAppNotActive/>
+      </conditions>
+    </RestoredPluginResult>
+
+    <RestoredPluginResult    name="TrialCleanFinish"          Plugin="AutomaticCleaner" Operation="Clean" MinCount="1" UserIdleTimeSeconds="10m"
+                     JsonAppEvent="TrialClean_Finished">
+      <conditions>
+        <IsMainAppNotActive/>
+      </conditions>
+    </RestoredPluginResult>
+
+     
+
+      <UserActionNoAction      name="BuyNowNoAction"   Action="Click" WindowId="BuyNow"                                  UserIdleTimeSeconds="10m"/>
+    <UserBecameActive        name="UserBecameActive"                                                                   UserIdleTimeSeconds="10m"/>
+    
+    <RemoteSettingsTrigger   name="RemoteSettingsTrigger"/>
+
+  </Triggers>
+  <Notifications>
+
+
+    <Notification name="ApplicationMovedToTrash" Priority="5" Icon="TrashImage" PanelSize="Large">
+      <Triggers>
+        <Trigger>AppMovedToTrash</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <NOT_Inet_and_NOT_AppIsActivated/>
+      </ExpiredConditions>
+      <Title>You have moved {AppName,14} to the Trash</Title>
+      <Message>Would you like to launch {MainProductName} to delete the leftovers?</Message>
+      <SubmitButtonText>Ok</SubmitButtonText>
+      <RejectButtonText>Later</RejectButtonText>
+      <SubmitCommand>SelectUninstallerPlugin</SubmitCommand>
+     </Notification>
+
+    <Notification name="SeveralApplicationsMovedToTrash" Priority="6" Icon="TrashImage" PanelSize="Large">
+      <Triggers>
+        <Trigger>SeveralAppMovedToTrash</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <NOT_Inet_and_NOT_AppIsActivated/>
+      </ExpiredConditions>
+      <Title>You have moved {AppCount} apps to the Trash</Title>
+      <Message>Would you like to launch {MainProductName} to delete the leftovers?</Message>
+      <SubmitButtonText>Ok</SubmitButtonText>
+      <RejectButtonText>Later</RejectButtonText>
+      <SubmitCommand>SelectUninstallerPlugin</SubmitCommand>
+    </Notification>
+
+
+    <Notification name="MinorFunnelScanFinishedNoAction" InetCheck="60">
+      <Triggers>
+        <Trigger>UninstallerFinish</Trigger>
+        <Trigger>DuplicateFinderFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+      <Title>System notification</Title>
+      <Message>Please consider cleaning your Mac from junk files.</Message>
+      <SubmitButtonText>Clean now</SubmitButtonText>
+      <RejectButtonText>Later</RejectButtonText>
+      <SubmitCommand>SelectAutoCleanupPluginAndStartScan</SubmitCommand>
+      <RejectCommand>None</RejectCommand>
+      <Icon>AlertImage</Icon>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <PanelSize>Middle</PanelSize>
+          <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+
+    <!--<Notification name="BuyNowClickedNoAction" InetCheck="60">
+      <Triggers>
+        <Trigger>BuyNowNoAction</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+      <Title>94% discount for your Mac</Title>
+      <Message>Speed up your Mac now by fixing all system issues.</Message>
+      <SubmitButtonText>Activate now</SubmitButtonText>
+      <RejectButtonText>Later</RejectButtonText>
+      <SubmitCommand>OpenBuyNow</SubmitCommand>
+      <BuyNowUrl>https://macshiny.com/buy-now?ref=notif&#038;apage=BuyNowNoAction</BuyNowUrl>
+      <RejectCommand>None</RejectCommand>
+      <Icon>AlertImage</Icon>
+      <PanelSize>Middle</PanelSize>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+          --><!-- 5 minutes after tray start: --><!--
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>-->
+
+
+    <Notification name="FirstStartNoAction" InetCheck="60">
+      <Triggers>
+        <Trigger>NoScan</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+      <Title>System is ready for scan</Title>
+      <Message>Press "Start scan" button to run system scan.</Message>
+      <SubmitButtonText>Start scan</SubmitButtonText>
+      <RejectButtonText>Later</RejectButtonText>
+      <SubmitCommand>StartMainApplication</SubmitCommand>
+      <RejectCommand>None</RejectCommand>
+      <Icon>AlertImage</Icon>
+      <PanelSize>Middle</PanelSize>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+          <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+
+
+
+    <Notification name="ScanFinishStatusCritical" InetCheck="60">
+      <Triggers>
+        <Trigger>ScanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+      <Title>Your system status is critical</Title>
+      <Message>{IssueCount} issues found. Press "Fix issues" to fix all system errors.</Message>
+      <SubmitButtonText>Fix issues</SubmitButtonText>
+      <RejectButtonText>Later</RejectButtonText>
+      <SubmitCommand>StartMainApplication</SubmitCommand>
+      <RejectCommand>None</RejectCommand>
+      <Icon>AlertImage</Icon>
+      <PanelSize>Middle</PanelSize>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+          <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+
+    <Notification name="ScanFinishIssueCount" InetCheck="60">
+      <Triggers>
+        <ScanFinish/>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+      <Title>System status: {IssueCount} issues found</Title>
+      <Message>Press "Fix issues" to fix all system errors.</Message>
+      <SubmitButtonText>Fix issues</SubmitButtonText>
+      <RejectButtonText>Later</RejectButtonText>
+      <SubmitCommand>StartMainApplication</SubmitCommand>
+      <RejectCommand>None</RejectCommand>
+      <Icon>WarningIcon</Icon>
+      <PanelSize>Large</PanelSize>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+          <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+ <!-- after trial clean -->
+
+    <Notification name="TrialCleanFinishFix" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+      <Title>{IssueCount} Porn traces and system issues left.</Title>
+      <Message>Press "Remove" to delete all traces of visiting adult sites.</Message>
+      <SubmitButtonText>Remove</SubmitButtonText>
+      <RejectButtonText>Later</RejectButtonText>
+      <SubmitCommand>StartMainApplication</SubmitCommand>
+      <RejectCommand>None</RejectCommand>
+      <Icon>WarningIcon</Icon>
+      <PanelSize>Large</PanelSize>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+          <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+    
+    <Notification name="DailyDiscountOffer" InetCheck="60">
+      <Triggers>
+        <!--<Trigger>UserBecameActive</Trigger>-->
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+      <Title>94% discount for your Mac</Title>
+      <Message>Speed up your Mac now by fixing all system issues.</Message>
+      <SubmitButtonText>Activate now</SubmitButtonText>
+      <RejectButtonText>Later</RejectButtonText>
+      <SubmitCommand>OpenBuyNow</SubmitCommand>
+      <BuyNowUrl>https://macshiny.com/buy-now?ref=notif&#038;apage=DailyDiscountOffer</BuyNowUrl>
+      <RejectCommand>None</RejectCommand>
+      <Icon>AlertImage</Icon>
+      <PanelSize>Middle</PanelSize>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+          <!-- 30 minutes after tray start: -->
+      <StartDelaySeconds>30m</StartDelaySeconds>
+    </Notification>
+
+
+    <!--<Notification name="DailyScanOffer" InetCheck="60">
+      <Triggers>
+        <Trigger>UserBecameActive</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+      <Title>System is ready for scan</Title>
+      <Message>Press "Start scan" button to run system scan.</Message>
+      <SubmitButtonText>Start scan</SubmitButtonText>
+      <RejectButtonText>Later</RejectButtonText>
+      <SubmitCommand>StartMainApplication</SubmitCommand>
+      <RejectCommand>None</RejectCommand>
+      <Icon>AlertImage</Icon>
+      <PanelSize>Middle</PanelSize>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <StartDelaySeconds>15m</StartDelaySeconds>
+    </Notification>-->
+
+    <Notification name="WebNotification" Kind="Web">
+      <Triggers>
+        <Trigger>RemoteSettingsTrigger</Trigger>
+      </Triggers>
+      <SubmitCommand>StartMainApplication</SubmitCommand>
+      <DisplayPosition>Center</DisplayPosition>
+    </Notification>
+    
+  </Notifications>
+</configuration>

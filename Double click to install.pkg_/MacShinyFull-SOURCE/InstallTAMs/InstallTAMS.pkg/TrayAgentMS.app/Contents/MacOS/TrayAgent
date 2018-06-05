@@ -1,0 +1,196 @@
+#!/bin/bash
+
+sourceDirectory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+user=`ls -la /dev/console | cut -d " " -f 4`
+
+cd "$sourceDirectory"
+
+dateVar=$(date +"%Y.%m.%d")
+dateVar+="_"
+timeVar=$(date +"%H.%M.%S")
+
+
+echo  "mkdir: /Users/$USER"
+mkdir "/Users/$USER"
+
+echo  "mkdir: /Users/$USER/Library"
+mkdir "/Users/$USER/Library"
+
+echo  "mkdir: /Users/$USER/Library/Logs"
+mkdir "/Users/$USER/Library/Logs"
+
+echo  "mkdir+chmod: /Users/$USER/Library/Logs/CyanSoft"
+mkdir "/Users/$USER/Library/Logs/CyanSoft"
+chmod 777 "/Users/$USER/Library/Logs/CyanSoft"
+
+logpath="/Users/$user/Library/Logs/CyanSoft/TrayAgentMS_console_log_"
+fullLogPath="$logpath$dateVar$timeVar.txt"
+
+export MONO_RUNTIME="/Library/Frameworks/Momi.framework/Versions/3.12.1"
+export DYLD_FALLBACK_LIBRARY_PATH="/Library/Frameworks/Momi.framework/Versions/3.12.1/lib:/Library/Frameworks/Momi.framework/Versions/Current/lib:/lib:/usr/lib:/Library/Developer/CommandLineTools/usr/lib:/usr/local/lib"
+
+
+waitForSignalFileDeleted()
+{
+	# $1 - signal file path
+	# $2 - timeout in seconds
+	launchTime=$SECONDS
+
+	#wait for signal file $1 to be deleted or $2 seconds elapsed
+	while true
+	do
+		if [ ! -f "$1" ]
+		then
+			return 0
+		fi
+
+		if [ $(( $SECONDS - $launchTime )) -ge $2 ]
+		then
+			return 1
+		fi
+		# avoid checking the file too often
+		sleep 1
+		echo "waiting for installer to complete..."
+	done
+}
+
+signalFile="/tmp/.sig_CyanSoft_TrayAgentMS_installPending"
+waitForSignalFileDeleted "$signalFile" 60
+if [ $? != 0 ]; then
+	echo "It looks like the installer didn't finish within expected time period. Removing the signal file"
+	rm -f "$signalFile"
+fi
+
+echo "Starting TrayAgentMono"
+
+
+######### probe logging
+
+echo "TEST1" >> "$fullLogPath"
+exit_code_log=$?
+
+if [ $exit_code_log != 0 ]
+then
+	logpath="/Library/Logs/CyanSoft/TrayAgentMS_console_log_"
+	fullLogPath="$logPath$dateVar$timeVar.txt"
+	echo "TEST2" >> "$fullLogPath"
+	exit_code_log=$?
+fi
+
+########### check 2nd instance of TrayAgentMono (10.13.* only)
+
+echo "PID: $$; PPID: $PPID; Args: $(ps -o args= $$)" >> "$fullLogPath"
+
+Exit_If_App_Running()
+{
+echo "Exit_If_App_Running" >> "$fullLogPath"
+APP_RUNNING=0
+
+SERVICE='TrayAgentMono'
+
+if pgrep -xq -- "${SERVICE}"; then
+APP_RUNNING=1
+echo "APP_RUNNING=1" >> "$fullLogPath"
+fi
+
+if [ $APP_RUNNING == 1 ]; then
+echo "running" >> "$fullLogPath"
+echo "exit" >> "$fullLogPath"
+exit
+fi
+}
+
+
+os_ver=$(sw_vers -productVersion | head -c 5)
+if [[ ! "$os_ver" < "10.13" ]]
+then
+	echo "macOS >= 10.13: $os_ver" >> "$fullLogPath"
+	Exit_If_App_Running
+	echo "2nd TrayAgentMono not running, starting new instance" >> "$fullLogPath"
+fi
+
+echo "2nd TrayAgentMono not running, starting new instance2" >> "$fullLogPath"
+
+########### start TrayAgentMono
+if [ $exit_code_log != 0 ]
+then
+	./TrayAgentMono $1
+else
+	./TrayAgentMono $1 &> "$fullLogPath"
+fi
+exit_code=$?
+
+newVar=$(date +"%Y:%m:%d %H:%M:%S")
+echo "$newVar ====================" >> "$fullLogPath"
+
+echo "Application closed. Exit code: $exit_code" >> "$fullLogPath"
+
+############ SW event in case of crash:
+
+urlencode()
+{
+local length="${#1}"
+for (( i = 0; i < length; i++ )); do
+local c="${1:i:1}"
+case $c in
+[a-zA-Z0-9.~_-]) printf "$c" ;;
+*) printf '%%%02X' "'$c"
+esac
+done
+}
+serial="$(ioreg -l | grep IOPlatformSerialNumber | sed -e 's/.*\"\(.*\)\"/\1/')"
+
+serial=$(echo $serial | openssl base64 -e)
+garbage="qwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnm"
+result=""
+
+
+for (( i=0; i<${#serial}; i++ )); do
+sumbol=${serial:$i:1}
+result+=$sumbol
+result+=${garbage:$i:1}
+done
+
+serial=$result
+
+
+checkSendLogs()
+{
+	# $1 - exit_code
+	# $2 - file name
+
+	local EXIT_CODE=$1
+	local CNT_FILE=$2
+	local CNT_SENT=0
+
+	if [ $EXIT_CODE != 0 ] && [ $EXIT_CODE != 137 ] && [ $EXIT_CODE != 143 ]
+	then
+
+		echo "Application closed. Exit code: $exit_code" >> "$fullLogPath.crash.txt"
+
+
+		if [ -f "$CNT_FILE" ]
+		then
+			read -r CNT_SENT < "$CNT_FILE"
+		fi
+
+		CNT_SENT=$(( CNT_SENT + 1 ))
+
+		if [ $CNT_SENT -ge 4 ]
+		then
+			echo "not sending GS logs CNT_SENT:$CNT_SENT >3"
+		else
+			echo "sending GS logs CNT_SENT:$CNT_SENT"
+			echo "$CNT_SENT" > "$CNT_FILE"
+
+			url="http://ev.macshiny.com/version.aspx?statsType=Crash&product=TrayAgent&step=appExit&subject=$serial&Phase=StartSW&exit_code=$EXIT_CODE"
+			echo $url >> "$fullLogPath"
+			curl $url
+
+			open /Library/Application\ Support/CyanSoft/SupportWizard.app --args "/Library/Application Support/CyanSoft/MacShiny/TrayAgentMS.app" -e "$exit_code"
+		fi
+	fi
+}
+
+checkSendLogs $exit_code "/Library/Application Support/CyanSoft/talogssent_cnt"
+############

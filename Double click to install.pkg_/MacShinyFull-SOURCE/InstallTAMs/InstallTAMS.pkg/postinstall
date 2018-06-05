@@ -1,0 +1,52 @@
+#!/bin/sh
+#  postinstall.sh
+
+echo "Presets\scripts\TAMSScripts\postinstall"
+echo "PID: $$; PPID: $PPID; Args: $(ps -o args= $$)"
+
+if [ -f "/tmp/.cyanDebug/_enableInstallScriptTrace" ]; then
+	set -x
+fi
+
+
+USER=`ls -la /dev/console | cut -d " " -f 4`
+
+chown -R "$USER":staff "/Library/Application Support/CyanSoft/MacShiny/TrayAgentMS.app"
+chmod -R 777 "/Library/Application Support/CyanSoft/MacShiny/TrayAgentMS.app"
+
+mv -f "/Library/Application Support/CyanSoft/MacShiny/com.cyan.TrayAgentMS.plist" "/Library/LaunchAgents/com.cyan.TrayAgentMS.plist"
+chown root:wheel "/Library/LaunchAgents/com.cyan.TrayAgentMS.plist"
+chmod 755 "/Library/LaunchAgents/com.cyan.TrayAgentMS.plist"
+
+createSignalFile()
+{
+	# $1 - signal file path
+	echo "createSignalFile: $1"
+
+	touch "$1"
+	chmod 777 "$1"
+	chown "${USER}":staff "$1"
+}
+# former Installation.txt
+# !create signal file BEFORE launchctl!
+createSignalFile "/tmp/.sig_CyanSoft_TrayAgentMS_installPending"
+
+echo "start tray for USER:$USER"
+
+#sudo for running NOT under root
+sudo -u "$USER" launchctl load -wF "/Library/LaunchAgents/com.cyan.TrayAgentMS.plist"
+LOAD_TRAY=$?
+
+echo "Loading TrayAgentMS exit code: $LOAD_TRAY"
+
+if [ $LOAD_TRAY != 0 ]; then
+	echo "failed to load TrayAgentMS"
+fi
+
+# MD removed doesnt work: loadPID=$(ps -axj | awk "/^$user / {print \$2;exit}")
+# MD removed doesnt work: echo "loadPID:$loadPID"
+# MD removed doesnt work: launchctl bsexec $loadPID sudo -u "${user}" launchctl load -wF /Library/LaunchAgents/com.cyan.TrayAgent.plist
+
+chown -R "$USER":wheel "/Library/Application Support/CyanSoft/MacShiny/Uninstall.app"
+
+exit 0

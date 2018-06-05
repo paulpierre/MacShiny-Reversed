@@ -1,0 +1,386 @@
+previous - pre sept 2016 xml
+xml is not going to be compatible with code
+
+<?xml version="1.0" encoding="utf-8"?>
+<configuration version="1" revision="1">
+    <Triggers>
+        <AppMovedToTrash name="AppMovedToTrash"/>
+        <SeveralAppMovedToTrash name="SeveralAppMovedToTrash"/>
+
+        <!-- 2016-08-24 MD: this trigger doesnt work:--> <AppStartIgnored name="FirstStartNoAction" UserIdleTimeSeconds="300" IsFirstLaunch="true"/>
+      
+        <PluginOperationFinished name="UninstallerScanFinishedNoAction" Plugin="Uninstaller" Operation="Scan" UserIdleTimeSeconds="60"/>
+        <PluginOperationFinished name="DuplicateFinderScanFinishedNoAction" Plugin="DuplicateFinder" Operation="Scan" UserIdleTimeSeconds="60"/>
+        <PluginOperationFinished name="AutomaticCleanerScanResultNoAction" Plugin="AutomaticCleaner" Operation="Scan" MinCount="1" UserIdleTimeSeconds="300"/>
+        <PluginOperationFinished name="AutomaticCleanerScanResultNoActionTime1" Plugin="AutomaticCleaner" Operation="Scan" MinCount="1" UserIdleTimeSeconds="540"/>
+        <RestoredPluginResult name="AutomaticCleanerRestoredScanResult" Plugin="AutomaticCleaner" Operation="Scan" MinCount="1" UserIdleTimeSeconds="300"/>
+
+        <PluginOperationFinished name="AutomaticCleanerCleanResultNoAction" Plugin="AutomaticCleaner" Operation="Clean" MinCount="1" UserIdleTimeSeconds="3600"/>
+
+        <UserActionNoAction name="BuyNowNoAction" Action="Click" WindowId="BuyNow" UserIdleTimeSeconds="3600"/>
+        <UserBecameActive name="UserBecameActive" />
+
+        <RemoteSettingsTrigger name="RemoteSettingsTrigger"/>
+    </Triggers>
+    <Notifications>
+
+
+      <Notification name="ApplicationMovedToTrash" Priority="5" Icon="TrashImage" PanelSize="Large">
+        <Triggers>
+          <Trigger>AppMovedToTrash</Trigger>
+        </Triggers>
+        <Conditions>
+          <NOT_Inet_and_NOT_AppIsActivated/>
+        </Conditions>
+        <Title>You have moved {AppName,14} to the Trash</Title>
+        <Message>Would you like to launch {MainProductName} to delete the leftovers?</Message>
+        <SubmitButtonText>Ok</SubmitButtonText>
+        <RejectButtonText>Later</RejectButtonText>
+        <SubmitCommand>SelectUninstallerPlugin</SubmitCommand>
+      </Notification>
+
+      <Notification name="SeveralApplicationsMovedToTrash" Priority="6" Icon="TrashImage" PanelSize="Large">
+        <Triggers>
+          <Trigger>SeveralAppMovedToTrash</Trigger>
+        </Triggers>
+        <Conditions>
+          <NOT_Inet_and_NOT_AppIsActivated/>
+        </Conditions>
+        <Title>You have moved {AppCount} apps to the Trash</Title>
+        <Message>Would you like to launch {MainProductName} to delete the leftovers?</Message>
+        <SubmitButtonText>Ok</SubmitButtonText>
+        <RejectButtonText>Later</RejectButtonText>
+        <SubmitCommand>SelectUninstallerPlugin</SubmitCommand>
+      </Notification>
+
+
+      <Notification name="MinorFunnelScanFinishedNoAction">
+          <Triggers>
+            <Trigger>UninstallerScanFinishedNoAction</Trigger>
+            <Trigger>DuplicateFinderScanFinishedNoAction</Trigger>
+          </Triggers>
+          <ExpiredConditions>
+            <AppIsActivated/>
+          </ExpiredConditions>
+          <Title>System notification</Title>
+          <Message>Please consider cleaning your Mac from junk files.</Message>
+          <SubmitButtonText>Clean now</SubmitButtonText>
+          <RejectButtonText>Later</RejectButtonText>
+          <SubmitCommand>SelectAutoCleanupPluginAndStartScan</SubmitCommand>
+          <RejectCommand>None</RejectCommand>
+          <Icon>AlertImage</Icon>
+          <PanelSize>Middle</PanelSize>
+        </Notification>
+      
+      
+        <Notification name="TrialScanFinishedNoActionTime1">
+            <Triggers>
+                <Trigger>AutomaticCleanerScanResultNoActionTime1</Trigger>
+            </Triggers>
+            <ExpiredConditions>
+                <AppIsActivated/>
+            </ExpiredConditions>
+            <Title>Your system status is critical</Title>
+            <Message>{IssueCount} issues found. Press "Fix issues" to fix all system errors.</Message>
+            <SubmitButtonText>Fix issues</SubmitButtonText>
+            <RejectButtonText>Later</RejectButtonText>
+            <SubmitCommand>StartMainApplication</SubmitCommand>
+            <RejectCommand>None</RejectCommand>
+            <Icon>AlertImage</Icon>
+            <PanelSize>Middle</PanelSize>
+            <PeriodSeconds>86400</PeriodSeconds>
+        </Notification>
+      
+      
+        <Notification name="AutomaticScanFinishedStartClean">
+            <Triggers>
+                <AutomaticCleanerScanResultNoAction/>
+                <AutomaticCleanerRestoredScanResult/>
+            </Triggers>
+            <ExpiredConditions>
+                <AppIsActivated/>
+            </ExpiredConditions>
+            <Title>System status: {IssueCount} issues found</Title>
+            <Message>Press "Fix issues" to fix all system errors.</Message>
+            <SubmitButtonText>Fix issues</SubmitButtonText>
+            <RejectButtonText>Later</RejectButtonText>
+            <SubmitCommand>StartMainApplication</SubmitCommand>
+            <RejectCommand>None</RejectCommand>
+            <Icon>WarningIcon</Icon>
+            <PanelSize>Large</PanelSize>
+            <PeriodSeconds>86400</PeriodSeconds>
+        </Notification>
+      
+        <Notification name="TrialAutomaticCleanFinishedContinueClean">
+            <Triggers>
+                <Trigger>AutomaticCleanerCleanResultNoAction</Trigger>
+            </Triggers>
+            <ExpiredConditions>
+                <AppIsActivated/>
+            </ExpiredConditions>
+            <Title>{IssueCount} issues left. Show details and continue fix.</Title>
+            <Message>Press "Fix issues" to fix all system errors.</Message>
+            <SubmitButtonText>Continue fix</SubmitButtonText>
+            <RejectButtonText>Later</RejectButtonText>
+            <SubmitCommand>StartMainApplication</SubmitCommand>
+            <RejectCommand>None</RejectCommand>
+            <Icon>WarningIcon</Icon>
+            <PanelSize>Large</PanelSize>
+            <PeriodSeconds>86400</PeriodSeconds>
+        </Notification>
+      
+        <Notification name="BuyNowClickedNoAction">
+            <Triggers>
+                <Trigger>BuyNowNoAction</Trigger>
+            </Triggers>
+            <ExpiredConditions>
+                <AppIsActivated/>
+            </ExpiredConditions>
+            <Title>94% discount for your Mac</Title>
+            <Message>Speed up your Mac now by fixing all system issues.</Message>
+            <SubmitButtonText>Activate now</SubmitButtonText>
+            <RejectButtonText>Later</RejectButtonText>
+            <SubmitCommand>OpenBuyNow</SubmitCommand>
+            <BuyNowUrl>https://macshiny.com/buy-now?ref=notif</BuyNowUrl>
+            <RejectCommand>None</RejectCommand>
+            <Icon>AlertImage</Icon>
+            <PanelSize>Middle</PanelSize>
+        </Notification>
+      
+      
+        <Notification name="FirstStartNoAction">
+            <Triggers>
+                <Trigger>FirstStartNoAction</Trigger>
+            </Triggers>
+            <ExpiredConditions>
+                <AppIsActivated/>
+            </ExpiredConditions>
+            <Title>System is ready for scan</Title>
+            <Message>Press "Start scan" button to run system scan.</Message>
+            <SubmitButtonText>Start scan</SubmitButtonText>
+            <RejectButtonText>Later</RejectButtonText>
+            <SubmitCommand>StartMainApplication</SubmitCommand>
+            <RejectCommand>None</RejectCommand>
+            <Icon>AlertImage</Icon>
+            <PanelSize>Middle</PanelSize>
+        </Notification>
+
+
+        <Notification name="DailyDiscountOffer">
+          <Triggers>
+            <Trigger>UserBecameActive</Trigger>
+          </Triggers>
+          <ExpiredConditions>
+            <AppIsActivated/>
+          </ExpiredConditions>
+          <Title>94% discount for your Mac</Title>
+          <Message>Speed up your Mac now by fixing all system issues.</Message>
+          <SubmitButtonText>Activate now</SubmitButtonText>
+          <RejectButtonText>Later</RejectButtonText>
+          <SubmitCommand>OpenBuyNow</SubmitCommand>
+          <BuyNowUrl>https://macshiny.com/buy-now?ref=notif</BuyNowUrl>
+          <RejectCommand>None</RejectCommand>
+          <Icon>AlertImage</Icon>
+          <PanelSize>Middle</PanelSize>
+          <PeriodSeconds>86400</PeriodSeconds>
+          <StartDelaySeconds>1800</StartDelaySeconds>
+        </Notification>
+      
+      
+        <Notification name="DailyScanOffer">
+            <Triggers>
+                <Trigger>UserBecameActive</Trigger>
+            </Triggers>
+            <ExpiredConditions>
+                <AppIsActivated/>
+            </ExpiredConditions>
+            <Title>System is ready for scan</Title>
+            <Message>Press "Start scan" button to run system scan.</Message>
+            <SubmitButtonText>Start scan</SubmitButtonText>
+            <RejectButtonText>Later</RejectButtonText>
+            <SubmitCommand>StartMainApplication</SubmitCommand>
+            <RejectCommand>None</RejectCommand>
+            <Icon>AlertImage</Icon>
+            <PanelSize>Middle</PanelSize>
+            <PeriodSeconds>86400</PeriodSeconds>
+            <StartDelaySeconds>15m</StartDelaySeconds>
+        </Notification>
+
+        <Notification name="WebNotification" Kind="Web">
+            <Triggers>
+                <Trigger>RemoteSettingsTrigger</Trigger>
+            </Triggers>
+            <SubmitCommand>StartMainApplication</SubmitCommand>
+            <DisplayPosition>Center</DisplayPosition>
+        </Notification>
+    </Notifications>
+</configuration>
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<configuration version="1" revision="1">
+    <Triggers>
+        <AppMovedToTrash name="AppMovedToTrash"/>
+        <SeveralAppMovedToTrash name="SeveralAppMovedToTrash"/>
+        <PluginOperationFinished name="AutomaticCleanerScanResultNoAction" Plugin="AutomaticCleaner" Operation="Scan" MinCount="1" UserIdleTimeSeconds="3600"/>
+        <RestoredPluginResult name="AutomaticCleanerRestoredScanResult" Plugin="AutomaticCleaner" Operation="Scan" MinCount="1"/>
+        <PluginOperationFinished name="AutomaticCleanerCleanResultNoAction" Plugin="AutomaticCleaner" Operation="Clean" MinCount="1" UserIdleTimeSeconds="3600"/>
+        <PluginOperationFinished name="DuplicateFinderScanResultNoAction" Plugin="DuplicateFinder" Operation="Scan" MinSize="1000" UserIdleTimeSeconds="3600"/>
+        <PluginOperationFinished name="UninstallerScanResultNoAction" Plugin="Uninstaller" Operation="Scan" MinSize="1000" UserIdleTimeSeconds="3600"/>
+        <AppStartIgnored name="FirstStartNoAction" UserIdleTimeSeconds="3600" IsFirstLaunch="true"/>
+        <UserActionNoAction name="SelectPluginNoAction" Action="SelectPlugin" IsTheSameApp="true" UserIdleTimeSeconds="3600"/>
+        <UserActionNoAction name="BuyNowNoAction" Action="Click" WindowId="BuyNow" UserIdleTimeSeconds="3600"/>
+        <RemoteSettingsTrigger name="RemoteSettingsTrigger"/>
+    </Triggers>
+    <Notifications>
+        <Notification name="ApplicationMovedToTrash">
+            <Triggers>
+                <Trigger>AppMovedToTrash</Trigger>
+            </Triggers>
+            <Title>You have moved {AppName,14} to the Trash</Title>
+            <Message>Would you like to launch {MainProductName} to delete the leftovers?</Message>
+            <SubmitButtonText>Ok</SubmitButtonText>
+            <RejectButtonText>Cancel</RejectButtonText>
+            <SubmitCommand>SelectUninstallerPlugin</SubmitCommand>
+            <RejectCommand>None</RejectCommand>
+            <Priority>5</Priority>
+            <StartDelaySeconds>0</StartDelaySeconds>
+            <Icon>TrashImage</Icon>
+            <PanelSize>Large</PanelSize>
+        </Notification>
+        <Notification name="SeveralApplicationsMovedToTrash">
+            <Triggers>
+                <Trigger>SeveralAppMovedToTrash</Trigger>
+            </Triggers>
+            <Title>You have moved {AppCount} apps to the Trash</Title>
+            <Message>Would you like to launch {MainProductName} to delete the leftovers?</Message>
+            <SubmitButtonText>Ok</SubmitButtonText>
+            <RejectButtonText>Cancel</RejectButtonText>
+            <SubmitCommand>SelectUninstallerPlugin</SubmitCommand>
+            <RejectCommand>None</RejectCommand>
+            <Icon>TrashImage</Icon>
+            <PanelSize>Large</PanelSize>
+        </Notification>
+        <Notification name="AutomaticScanFinishedStartClean">
+            <Triggers>
+                <AutomaticCleanerScanResultNoAction/>
+                <AutomaticCleanerRestoredScanResult/>
+            </Triggers>
+            <ExpiredConditions>
+                <AppIsActivated/>
+            </ExpiredConditions>
+            <Title>System status: {IssueCount} issues found</Title>
+            <Message>Press "Fix issues" to fix all system errors.</Message>
+            <SubmitButtonText>Fix issues</SubmitButtonText>
+            <RejectButtonText>Cancel</RejectButtonText>
+            <SubmitCommand>StartMainApplication</SubmitCommand>
+            <RejectCommand>None</RejectCommand>
+            <Icon>WarningIcon</Icon>
+            <PanelSize>Large</PanelSize>
+            <PeriodSeconds>86400</PeriodSeconds>
+        </Notification>
+        <Notification name="TrialAutomaticCleanFinishedContinueClean">
+            <Triggers>
+                <Trigger>AutomaticCleanerCleanResultNoAction</Trigger>
+            </Triggers>
+            <ExpiredConditions>
+                <AppIsActivated/>
+            </ExpiredConditions>
+            <Title>Remove remaining issues with {MainProductName}</Title>
+            <Message>Press "Fix issues" to fix all system errors.</Message>
+            <SubmitButtonText>Fix issues</SubmitButtonText>
+            <RejectButtonText>Cancel</RejectButtonText>
+            <SubmitCommand>StartMainApplication</SubmitCommand>
+            <RejectCommand>None</RejectCommand>
+            <Icon>WarningIcon</Icon>
+            <PanelSize>Large</PanelSize>
+            <PeriodSeconds>86400</PeriodSeconds>
+        </Notification>
+        <Notification name="DuplicateFinderScanFinishedStartClean">
+            <Triggers>
+                <Trigger>DuplicateFinderScanResultNoAction</Trigger>
+            </Triggers>
+            <ExpiredConditions>
+                <AppIsActivated/>
+            </ExpiredConditions>
+            <Title>{MainProductName} found {IssueSize} duplicates</Title>
+            <Message>Clean all your duplicates with {MainProductName}</Message>
+            <SubmitButtonText>Ok</SubmitButtonText>
+            <RejectButtonText>Cancel</RejectButtonText>
+            <SubmitCommand>StartMainApplication</SubmitCommand>
+            <RejectCommand>None</RejectCommand>
+            <Icon>AppMacshinyImage</Icon>
+            <PanelSize>Large</PanelSize>
+        </Notification>
+        <Notification name="UninstallerScanFinishedStartClean">
+            <Triggers>
+                <Trigger>UninstallerScanResultNoAction</Trigger>
+            </Triggers>
+            <ExpiredConditions>
+                <AppIsActivated/>
+            </ExpiredConditions>
+            <Title>{MainProductName} found {IssueSize} leftovers</Title>
+            <Message>Clean all your leftovers with {MainProductName}</Message>
+            <SubmitButtonText>Ok</SubmitButtonText>
+            <RejectButtonText>Cancel</RejectButtonText>
+            <SubmitCommand>StartMainApplication</SubmitCommand>
+            <RejectCommand>None</RejectCommand>
+            <Icon>AppMacshinyImage</Icon>
+            <PanelSize>Large</PanelSize>
+        </Notification>
+        <Notification name="UseMacShiny2">
+            <Triggers>
+                <Trigger>SelectPluginNoAction</Trigger>
+            </Triggers>
+            <ExpiredConditions>
+                <AppIsActivated/>
+            </ExpiredConditions>
+            <Title>You have selected plugin</Title>
+            <Message>Use {MainProductName} to speedup your Mac</Message>
+            <SubmitButtonText>Ok</SubmitButtonText>
+            <RejectButtonText>Cancel</RejectButtonText>
+            <SubmitCommand>StartMainApplication</SubmitCommand>
+            <RejectCommand>None</RejectCommand>
+            <Icon>AppMacshinyImage</Icon>
+            <PanelSize>Large</PanelSize>
+        </Notification>
+        <Notification name="BuyNowClickedNoAction">
+            <Triggers>
+                <Trigger>BuyNowNoAction</Trigger>
+            </Triggers>
+            <ExpiredConditions>
+                <AppIsActivated/>
+            </ExpiredConditions>
+            <Title>Activate {MainProductName}</Title>
+            <Message>Use {MainProductName} to remove all stuff</Message>
+            <SubmitButtonText>Ok</SubmitButtonText>
+            <RejectButtonText>Cancel</RejectButtonText>
+            <SubmitCommand>OpenUrl</SubmitCommand>
+            <BuyNowUrl>http://macshiny.com?notifications</BuyNowUrl>
+            <RejectCommand>None</RejectCommand>
+            <Icon>AppMacshinyImage</Icon>
+            <PanelSize>Large</PanelSize>
+        </Notification>
+        <Notification name="SpeedUpYourMac">
+            <Triggers>
+                <Trigger>FirstStartNoAction</Trigger>
+            </Triggers>
+            <ExpiredConditions>
+                <AppIsActivated/>
+            </ExpiredConditions>
+            <Title>​Speed up your Mac speed.​</Title>
+            <Message>Press "Speed up" button to run performance test.</Message>
+            <SubmitButtonText>Speed up</SubmitButtonText>
+            <RejectButtonText>Cancel</RejectButtonText>
+            <SubmitCommand>StartMainApplication</SubmitCommand>
+            <RejectCommand>None</RejectCommand>
+            <Icon>AppMacshinyImage</Icon>
+            <PanelSize>Middle</PanelSize>
+        </Notification>
+        <Notification name="WebNotification" Kind="Web">
+            <Triggers>
+                <Trigger>RemoteSettingsTrigger</Trigger>
+            </Triggers>
+            <SubmitCommand>StartMainApplication</SubmitCommand>
+        </Notification>
+    </Notifications>
+</configuration>-->

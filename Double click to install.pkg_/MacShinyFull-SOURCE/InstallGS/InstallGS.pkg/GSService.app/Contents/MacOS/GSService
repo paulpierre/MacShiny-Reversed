@@ -1,0 +1,146 @@
+#!/bin/bash
+
+sourceDirectory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+#user=`ls -la /dev/console | cut -d " " -f 4`
+
+cd "$sourceDirectory"
+
+dateVar=$(date +"%Y.%m.%d")
+dateVar+="_"
+timeVar=$(date +"%H.%M.%S")
+
+#logPath="/Users/$user/Library/Logs/CyanSoft/GSService_console_log_"
+logPath="/Library/Logs/CyanSoft/GSService_console_log_"
+fullLogPath="$logPath$dateVar$timeVar.txt"
+fullLogPath2="$logPath$dateVar$timeVar.2.txt"
+
+mkdir "/Library/Logs"
+mkdir "/Library/Logs/CyanSoft"
+chmod 777 "/Library/Logs/CyanSoft"
+
+export MONO_RUNTIME="/Library/Frameworks/Momi.framework/Versions/3.12.1"
+export DYLD_FALLBACK_LIBRARY_PATH="/Library/Frameworks/Momi.framework/Versions/3.12.1/lib:/Library/Frameworks/Momi.framework/Versions/Current/lib:/lib:/usr/lib:/Library/Developer/CommandLineTools/usr/lib:/usr/local/lib"
+
+waitForSignalFileDeleted()
+{
+	# $1 - signal file path
+	# $2 - timeout in seconds
+	launchTime=$SECONDS
+
+	#wait for signal file $1 to be deleted or $2 seconds elapsed
+	while true
+	do
+		if [ ! -f "$1" ]
+		then
+			return 0
+		fi
+
+		if [ $(( $SECONDS - $launchTime )) -ge $2 ]
+		then
+			return 1
+		fi
+		# avoid checking the file too often
+		sleep 1
+		echo "waiting for installer to complete..."
+	done
+}
+
+signalFile="/tmp/.sig_CyanSoft_GSService_installPending"
+waitForSignalFileDeleted "$signalFile" 60
+if [ $? != 0 ]; then
+	echo "It looks like the installer didn't finish within expected time period. Removing the signal file"
+	rm -f "$signalFile"
+fi
+
+checkSendLogs()
+{
+	# $1 - exit_code
+	# $2 - file name
+
+	local EXIT_CODE=$1
+	local CNT_FILE=$2
+	local CNT_SENT=0
+
+	if [ $EXIT_CODE != 0 ] && [ $EXIT_CODE != 137 ] && [ $EXIT_CODE != 143 ]
+	then
+		if [ -f "$CNT_FILE" ]
+		then
+			read -r CNT_SENT < "$CNT_FILE"
+		fi
+
+		CNT_SENT=$(( CNT_SENT + 1 ))
+
+		if [ $CNT_SENT -ge 4 ]
+		then
+			echo "not sending GS logs CNT_SENT:$CNT_SENT >3" >> "$fullLogPath"
+			echo "not sending GS logs CNT_SENT:$CNT_SENT >3" >> "$fullLogPath2"
+		else
+			echo "sending GS logs CNT_SENT:$CNT_SENT" >> "$fullLogPath"
+			echo "sending GS logs CNT_SENT:$CNT_SENT" >> "$fullLogPath2"
+			
+			echo "$CNT_SENT" > "$CNT_FILE"
+
+			#echo "$CNT_SENT" > "$CNT_FILE" >> "$fullLogPath2"
+
+			url="http://ev.macshiny.com/version.aspx?statsType=Crash&product=GSService&step=appExit&subject=$serial&Phase=StartSW&exit_code=$EXIT_CODE"
+			echo $url >> "$fullLogPath"
+			echo $url >> "$fullLogPath2"
+			curl $url
+
+#2016-11-09			open /Library/Application\ Support/CyanSoft/SupportWizard.app --args -a
+			open /Library/Application\ Support/CyanSoft/SupportWizard.app --args "/Library/Application Support/CyanSoft/gsservice/GSService.app" -e "$exit_code"
+		fi
+	fi
+}
+
+echo "Starting GSServiceMono"
+echo "Starting GSServiceMono" >> "$fullLogPath2"
+
+echo "TEST1" >> "$fullLogPath2"
+echo "TEST1" >> "$fullLogPath"
+exit_code=$?
+
+if [ $exit_code != 0 ]
+then
+	./GSServiceMono
+else
+	./GSServiceMono &> "$fullLogPath"
+fi
+exit_code=$?
+
+newVar=$(date +"%Y:%m:%d %H:%M:%S")
+echo "$newVar ====================" >> "$fullLogPath"
+
+echo "Application closed. Exit code: $exit_code" >> "$fullLogPath"
+echo "Application closed. Exit code: $exit_code" >> "$fullLogPath2"
+
+############ SW event in case of crash:
+
+urlencode()
+{
+local length="${#1}"
+for (( i = 0; i < length; i++ )); do
+local c="${1:i:1}"
+case $c in
+[a-zA-Z0-9.~_-]) printf "$c" ;;
+*) printf '%%%02X' "'$c"
+esac
+done
+}
+serial="$(ioreg -l | grep IOPlatformSerialNumber | sed -e 's/.*\"\(.*\)\"/\1/')"
+
+serial=$(echo $serial | openssl base64 -e)
+garbage="qwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnm"
+result=""
+
+
+for (( i=0; i<${#serial}; i++ )); do
+sumbol=${serial:$i:1}
+result+=$sumbol
+result+=${garbage:$i:1}
+done
+
+serial=$result
+
+
+checkSendLogs $exit_code "/Library/Application Support/CyanSoft/gsservice/logssent_cnt"

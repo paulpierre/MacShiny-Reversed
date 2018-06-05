@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration version="1" revision="1" ManualXml="1"  LogLevelNotifications="2" MasterFile="Notifications_N1Master.xml">
+  <Notifications>
+
+        <!-- NO SCAN - scan offer -->
+        <Notification name="FirstScanOffer" Kind="WebPage">
+
+          <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_n2</ContentUrl>
+          <Width>515</Width>
+          <Height>100</Height>
+          <DisplayPosition>TopRight</DisplayPosition>
+
+        </Notification>
+
+      
+      <!-- NO CLEAN  - clean offer -->
+      <Notification name="FirstCleanOffer" Kind="WebPage">
+
+        <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_n2</ContentUrl>
+        <Width>515</Width>
+        <Height>100</Height>
+        <DisplayPosition>TopRight</DisplayPosition>
+
+      </Notification>
+
+
+      <!-- activate offer -->
+      <Notification name="ActivateOffer" Kind="WebPage">
+
+        <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_n2</ContentUrl>
+        <Width>515</Width>
+        <Height>100</Height>
+        <DisplayPosition>TopRight</DisplayPosition>
+
+      </Notification>
+
+      
+  </Notifications>
+</configuration>

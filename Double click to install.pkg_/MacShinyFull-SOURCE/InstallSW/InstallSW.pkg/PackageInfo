@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<pkg-info overwrite-permissions="true" relocatable="false" identifier="com.cyan.SupportWizard" postinstall-action="none" version="4.0.6" format-version="2" generator-version="InstallCmds-403 (13E28)" install-location="/Library/Application Support/CyanSoft/" auth="root">
+    <payload numberOfFiles="49" installKBytes="12362"/>
+    <bundle path="./SupportWizard.app" id="com.cyan.SupportWizard" CFBundleShortVersionString="4.0.6" CFBundleVersion="23168"/>
+    <bundle-version/>
+    <upgrade-bundle>
+        <bundle id="com.cyan.SupportWizard"/>
+    </upgrade-bundle>
+    <update-bundle/>
+    <atomic-update-bundle/>
+    <strict-identifier>
+        <bundle id="com.cyan.SupportWizard"/>
+    </strict-identifier>
+    <relocate/>
+    <scripts>
+        <preinstall file="./preinstall"/>
+        <postinstall file="./postinstall"/>
+    </scripts>
+</pkg-info>

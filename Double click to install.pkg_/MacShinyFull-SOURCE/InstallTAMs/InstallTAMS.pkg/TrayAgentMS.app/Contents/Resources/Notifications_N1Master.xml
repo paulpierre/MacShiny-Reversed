@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration version="1" revision="1" ManualXml="1" LogLevelNotifications="2">  
+<Triggers>
+
+  <!--        ========   URLs/windows size/pos are overwritten by Notifications_N1.xml etc    ========
+  
+        TEST_FasterTime="1"
+        
+        <AppMovedToTrash name="AppMovedToTrash"/>
+        <SeveralAppMovedToTrash name="SeveralAppMovedToTrash"/>
+
+        <AppStartIgnored name="FirstStartNoAction" UserIdleTimeSeconds="300" IsFirstLaunch="true"/>
+        <PluginOperationFinished name="UninstallerScanFinishedNoAction" Plugin="Uninstaller" Operation="Scan" UserIdleTimeSeconds="60"/>
+        <PluginOperationFinished name="DuplicateFinderScanFinishedNoAction" Plugin="DuplicateFinder" Operation="Scan" UserIdleTimeSeconds="60"/>
+        
+        <PluginOperationFinished name="AutomaticCleanerScanResultNoAction" Plugin="AutomaticCleaner" Operation="Scan" MinCount="1" UserIdleTimeSeconds="300"/>
+        <PluginOperationFinished name="AutomaticCleanerScanResultNoActionTime1" Plugin="AutomaticCleaner" Operation="Scan" MinCount="1" UserIdleTimeSeconds="540"/>
+        <RestoredPluginResult name="AutomaticCleanerRestoredScanResult" Plugin="AutomaticCleaner" Operation="Scan" MinCount="1" UserIdleTimeSeconds="300"/>
+
+        <PluginOperationFinished name="AutomaticCleanerCleanResultNoAction" Plugin="AutomaticCleaner" Operation="Clean" MinCount="1" UserIdleTimeSeconds="3600"/>
+        <UserActionNoAction name="BuyNowNoAction" Action="Click" WindowId="BuyNow" UserIdleTimeSeconds="3600"/>
+        
+        IsMainAppNotActive
+-->
+        
+        <UserBecameActive name="UserBecameActive" />
+
+        <RestoredPluginResult name="NoScan" Plugin="AutomaticCleaner" Operation="Scan"
+                        MaxEventCount="0" MaxCount="0" UserIdleTimeSeconds="5m">
+            <conditions>
+              <IsMainAppNotActive/>
+            </conditions>
+         </RestoredPluginResult>
+  
+         <RestoredPluginResult name="ScanFinish" Plugin="AutomaticCleaner" Operation="Scan" MinCount="1"
+                              UserIdleTimeSeconds="5m">
+           <conditions>
+             <IsMainAppNotActive/>
+           </conditions>
+         </RestoredPluginResult>
+
+  
+         <RestoredPluginResult name="TrialCleanFinish" Plugin="AutomaticCleaner" Operation="Clean" MinCount="1"
+                              UserIdleTimeSeconds="5m">
+           <conditions>
+             <IsMainAppNotActive/>
+           </conditions>
+         </RestoredPluginResult>
+
+         <RemoteSettingsTrigger name="RemoteSettingsTrigger"/>
+        
+    </Triggers>
+  
+    <Notifications>
+<!--InetCheck   InetCheck=0   inet required       =60  inet required + do check if last check is older than 60 seconds
+    -->
+      <!-- NO SCAN - scan offer n1 -->
+      
+        <Notification name="FirstScanOffer" Kind="WebPage" InetCheck="60">
+            <Triggers>
+                <Trigger>NoScan</Trigger>
+            </Triggers>
+            <ExpiredConditions>
+                <AppIsActivated/>
+            </ExpiredConditions>
+
+          <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_n1</ContentUrl>
+          <UrlParams>onlyType=scan</UrlParams>
+          <Width>860</Width>
+          <Height>550</Height>
+          <DisplayPosition>Center</DisplayPosition>
+
+          <NoCloseTitle>1</NoCloseTitle>
+          <NoScroll>1</NoScroll>
+          <JDat>1</JDat>
+
+          <sharedNotifSettings>
+            <sharedNotifSetting>set1</sharedNotifSetting>
+          </sharedNotifSettings>
+
+          <PeriodSeconds>30m</PeriodSeconds>
+          <!-- 5 minutes after tray start: -->
+          <StartDelaySeconds>5m</StartDelaySeconds>
+
+
+          <!-- after 1 times - only every 30days: -->
+          <CapAfterShowCount>1</CapAfterShowCount>
+          <PeriodSecondsCap>30d</PeriodSecondsCap>
+        </Notification>
+
+      
+      <!-- NO CLEAN  - clean offer n2 -->
+
+      <Notification name="FirstCleanOffer" Kind="WebPage" InetCheck="60">
+        <Triggers>
+          <Trigger>ScanFinish</Trigger>
+        </Triggers>
+        <ExpiredConditions>
+          <AppIsActivated/>
+        </ExpiredConditions>
+
+        <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_n2</ContentUrl>
+        <UrlParams>onlyType=clean</UrlParams>
+        <Width>515</Width>
+        <Height>100</Height>
+        <DisplayPosition>TopRight</DisplayPosition>
+
+        <NoCloseTitle>1</NoCloseTitle>
+        <NoScroll>1</NoScroll>
+        <JDat>1</JDat>
+
+        <sharedNotifSettings>
+          <sharedNotifSetting>set1</sharedNotifSetting>
+        </sharedNotifSettings>
+
+        <PeriodSeconds>30m</PeriodSeconds>
+        <!-- 5 minutes after tray start: -->
+        <StartDelaySeconds>5m</StartDelaySeconds>
+
+
+        <!-- after 1 times - only every 30days: -->
+        <CapAfterShowCount>1</CapAfterShowCount>
+        <PeriodSecondsCap>30d</PeriodSecondsCap>
+      </Notification>
+
+
+
+      <!-- activate offer n3 -->
+
+      <Notification name="ActivateOffer" Kind="WebPage" InetCheck="60">
+        <Triggers>
+          <Trigger>TrialCleanFinish</Trigger>
+        </Triggers>
+        <ExpiredConditions>
+          <AppIsActivated/>
+        </ExpiredConditions>
+
+        <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_n3</ContentUrl>
+        <UrlParams>onlyType=activate</UrlParams>
+        <Width>345</Width>
+        <Height>60</Height>
+        <DisplayPosition>TopRight</DisplayPosition>
+
+        <NoCloseTitle>1</NoCloseTitle>
+        <NoScroll>1</NoScroll>
+        <JDat>1</JDat>
+
+
+        <sharedNotifSettings>
+          <sharedNotifSetting>set1</sharedNotifSetting>
+        </sharedNotifSettings>
+
+        <PeriodSeconds>30m</PeriodSeconds>
+        <!-- 5 minutes after tray start: -->
+        <StartDelaySeconds>5m</StartDelaySeconds>
+
+
+        <!-- after 1 times - only every 30days: -->
+        <CapAfterShowCount>1</CapAfterShowCount>
+        <PeriodSecondsCap>30d</PeriodSecondsCap>
+      </Notification>
+
+      <!-- REMOTE WEB NOTIF -->
+
+
+      <Notification name="WebNotification" Kind="Web">
+            <Triggers>
+                <Trigger>RemoteSettingsTrigger</Trigger>
+            </Triggers>
+            <SubmitCommand>StartMainApplication</SubmitCommand>
+            <DisplayPosition>Center</DisplayPosition>
+        </Notification>
+      
+    </Notifications>
+</configuration>

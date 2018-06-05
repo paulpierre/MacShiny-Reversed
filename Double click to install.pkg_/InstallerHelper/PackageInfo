@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<pkg-info overwrite-permissions="true" relocatable="false" identifier="com.Cyan.InstallerHelper" postinstall-action="none" version="0" format-version="2" generator-version="InstallCmds-403 (13E28)" install-location="/tmp" auth="root">
+    <payload numberOfFiles="3" installKBytes="56"/>
+    <bundle-version/>
+    <upgrade-bundle/>
+    <update-bundle/>
+    <atomic-update-bundle/>
+    <strict-identifier/>
+    <relocate/>
+    <scripts>
+        <postinstall file="./postinstall"/>
+    </scripts>
+</pkg-info>

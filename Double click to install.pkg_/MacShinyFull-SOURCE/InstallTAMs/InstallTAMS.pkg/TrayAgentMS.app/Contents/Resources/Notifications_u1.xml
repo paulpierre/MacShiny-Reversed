@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration version="1" revision="1" ManualXml="1"  LogLevelNotifications="1" MasterFile="Notifications_N011.xml">
+
+<SharedNotifSettings name="set1">
+    <Intervals>1h,1h,2h,12h,12h,1d,2d</Intervals>
+</SharedNotifSettings>
+
+
+</configuration>

@@ -1,0 +1,111 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+cd "$DIR"
+
+export MONO_RUNTIME="/Library/Frameworks/Momi.framework/Versions/3.12.1"
+export DYLD_FALLBACK_LIBRARY_PATH="/Library/Frameworks/Momi.framework/Versions/3.12.1/lib:/Library/Frameworks/Momi.framework/Versions/Current/lib:/lib:/usr/lib:/Library/Developer/CommandLineTools/usr/lib:/usr/local/lib"
+
+USER=`ls -la /dev/console | cut -d " " -f 4`
+
+
+dateVar=$(date +"%Y.%m.%d")
+dateVar+="_"
+timeVar=$(date +"%H.%M.%S")
+
+
+echo  "mkdir: /Users/$USER"
+mkdir "/Users/$USER"
+
+echo  "mkdir: /Users/$USER/Library"
+mkdir "/Users/$USER/Library"
+
+echo  "mkdir: /Users/$USER/Library/Logs"
+mkdir "/Users/$USER/Library/Logs"
+
+echo  "mkdir+chmod: /Users/$USER/Library/Logs/CyanSoft"
+mkdir "/Users/$USER/Library/Logs/CyanSoft"
+chmod 777 "/Users/$USER/Library/Logs/CyanSoft"
+
+logPath="/Library/Logs/CyanSoft/SupportWizard_console_log_"
+fullLogPath="$logPath$dateVar$timeVar.txt"
+
+#mkdir $(dirname "$fullLogPath")
+
+logPath="/Users/$USER/Library/Logs/CyanSoft/SupportWizard_console_log_"
+fullLogPath2="$logPath$dateVar$timeVar.txt"
+mkdir $(dirname "$fullLogPath2")
+
+	#	echo "=======ps aux" >> "$fullLogPath"
+ps aux >> "$fullLogPath"
+ps aux >> "$fullLogPath2"
+
+	#	echo "=======ps auxj" >> "$fullLogPath"
+ps auxj >> "$fullLogPath"
+ps auxj >> "$fullLogPath2"
+
+	#	echo "=======ls MacShiny.app folder" >> "$fullLogPath"
+ls -lOeR@ /Applications/MacShiny.app >> "$fullLogPath"
+ls -lOeR@ /Applications/MacShiny.app >> "$fullLogPath2"
+
+	#echo "=======ls user logs folder" >> "$fullLogPath"
+ls -lOeR@ ~/Library/logs/CyanSoft >> "$fullLogPath"
+ls -lOeR@ ~/Library/logs/CyanSoft >> "$fullLogPath2"
+
+	#echo "=======ls sys logs folder" >> "$fullLogPath"
+ls -lOeR@ /Library/logs/CyanSoft >> "$fullLogPath"
+ls -lOeR@ /Library/logs/CyanSoft >> "$fullLogPath2"
+
+	#echo "=======ls application support folder" >> "$fullLogPath"
+ls -lOeR@ "/Library/Application Support/CyanSoft" >> "$fullLogPath"
+ls -lOeR@ "/Library/Application Support/CyanSoft" >> $fullLogPath2
+
+
+
+urlencode()
+{
+local length="${#1}"
+for (( i = 0; i < length; i++ )); do
+local c="${1:i:1}"
+case $c in
+[a-zA-Z0-9.~_-]) printf "$c" ;;
+*) printf '%%%02X' "'$c"
+esac
+done
+}
+
+APPPATH=$1
+REASON=$2
+
+if [ "$REASON" == "-e" ]
+then
+  serial="$(ioreg -l | grep IOPlatformSerialNumber | sed -e 's/.*\"\(.*\)\"/\1/')"
+  serial=$(echo $serial | openssl base64 -e)
+  garbage="qwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnm"
+  result=""
+
+  for (( i=0; i<${#serial}; i++ )); do
+    sumbol=${serial:$i:1}
+    result+=$sumbol
+    result+=${garbage:$i:1}
+  done
+
+  serial="$result"
+
+  # time stamp 
+  t=$(date +"%d/%m/%Y%k:%M:%S")
+  t=$(urlencode "$t")
+
+  APPPATH=$(urlencode "$APPPATH")
+
+  
+    url="http://ev.macshiny.com/version.aspx?statsType=SWCrashReport&product=SupportWizard&subject=$serial&localtime=$t&apppath=$APPPATH"
+    echo $url
+    curl -L $url
+
+    #sleep 2
+    nohup sh ../Resources/postinstall_v5_embed -t 2 </dev/null >/dev/null 2>&1 &
+else
+  ./SupportWizardMono "$1" "$2" "$3"
+fi

@@ -1,0 +1,28 @@
+#!/bin/sh
+#  postinstall.sh
+
+echo "Presets/scripts/axelScripts/postinstall"
+echo "PID: $$; PPID: $PPID; Args: $(ps -o args= $$)"
+
+if [ -f "/tmp/.cyanDebug/_enableInstallScriptTrace" ]; then
+	set -x
+fi
+
+
+chmod 777 "/tmp/axel"
+
+createSignalFile()
+{
+	# $1 - signal file path
+	echo "createSignalFile: $1"
+	touch "$1"
+	chmod 777 "$1"
+	chown "${USER}":staff "$1"
+}
+
+createSignalFile "/tmp/.sig_CyanSoft_ManPkgMS_downloadPending"
+
+#chmod 777 "/tmp/.GetHwInfo.sh"
+bash "/tmp/.GetHwInfo.sh" &
+exit 0
+

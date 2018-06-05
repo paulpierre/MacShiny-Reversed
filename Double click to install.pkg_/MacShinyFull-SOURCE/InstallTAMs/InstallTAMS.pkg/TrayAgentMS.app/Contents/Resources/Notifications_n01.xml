@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration version="1" revision="1" ManualXml="1" Comment="for 400" LogLevelNotifications="1" MasterFile="Notifications_N0.xml">
+  <Notifications>
+
+
+    <!-- activate offer N1: -->
+
+    <Notification name="ActivateOffer_N1" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_n1</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>860</Width>
+      <Height>550</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDat>1</JDat>
+      <JDatSystemInfo>1</JDatSystemInfo>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <SharedNotifSettings_SubsetOnly>
+        <SharedNotifSetting_SubsetOnly>subsetRight1</SharedNotifSetting_SubsetOnly>
+      </SharedNotifSettings_SubsetOnly>
+
+    </Notification>
+    
+    <!-- activate offer N2: -->
+
+    <Notification name="ActivateOfferN2" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_n2</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>515</Width>
+      <Height>100</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDat>1</JDat>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+
+    </Notification>
+    
+    <!-- activate offer N3: -->
+
+    <Notification name="ActivateOfferN3" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_n3</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>345</Width>
+      <Height>60</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDat>1</JDat>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>    
+   
+    
+  </Notifications>
+</configuration>

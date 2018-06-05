@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration version="1" revision="1" ManualXml="1" TEST_FasterTime="3" LogLevelNotifications="3" MasterFile="Notifications_u1.xml">
+<!--
+  <OnlyTriggers>
+    <Name>AutomaticCleaner_NoScan</Name>
+    <Name>AutomaticCleaner_NoClean</Name>
+    <Name>AutomaticCleaner_Activate</Name>
+    <Name>UserBecameActive</Name>
+  </OnlyTriggers>
+
+  <OnlyNotifications>
+    <Name>FirstScanOffer</Name>
+    <Name>FirstCleanOffer</Name>
+    <Name>ActivateOffer</Name>
+    <Name>DailyDiscountOffer</Name>
+  </OnlyNotifications>
+
+
+
+<OnlyTriggers>
+    <Name>TrialCleanFinish</Name>
+  </OnlyTriggers>
+
+  <OnlyNotifications>
+    <Name>ActivateOfferN1</Name>
+  </OnlyNotifications>
+-->
+</configuration>

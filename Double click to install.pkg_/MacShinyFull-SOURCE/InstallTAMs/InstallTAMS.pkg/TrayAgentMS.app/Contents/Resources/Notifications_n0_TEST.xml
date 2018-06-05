@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration version="1" revision="1" ManualXml="1" TEST_FasterTime="20" DbgNotifListWin="1" LogLevelNotifications="3" MasterFile="Notifications_n011_rescan.xml">
+<!--
+  <OnlyTriggers>
+    <Name>AutomaticCleaner_NoScan</Name>
+    <Name>AutomaticCleaner_NoClean</Name>
+    <Name>AutomaticCleaner_Activate</Name>
+    <Name>UserBecameActive</Name>
+  </OnlyTriggers>
+
+  <OnlyNotifications>
+    <Name>FirstScanOffer</Name>
+    <Name>FirstCleanOffer</Name>
+    <Name>ActivateOffer</Name>
+    <Name>DailyDiscountOffer</Name>
+    <Name>DiskSpace1gb_028</Name>
+    <Name>Memory1gb_028</Name>
+    <Name>VolumeMounted_1h_Av_032</Name>
+    <Name>VolumeMounted_Max2_Av_032</Name>
+    <Name>NetworkConnectedAv_032</Name>
+    <Name>Wifi_1h_av_032</Name>
+    <Name>Wifi_NoFirewall_av_032</Name>
+    
+  </OnlyNotifications>
+
+-->
+ <OnlyNotifications>
+    <Name>Wifi_Unsecure_av_032</Name>
+  </OnlyNotifications>
+
+ <Notifications>
+  
+ </Notifications>
+    
+</configuration>

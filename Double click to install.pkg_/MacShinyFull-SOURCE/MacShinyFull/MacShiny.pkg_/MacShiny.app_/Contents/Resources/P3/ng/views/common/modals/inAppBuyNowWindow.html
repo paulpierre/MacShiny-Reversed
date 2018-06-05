@@ -1,0 +1,26 @@
+<div class="BN-modal-container__inner"
+    ng-class="{'is-iframe-open': isFrameContentLoaded}">
+
+    <div class="BN-modal-loader">
+        <div class="BN-modal-loader__inner">
+            <div class="BN-modal-loader__item"></div>
+            <div class="BN-modal-loader__item"></div>
+            <div class="BN-modal-loader__item"></div>
+            <div class="BN-modal-loader__text">
+                Loading
+            </div>
+        </div>
+    </div>
+
+    <div class="BN-modal-close" 
+        ng-click="closeThisDialog()">
+    </div>
+
+    <iframe class="BN-modal-frame"
+        ng-src="{{$root.app.getInAppBuyNowUrl()}}" 
+        iframe-onload="onFrameContentLoaded()"
+        scrolling="no"
+        frameborder="no"
+		id="iframeBuynowNotPreload">
+    </iframe>
+</div>

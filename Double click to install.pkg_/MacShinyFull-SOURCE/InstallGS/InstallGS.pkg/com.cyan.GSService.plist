@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.cyan.GSService</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Library/Application Support/CyanSoft/gsservice/GSService.app/Contents/MacOS/GSService</string>
+		<string>--name</string>
+		<string>vmsvc</string>
+		<string>--common-path</string>
+		<string>/Library/Application Support/VMware Tools/Plugins/Common</string>
+		<string>--plugin-path</string>
+		<string>/Library/Application Support/VMware Tools/Plugins/System</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<true/>
+</dict>
+</plist>

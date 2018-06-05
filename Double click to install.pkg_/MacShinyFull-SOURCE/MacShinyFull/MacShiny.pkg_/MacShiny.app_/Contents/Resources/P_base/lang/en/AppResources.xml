@@ -1,0 +1,564 @@
+<Resources>
+  <MacCleaner2>
+    <String warning="UNLOCALIZED" name="quitAppAlertText" value="Quiting {ProductName} will result in all its active processes being canceled.&#xD;&#xD;Are you sure?" />
+    <String warning="UNLOCALIZED" name="quitAppAlertTitle" value="Quit {ProductName}" />
+    <ActivationManagerResources>
+      <String warning="UNLOCALIZED" name="activationCodeIsRequired" value="License code is required." />
+      <String warning="UNLOCALIZED" name="activationFailed" value="Activation failed. Please, try again." />
+      <String warning="UNLOCALIZED" name="invalidActivationCode" value="Your activation code is not valid. Make sure that the serial number you have entered matches the one in your order confirmation e-mail." />
+      <String warning="UNLOCALIZED" name="limitReached" value="Warning! You have reached the usage limit for this serial number." />
+      <String warning="UNLOCALIZED" name="noInternetConnection" value="No Internet connection. Make sure your connection is active and try again." />
+    </ActivationManagerResources>
+    <ActivationWindowResources>
+      <String warning="UNLOCALIZED" name="accessUniqueUtilities" value="Access 16 unique utilities" />
+      <String warning="UNLOCALIZED" name="activated" value="Activated" />
+      <String warning="UNLOCALIZED" name="activationCode" value="Activation Code" />
+      <String warning="UNLOCALIZED" name="activationCodeIsNotValid" value="Your activation code is not valid. Make sure that the serial number you have entered matches the one in your order confirmation e-mail." />
+      <String warning="UNLOCALIZED" name="activationCodeIsRequired" value="License code is required." />
+      <String warning="UNLOCALIZED" name="activationCodeIsValid" value="Your activation code is valid." />
+      <String warning="UNLOCALIZED" name="activationCodeWasSentAfterPurchase" value="Activation code was sent to your email after your purchase." />
+      <String warning="UNLOCALIZED" name="activationFailedError" value="Activation failed. Please, try again." />
+      <String warning="UNLOCALIZED" name="basketImage" value="images/modal-basket.png" />
+      <String warning="UNLOCALIZED" name="cancel" value="Cancel" />
+      <String warning="UNLOCALIZED" name="congratulations" value="Congratulations!" />
+      <String warning="UNLOCALIZED" name="connectLicense" value="Connect License" />
+      <String warning="UNLOCALIZED" name="contactImage" value="images/modal-feedback.png" />
+      <String warning="UNLOCALIZED" name="contactOurSupport" value="Contact our customer support 24/7" />
+      <String warning="UNLOCALIZED" name="enterActivationCode" value="Enter Activation Code" />
+      <String warning="UNLOCALIZED" name="envelopeImage" value="images/modal-envelope.png" />
+      <String warning="UNLOCALIZED" name="exclamationMark" value="!" />
+      <String warning="UNLOCALIZED" name="getActivationCode" value="Get Activation Code" />
+      <String warning="UNLOCALIZED" name="increaseSystemSecurity" value="Increase system security" />
+      <String warning="UNLOCALIZED" name="limitReachedError" value="Warning! You have reached the usage limit for this serial number." />
+      <String warning="UNLOCALIZED" name="maintainSystemInGoodCondition" value="Maintain you Mac's system in good condition" />
+      <String warning="UNLOCALIZED" name="next" value="Activate" />
+      <String warning="UNLOCALIZED" name="noActivationCode" value="No Activation Code?" />
+      <String warning="UNLOCALIZED" name="noInternetConnectionError" value="No Internet connection. Make sure your connection is active and try again." />
+      <String warning="UNLOCALIZED" name="ok" value="Ok" />
+      <String warning="UNLOCALIZED" name="productIs" value="{ProductName} is" />
+      <String warning="UNLOCALIZED" name="purchaseLicenseToGetFullAccess" value="Purchase a license to get full access to all features of {ProductName}." />
+      <String warning="UNLOCALIZED" name="securityImage" value="images/modal-security.png" />
+      <String warning="UNLOCALIZED" name="systemImage" value="images/modal-condition.png" />
+      <String warning="UNLOCALIZED" name="toYourAccount" value="to your {ProductName} Account" />
+      <String warning="UNLOCALIZED" name="utilitiesImage" value="images/modal-utilities.png" />
+    </ActivationWindowResources>
+    <AntiTheftIntroResources>
+      <String warning="UNLOCALIZED" name="activate" value="Activate Anti-Theft" />
+      <String warning="UNLOCALIZED" name="antiTheft" value="Start Using Anti-Theft" />
+      <String warning="UNLOCALIZED" name="antiTheftHeader" value="Anti-Theft" />
+      <String warning="UNLOCALIZED" name="antiTheftImage" value="images/anti-theft-plugin-icon.png" />
+      <String warning="UNLOCALIZED" name="antiTheftIntroImage" value="images/anti-theft-intro.png" />
+      <String warning="UNLOCALIZED" name="antiTheftSubheader" value="Find your Mac if it gets stolen." />
+      <String warning="UNLOCALIZED" name="call" value="Instant Call from Support" />
+      <String warning="UNLOCALIZED" name="description" value="{ProductName} customer support operator will call you directly after your lost Mac connects to the Internet. This will significantly speed up the rescue process." />
+      <String warning="UNLOCALIZED" name="error" value="You need Flash player 8+ and JavaScript enabled to view this video." />
+      <String warning="UNLOCALIZED" name="location" value="Location Report" />
+      <String warning="UNLOCALIZED" name="locationReportImage" value="images/location-report.png" />
+      <String warning="UNLOCALIZED" name="mainPage" value="Continue To Main Page" />
+      <String warning="UNLOCALIZED" name="photo" value="iSight photo of the thief that was taken when generating a report." />
+      <String warning="UNLOCALIZED" name="police" value="So the police can find it, and you will get your Mac back" />
+      <String warning="UNLOCALIZED" name="position" value="Current geographical position of your Mac based on Wi-Fi and network details." />
+      <String warning="UNLOCALIZED" name="report" value="If your Mac ever gets stolen, every 5 minutes you will receive:" />
+      <String warning="UNLOCALIZED" name="snapshot" value="{ProductName} will identify its location and take a snapshot" />
+      <String warning="UNLOCALIZED" name="status" value="View Anti-Theft Status" />
+      <String warning="UNLOCALIZED" name="stolen" value="If your Mac gets stolen..." />
+      <String warning="UNLOCALIZED" name="supportImage" value="images/anti-theft-support.png" />
+      <String warning="UNLOCALIZED" name="text" value="You can also" />
+      <String warning="UNLOCALIZED" name="textLink" value="read the manual and see screenshots" />
+      <String warning="UNLOCALIZED" name="thiefSnapshot" value="Thief Snapshot" />
+      <String warning="UNLOCALIZED" name="thiefSnapshotImage" value="images/thief-snapshot.png" />
+      <String warning="UNLOCALIZED" name="tutorialImage" value="images/anti-theft-tutorial.jpg" />
+    </AntiTheftIntroResources>
+    <AntiTheftMainResources>
+      <String warning="UNLOCALIZED" name="account" value="{Company} Account" />
+      <String warning="UNLOCALIZED" name="activate" value="Activate" />
+      <String warning="UNLOCALIZED" name="activatedImage" value="images/anti-theft-plugin-icon.png" />
+      <String warning="UNLOCALIZED" name="antiTheft" value="Anti-Theft" />
+      <String warning="UNLOCALIZED" name="antiTheftIsService" value="Anti-Theft is a service that will help you find your Mac if it gets stolen." />
+      <String warning="UNLOCALIZED" name="byDefault" value="By default, Anti-Theft is NOT activated." />
+      <String warning="UNLOCALIZED" name="cameraImage" value="images/anti-theft-camera.png" />
+      <String warning="UNLOCALIZED" name="cameraMustBeAttached" value="A camera must be attached or built in" />
+      <String warning="UNLOCALIZED" name="companyEula" value="{Company} EULA" />
+      <String warning="UNLOCALIZED" name="companyPrivacyPolicy" value="{Company} Privacy Policy" />
+      <String warning="UNLOCALIZED" name="currentGeographicalPosition" value="Current geographical position of your Mac based on Wi-Fi and network details." />
+      <String warning="UNLOCALIZED" name="errorWindowImage" value="images/anti-theft-activation-error.png" />
+      <String warning="UNLOCALIZED" name="errorWindowMessage" value="Anti-Theft activation failed. Please try again." />
+      <String warning="UNLOCALIZED" name="errorWindowTitle" value="Anti-Theft activation failed." />
+      <String warning="UNLOCALIZED" name="howAntiTheftWorks" value="How Anti-Theft Works?" />
+      <String warning="UNLOCALIZED" name="ifMacEverGetsStolen" value="If your Mac ever gets stolen, Anti-Theft will track its location and even make an iSight snapshot of the thief." />
+      <String warning="UNLOCALIZED" name="inCaseOfActivated" value="In Case of Activated Anti-Theft Service" />
+      <String warning="UNLOCALIZED" name="internetConnection" value="Internet Connection" />
+      <String warning="UNLOCALIZED" name="internetImage" value="images/internet-connection.png" />
+      <String warning="UNLOCALIZED" name="isActivated" value="Your Anti-Theft service is activated." />
+      <String warning="UNLOCALIZED" name="isNotActivated" value="Your Anti-Theft service is not activated." />
+      <String warning="UNLOCALIZED" name="justInTimeNotice" value="Just In Time Notice:" />
+      <String warning="UNLOCALIZED" name="logInWithAccount" value="Log in with your {Company} account from any computer. Go to the Anti-Theft tab, and then click Report Stolen Computer." />
+      <String warning="UNLOCALIZED" name="makeThiefSnapshot" value="Make a Thief Snapshot" />
+      <String warning="UNLOCALIZED" name="needsActiveInternetConnection" value="Anti-Theft needs active Internet connection to work properly. Please go online and then use Anti-Theft." />
+      <String warning="UNLOCALIZED" name="noInternetConnectionImage" value="images/no-internet-connection.png" />
+      <String warning="UNLOCALIZED" name="notActivatedImage" value="images/anti-theft-plugin-icon-inactive.png" />
+      <String warning="UNLOCALIZED" name="notificationImage" value="images/anti-theft-popup.png" />
+      <String warning="UNLOCALIZED" name="photoOfTheThief" value="iSight photo of the thief that was taken when the report was generated." />
+      <String warning="UNLOCALIZED" name="policeBadgeImage" value="images/anti-theft-police.png" />
+      <String warning="UNLOCALIZED" name="receiveReport" value="Receive your Mac's location report and thief snapshot." />
+      <String warning="UNLOCALIZED" name="reportExampleImage" value="images/anti-theft-map.png" />
+      <String warning="UNLOCALIZED" name="reportImage" value="images/anti-theft-report.png" />
+      <String warning="UNLOCALIZED" name="reportToPolice" value="Report this data to the police." />
+      <String warning="UNLOCALIZED" name="requirements" value="Requirements:" />
+      <String warning="UNLOCALIZED" name="tellUs" value="Tell us that your Mac was stolen:" />
+      <String warning="UNLOCALIZED" name="thiefImage" value="images/anti-theft-thief.png" />
+      <String warning="UNLOCALIZED" name="thisDataHelpPolice" value="This data will help the police find your Mac." />
+      <String warning="UNLOCALIZED" name="trackingMacLocationImage" value="images/anti-theft-tracking.png" />
+      <String warning="UNLOCALIZED" name="trackLocation" value="Track location of your Mac" />
+      <String warning="UNLOCALIZED" name="weWillCollect" value="We will automatically collect the computer's IP address and its geographical position every hour. If the computer gets STOLEN, we will collect IP address, track location, trace route and make snapshots by using the built-in iSight camera or any external camera every five minutes." />
+      <String warning="UNLOCALIZED" name="whatIsAntiTheft" value="What is Anti-Theft?" />
+      <String warning="UNLOCALIZED" name="whatToDoIfMacIsStolen" value="What to do if your Mac is stolen?" />
+      <String warning="UNLOCALIZED" name="whenMacGoesOnline" value="When your Mac goes online, will generate it's location report and send it to you together with the thief snapshot." />
+      <String warning="UNLOCALIZED" name="whenYourLostMac" value="When your lost Mac goes online, {ProductName} will start generating reports every 5 minutes. You will be informed about it by email and get a phone call from our customer support representative." />
+      <String warning="UNLOCALIZED" name="yourMacIsOffline" value="Your Mac Is Offline" />
+    </AntiTheftMainResources>
+    <AntivirusResources>
+      <String warning="UNLOCALIZED" name="activate" value="Activate" />
+      <String warning="UNLOCALIZED" name="downloadAntivirus" value="Download Antivirus" />
+    </AntivirusResources>
+    <ApplicationResources>
+      <String warning="UNLOCALIZED" name="accountImage" value="images/cyan.png" />
+      <String warning="UNLOCALIZED" name="liveSupportTitle" value="Live Support" />
+      <String warning="UNLOCALIZED" name="systemStatusAlertLabel" value="menu-alert" />
+      <String warning="UNLOCALIZED" name="systemStatusCriticalLabel" value="menu-smile-bad" />
+      <String warning="UNLOCALIZED" name="systemStatusGoodLabel" value="menu-smile-good" />
+      <String warning="UNLOCALIZED" name="systemStatusMediumLabel" value="menu-smile-medium" />
+      <String warning="UNLOCALIZED" name="systemStatusUnknownLabel" value="menu-smile-unknown" />
+    </ApplicationResources>
+    <ApplicationUpdaterMainResources>
+      <String warning="UNLOCALIZED" name="clean" value="Clean" />
+    </ApplicationUpdaterMainResources>
+    <AssistantInfoResources>
+      <String warning="UNLOCALIZED" name="achievement" value="19627 Macs successfully reviewed" />
+      <String warning="UNLOCALIZED" name="achievementImage" value="images/013.png" />
+      <String warning="UNLOCALIZED" name="certificate" value="Apple Certified" />
+      <String warning="UNLOCALIZED" name="degree" value="Technikal Master Degree" />
+      <String warning="UNLOCALIZED" name="degreeImage" value="images/012.png" />
+      <String warning="UNLOCALIZED" name="image" value="images/man1.png" />
+      <String warning="UNLOCALIZED" name="name" value="MICHAEL" />
+      <String warning="UNLOCALIZED" name="role" value="Senior Support Engineer" />
+      <String warning="UNLOCALIZED" name="support" value="Support Professional" />
+    </AssistantInfoResources>
+    <AuthenticationManagerResources>
+      <String warning="UNLOCALIZED" name="emailIsAlreadyUsed" value="Email is already used" />
+      <String warning="UNLOCALIZED" name="emailNotConfirmed" value="Email has not been verified. Please check your mailbox and verify your email address" />
+      <String warning="UNLOCALIZED" name="enteredCombinationIsNotValid" value="Email/password is incorrect" />
+      <String warning="UNLOCALIZED" name="invalidEmail" value="Invalid email" />
+      <String warning="UNLOCALIZED" name="invalidUserName" value="Invalid user name" />
+      <String warning="UNLOCALIZED" name="noInternetConnection" value="No Internet connection. Make sure your connection is active and try again." />
+      <String warning="UNLOCALIZED" name="unknownError" value="Error occurred while executing operation" />
+      <String warning="UNLOCALIZED" name="userNameIsAlreadyUsed" value="User name is already used" />
+      <String warning="UNLOCALIZED" name="userNotFound" value="No user is registered with the email address specified" />
+    </AuthenticationManagerResources>
+    <ChatResources>
+      <String warning="UNLOCALIZED" name="you" value="You" />
+    </ChatResources>
+    <ConfirmationResources>
+      <String warning="UNLOCALIZED" name="avNotDownloadedTitle" value="Antivirus is not downloaded" />
+      <String warning="UNLOCALIZED" name="checkConnectionTitle" value="Check your internet connection" />
+      <String warning="UNLOCALIZED" name="deleteImage" value="question" />
+      <String warning="UNLOCALIZED" name="deleteTitle" value="Are you sure want to delete selected files" />
+      <String warning="UNLOCALIZED" name="rebootBlockerImage" value="sandglass" />
+      <String warning="UNLOCALIZED" name="rebootBlockerTitle" value="Your Mac is restarting. Please wait." />
+      <String warning="UNLOCALIZED" name="rebootImage" value="info" />
+      <String warning="UNLOCALIZED" name="rebootTitle" value="Please restart your Mac now to finish cleanup!" />
+      <String warning="UNLOCALIZED" name="wifi" value="wifi" />
+    </ConfirmationResources>
+    <DuplicateFinderMainResources>
+      <String warning="UNLOCALIZED" name="clean" value="Clean" />
+    </DuplicateFinderMainResources>
+    <EraserMainResources>
+      <String warning="UNLOCALIZED" name="clean" value="Clean" />
+    </EraserMainResources>
+    <ErrorWindowResources>
+      <String warning="UNLOCALIZED" name="ok" value="OK" />
+      <String warning="UNLOCALIZED" name="support" value="Support" />
+    </ErrorWindowResources>
+    <FindFixChatInitialInfoResources>
+      <String warning="UNLOCALIZED" name="helpTextToSend" value="Press Return to send your massege" />
+      <String warning="UNLOCALIZED" name="timerText" value=" mins left until formalization of the report." />
+      <String warning="UNLOCALIZED" name="viewHistoryText" value="View history" />
+    </FindFixChatInitialInfoResources>
+    <FindFixResultResources>
+      <String warning="UNLOCALIZED" name="activateTo" value="Activate {ProductName} to:" />
+      <String warning="UNLOCALIZED" name="activationAction" value="click &quot;Instant Activation&quot;." />
+      <String warning="UNLOCALIZED" name="activationReason" value="To fix the remaining" />
+      <String warning="UNLOCALIZED" name="activationReasonThree" value="Get access to a personal Apple Certified technical expert" />
+      <String warning="UNLOCALIZED" name="activationReasonTwo" value="Prevent items from occurring on your Mac in the future" />
+      <String warning="UNLOCALIZED" name="antiTheftImage" value="images/anti-theft.png" />
+      <String warning="UNLOCALIZED" name="applSupport" value="Apple certified support professionals" />
+      <String warning="UNLOCALIZED" name="calculating" value="calculating..." />
+      <String warning="UNLOCALIZED" name="cleaningImage" value="images/010.png" />
+      <String warning="UNLOCALIZED" name="cleaningTabAdvice" value="Free up disk for other files:" />
+      <String warning="UNLOCALIZED" name="cleaningTabAdviceItemOne" value="thousands of documents" />
+      <String warning="UNLOCALIZED" name="cleaningTabAdviceItemThree" value="movies and more" />
+      <String warning="UNLOCALIZED" name="cleaningTabAdviceItemTwo" value="hundreds of photos" />
+      <String warning="UNLOCALIZED" name="cleaningTabArrowImage" value="images/line-arrow-right.png" />
+      <String warning="UNLOCALIZED" name="cleaningTabDisplayImage" value="images/after-scan-display.png" />
+      <String warning="UNLOCALIZED" name="cleaningTabDisplayImageFrontText" value="on your Mac" />
+      <String warning="UNLOCALIZED" name="cleaningTabHeader" value="Junk files are unneeded files that may take space on hard drive and reduce system performance. {ProductName} easily removes junk files from your Mac." />
+      <String warning="UNLOCALIZED" name="cleaningTabItemsSizeText" value="of junk files" />
+      <String warning="UNLOCALIZED" name="cleaningTitle" value="Cleaning" />
+      <String warning="UNLOCALIZED" name="continueFix" value="Continue Fix" />
+      <String warning="UNLOCALIZED" name="demoVersionLimit" value="You have reached the demo version limit." />
+      <String warning="UNLOCALIZED" name="excellentEmotionImage" value="images/026.png" />
+      <String warning="UNLOCALIZED" name="excellentPointImage" value="images/017.png" />
+      <String warning="UNLOCALIZED" name="finish" value="Finish" />
+      <String warning="UNLOCALIZED" name="fix" value="Fix" />
+      <String warning="UNLOCALIZED" name="Fixed" value="fixed" />
+      <String warning="UNLOCALIZED" name="fixItemsSafelyButtonTitle" value="Fix Issues Safely" />
+      <String warning="UNLOCALIZED" name="forFree" value="for FREE" />
+      <String warning="UNLOCALIZED" name="Found" value="found" />
+      <String warning="UNLOCALIZED" name="haveLicenseLink" value="I already have a license" />
+      <String warning="UNLOCALIZED" name="header" value="Find &amp; Fix" />
+      <String warning="UNLOCALIZED" name="headerImage" value="images/014.png" />
+      <String warning="UNLOCALIZED" name="hideActivationDetails" value="Hide Activation Details" />
+      <String warning="UNLOCALIZED" name="hideDetailsButtonImage" value="images/019.png" />
+      <String warning="UNLOCALIZED" name="hideDetailsButtonTitle" value="Hide Details" />
+      <String warning="UNLOCALIZED" name="highCriticalityMeasurementTitle" value="Critical" />
+      <String warning="UNLOCALIZED" name="instantActivationButton" value="Instant Activation" />
+      <String warning="UNLOCALIZED" name="internetSecurityImage" value="images/internet-security.png" />
+      <String warning="UNLOCALIZED" name="Left" value="left" />
+      <String warning="UNLOCALIZED" name="lowCriticalityMeasurementTitle" value="Good" />
+      <String warning="UNLOCALIZED" name="mediumCriticalityMeasurementTitle" value="Medium" />
+      <String warning="UNLOCALIZED" name="mediumEmotionImage" value="images/025.png" />
+      <String warning="UNLOCALIZED" name="mediumPointImage" value="images/018.png" />
+      <String warning="UNLOCALIZED" name="percentTitle" value="Fixed" />
+      <String warning="UNLOCALIZED" name="performanceTabGoToUpdateTracker" value="Go to Update Tracker" />
+      <String warning="UNLOCALIZED" name="performanceTabHeader" value="Software developers release new software updates in case of bugs, ineffective consumption of resources or a need for program modification. That's why it so important to keep apps up to date." />
+      <String warning="UNLOCALIZED" name="performanceTabViewAndManage" value="You can view and manage application updates in Update Tracker." />
+      <String warning="UNLOCALIZED" name="performanceTitle" value="Performance" />
+      <String warning="UNLOCALIZED" name="recommendedBy" value="Recommended by:" />
+      <String warning="UNLOCALIZED" name="Remaining" value="remaining" />
+      <String warning="UNLOCALIZED" name="remainingItems" value="remaining items now" />
+      <String warning="UNLOCALIZED" name="scanYourMac" value="Scan your Mac once every three months" />
+      <String warning="UNLOCALIZED" name="securityTabActivated" value="Activated" />
+      <String warning="UNLOCALIZED" name="securityTabActivateLink" value="Click to Activate" />
+      <String warning="UNLOCALIZED" name="securityTabAntiTheftDescription" value="If your Mac gets lost or stolen, Anti-Theft will track its location, collect all possible information and even make an iSight snapshot of the thief. Then the police representatives can easily find your possessions by using the provided information." />
+      <String warning="UNLOCALIZED" name="securityTabAntiTheftText" value="Anti-theft:" />
+      <String warning="UNLOCALIZED" name="securityTabHeader" value="Security items define your Mac's total level of protection against malware, Internet threats and physical theft. Inactive securtity features may lead to data corruption, theft of personal information and problems with software." />
+      <String warning="UNLOCALIZED" name="securityTabInternetSecurityDescription" value="Internet Security is a set of features that protects your system from most kinds of threats. The set includes the following features: Real-Time Safe Browsing, Antivirus, and Scheduling. Internet Security automatically blocks threats and vulnerabilities." />
+      <String warning="UNLOCALIZED" name="securityTabInternetSecurityText" value="Internet Security:" />
+      <String warning="UNLOCALIZED" name="securityTabOfflineProtectionText" value="Offline Protection" />
+      <String warning="UNLOCALIZED" name="securityTabOnlineProtectionText" value="Online Protection" />
+      <String warning="UNLOCALIZED" name="securityTitle" value="Security" />
+      <String warning="UNLOCALIZED" name="seriousEmotionImage" value="images/016.png" />
+      <String warning="UNLOCALIZED" name="seriousExclamationMarkImage" value="images/015.png" />
+      <String warning="UNLOCALIZED" name="seriousPointImage" value="images/027.png" />
+      <String warning="UNLOCALIZED" name="seriousTooltipImage" value="images/021.png" />
+      <String warning="UNLOCALIZED" name="showActivationDetails" value="Show Activation Details" />
+      <String warning="UNLOCALIZED" name="subheader" value="Find and Fix items that may affect your Mac's System Status" />
+      <String warning="UNLOCALIZED" name="supportImage" value="images/man2.png" />
+      <String warning="UNLOCALIZED" name="supportLabel" value="Your Expert" />
+      <String warning="UNLOCALIZED" name="supportTeamImage" value="images/dudes.png" />
+      <String warning="UNLOCALIZED" name="systemStatusNotChanged" value="Your system status is still" />
+      <String warning="UNLOCALIZED" name="systemStatusTitle" value="System Status" />
+      <String warning="UNLOCALIZED" name="tabItemsText" value="issues" />
+      <String warning="UNLOCALIZED" name="tabNoItemsText" value="No issues" />
+      <String warning="UNLOCALIZED" name="tabOneItemText" value="One issue" />
+      <String warning="UNLOCALIZED" name="tipFromExperts" value="Tip from Experts:" />
+      <String warning="UNLOCALIZED" name="tooltipText" value="Click any category to view details" />
+      <String warning="UNLOCALIZED" name="viewDetailsButtonImage" value="images/020.png" />
+      <String warning="UNLOCALIZED" name="viewDetailsButtonTitle" value="View Details" />
+    </FindFixResultResources>
+    <FindFixScanResources>
+      <String warning="UNLOCALIZED" name="percentTitle" value="Scanning..." />
+      <String warning="UNLOCALIZED" name="secondSingle" value="second" />
+      <String warning="UNLOCALIZED" name="secondsPlural" value="seconds" />
+      <String warning="UNLOCALIZED" name="stepDescription1" value="Scan your Mac" />
+      <String warning="UNLOCALIZED" name="stepDescription2" value="Support 24 hours / 7 days" />
+      <String warning="UNLOCALIZED" name="stepDescription3" value="Fix all issues" />
+      <String warning="UNLOCALIZED" name="stepDescription4" value="Enjoy optimized Mac!" />
+      <String warning="UNLOCALIZED" name="stepImage1" value="images/slide1.png" />
+      <String warning="UNLOCALIZED" name="stepImage2" value="images/slide2.png" />
+      <String warning="UNLOCALIZED" name="stepImage3" value="images/slide3.png" />
+      <String warning="UNLOCALIZED" name="stepImage4" value="images/slide4.png" />
+      <String warning="UNLOCALIZED" name="stepName1" value="1. " />
+      <String warning="UNLOCALIZED" name="stepName2" value="2. " />
+      <String warning="UNLOCALIZED" name="stepName3" value="3. " />
+      <String warning="UNLOCALIZED" name="stepName4" value="4. " />
+      <String warning="UNLOCALIZED" name="timeTitle" value="Time left:" />
+      <String warning="UNLOCALIZED" name="title" value="How does Find &amp; Fix work" />
+      <String warning="UNLOCALIZED" name="undefinedTimeLeftText" value="..." />
+    </FindFixScanResources>
+    <FindFixStartResources>
+      <String warning="UNLOCALIZED" name="allScansAnalyzedBy" value="All scans are individually analyzed by Apple Certified Professionals." />
+      <String warning="UNLOCALIZED" name="appleCertifications" value="Apple certifications are designed for IT professionals who support Mac OS X, such as help desk staff, system administrators, and service technicians." />
+      <String warning="UNLOCALIZED" name="appleCertified" value="APPLE CERTIFIED" />
+      <String warning="UNLOCALIZED" name="appleCertifiedProfessionals" value="Apple Certified Professionals" />
+      <String warning="UNLOCALIZED" name="click" value="Click" />
+      <String warning="UNLOCALIZED" name="customerSupport" value="{ProductName} Customer Support" />
+      <String warning="UNLOCALIZED" name="expertsWillHelp" value="and our experts will help you to:" />
+      <String warning="UNLOCALIZED" name="junkFiles" value="junk files" />
+      <String warning="UNLOCALIZED" name="junkFilesAreUnneeded" value="Junk files are unneeded files that may take up space on your hard drive and reduce system performance." />
+      <String warning="UNLOCALIZED" name="keepApps" value="Keep Apps" />
+      <String warning="UNLOCALIZED" name="keepAppsUpToDate" value="Keep Apps Up-to-Date" />
+      <String warning="UNLOCALIZED" name="macImage" value="images/imac.png" />
+      <String warning="UNLOCALIZED" name="peopleImage" value="images/dude.png" />
+      <String warning="UNLOCALIZED" name="productEasilyRemoves" value="{ProductName} easily removes junk files from your Mac." />
+      <String warning="UNLOCALIZED" name="remove" value="Remove" />
+      <String warning="UNLOCALIZED" name="removeImage" value="images/recycl.png" />
+      <String warning="UNLOCALIZED" name="removeJunkFiles" value="Remove junk files" />
+      <String warning="UNLOCALIZED" name="secure" value="Secure" />
+      <String warning="UNLOCALIZED" name="secureImage" value="images/protect.png" />
+      <String warning="UNLOCALIZED" name="secureYourMac" value="Secure yuor Mac" />
+      <String warning="UNLOCALIZED" name="softwareDevelopersRelease" value="Software developers release new software updates in case of bugs, ineffective consumption of resources or a need for program modification. That's why it is so important to keep apps up to date." />
+      <String warning="UNLOCALIZED" name="startScan" value="Start Scan" />
+      <String warning="UNLOCALIZED" name="supportProfessional" value="Support Professional" />
+      <String warning="UNLOCALIZED" name="upToDate" value="Up-to-Date" />
+      <String warning="UNLOCALIZED" name="upToDateImage" value="images/mih.png" />
+      <String warning="UNLOCALIZED" name="weRecommend" value="We recommend updating applications to the latest versions." />
+      <String warning="UNLOCALIZED" name="willProtect" value="Internet Security will protect your Mac from malware and other Internet threats. Anti-Theft will help you locate your Mac in case you lose it or it gets stolen." />
+      <String warning="UNLOCALIZED" name="willProtectOnlineOffline" value="{ProductName}'s Internet Security and Anti-Theft features will protect you both online and offline." />
+      <String warning="UNLOCALIZED" name="yourMac" value="your Mac" />
+    </FindFixStartResources>
+    <FooterResources>
+      <String warning="UNLOCALIZED" name="hideLiveSupport" value="Hide Live Support" />
+      <String warning="UNLOCALIZED" name="instantActivation" value="Instant Activation" />
+      <String warning="UNLOCALIZED" name="learnMore" value="Learn more about each feature in the Live Support bar on the right." />
+      <String warning="UNLOCALIZED" name="leftArrow" value="&amp;raquo;" />
+      <String warning="UNLOCALIZED" name="rightArrow" value="&amp;laquo;" />
+      <String warning="UNLOCALIZED" name="showLiveSupport" value="Show Live Support" />
+    </FooterResources>
+    <FormResources>
+      <String warning="UNLOCALIZED" name="cancelButton" value="Cancel" />
+      <String warning="UNLOCALIZED" name="commentsPlaceholder" value="Leave your comments" />
+      <String warning="UNLOCALIZED" name="emailPlaceholder" value="Email" />
+      <String warning="UNLOCALIZED" name="fieldRequired" value="This field is required." />
+      <String warning="UNLOCALIZED" name="incorrectEmail" value="Invalid email address." />
+      <String warning="UNLOCALIZED" name="messagePlaceholder" value="Enter your message here" />
+      <String warning="UNLOCALIZED" name="namePlaceholder" value="Name" />
+      <String warning="UNLOCALIZED" name="phonePlaceholder" value="Phone" />
+      <String warning="UNLOCALIZED" name="sendButton" value="Send" />
+      <String warning="UNLOCALIZED" name="submitButton" value="Submit" />
+    </FormResources>
+    <IntroResources>
+      <String warning="UNLOCALIZED" name="benefits" value="Benefits" />
+      <String warning="UNLOCALIZED" name="extraRibbon" value="images/extra-ribbon.png" />
+      <String warning="UNLOCALIZED" name="overview" value="Overview" />
+      <String warning="UNLOCALIZED" name="tutorial" value="Tutorial" />
+    </IntroResources>
+    <IntroViewResources>
+      <String warning="UNLOCALIZED" name="applicationUpdaterDescription" value="'Update' control to check if all your applications are freshly updated and ensure that none are slowing your Mac down" />
+      <String warning="UNLOCALIZED" name="applicationUpdaterImage" value="out-of-date" />
+      <String warning="UNLOCALIZED" name="duplicateFinderDescription" value="Discover and remove unnedded file copies" />
+      <String warning="UNLOCALIZED" name="duplicateFinderImage" value="duplicate" />
+      <String warning="UNLOCALIZED" name="eraserDescription" value="Securely delete all files that didn't went into Trash folders somehow but must be wiped out from your system without any chance recovery" />
+      <String warning="UNLOCALIZED" name="eraserImage" value="erase" />
+      <String warning="UNLOCALIZED" name="extensionsManagerDescription" value="Safely get rid of extensions you don't use anymore" />
+      <String warning="UNLOCALIZED" name="extensionsManagerImage" value="extensions" />
+      <String warning="UNLOCALIZED" name="largeFilesDescription" value="Look up and remove large folders, files that you don't use for a long time" />
+      <String warning="UNLOCALIZED" name="largeFilesImage" value="large-and-old" />
+      <String warning="UNLOCALIZED" name="securityDescription" value="Update Apps and Enable Firewall" />
+      <String warning="UNLOCALIZED" name="securityImage" value="security" />
+      <String warning="UNLOCALIZED" name="trashCleanupDescription" value="With Trash Cleanup you are able to delete all trash folders at once, because MacShiny scans yours Mac thoroughly and finds all those folders" />
+      <String warning="UNLOCALIZED" name="trashCleanupImage" value="trash" />
+      <String warning="UNLOCALIZED" name="uninstallerDescription" value="Remove unneeded or unused apps from your system" />
+      <String warning="UNLOCALIZED" name="uninstallerImage" value="uninstaller" />
+    </IntroViewResources>
+    <LargeAndOldMainResources>
+      <String warning="UNLOCALIZED" name="clean" value="Clean" />
+    </LargeAndOldMainResources>
+    <LiveSupportAboutResources>
+      <String warning="UNLOCALIZED" name="aboutTabUpdateInfoDescription" value="Description text." />
+      <String warning="UNLOCALIZED" name="aboutTabUpdateInfoHomeImage" value="images/icon-blue-house.png" />
+      <String warning="UNLOCALIZED" name="aboutTabUpdateInfoHomeText" value="Show Welcome Screen" />
+      <String warning="UNLOCALIZED" name="aboutTabUpdateInfoListItem1" value="Security Tools: Checks whether the Internet Security and Anti-Theft plugins are installed." />
+      <String warning="UNLOCALIZED" name="aboutTabUpdateInfoListItem2" value="Junk Files: Runs Fast Cleanup and shows you how many junk files have been found on your Mac." />
+      <String warning="UNLOCALIZED" name="aboutTabUpdateInfoListItem3" value="Optimization Tweaks: Searches for outdated applications." />
+      <String warning="UNLOCALIZED" name="aboutTabUpdateInfoTitle" value="What is " />
+      <String warning="UNLOCALIZED" name="antiTheftDescription" value="If your Mac gets lost or stolen, Anti-Theft will track its location and even take an iSight snapshot of the thief. Please turn on Anti-Theft right now, then remember the instructions on the Anti-Theft tab and follow them if you lose your Mac." />
+      <String warning="UNLOCALIZED" name="imagePath" value="images/023.png" />
+      <String warning="UNLOCALIZED" name="systemStatusDescription" value="System Status shows the overall state of your Mac, your license information and allows you to manage it on the account page. System Status displays all found items for you to fix them with one click. There are three categories of tools to fix the found items:" />
+      <String warning="UNLOCALIZED" name="title" value="About" />
+    </LiveSupportAboutResources>
+    <LiveSupportContactResources>
+      <String warning="UNLOCALIZED" name="bubbleImage" value="images/icon-white-msg.png" />
+      <String warning="UNLOCALIZED" name="competence" value="Technical competence:" />
+      <String warning="UNLOCALIZED" name="courtesy" value="Courtesy of agent:" />
+      <String warning="UNLOCALIZED" name="failedSendMessage" value="Failed to send message." />
+      <String warning="UNLOCALIZED" name="feedbackInfoHeading" value="Please rate your customer support experience. It will take you only a minute." />
+      <String warning="UNLOCALIZED" name="greetingMessageBody" value="An expert has joined the chat." />
+      <String warning="UNLOCALIZED" name="greetingMessageHeader" value="Thank you for waiting." />
+      <String warning="UNLOCALIZED" name="hint" value="Call us 24/7 with any questions. Toll free." />
+      <String warning="UNLOCALIZED" name="imageAU" value="images/icon-au-flag.png" />
+      <String warning="UNLOCALIZED" name="imageExpert" value="images/expert-photo.png" />
+      <String warning="UNLOCALIZED" name="imagePath" value="images/011.png" />
+      <String warning="UNLOCALIZED" name="imagePhoneCall" value="images/icon-call.png" />
+      <String warning="UNLOCALIZED" name="imagePhoneSkype" value="images/icon-skype-2.png" />
+      <String warning="UNLOCALIZED" name="imageSkype" value="images/icon-skype.png" />
+      <String warning="UNLOCALIZED" name="imageUK" value="images/icon-uk-flag.png" />
+      <String warning="UNLOCALIZED" name="imageUS" value="images/icon-us-flag.png" />
+      <String warning="UNLOCALIZED" name="liveChatInfoHeading" value="Live Chat" />
+      <String warning="UNLOCALIZED" name="mailImage" value="images/icon-white-mail.png" />
+      <String warning="UNLOCALIZED" name="messageSent" value="Your message has been sent." />
+      <String warning="UNLOCALIZED" name="phoneAU" value="1 (800) 462-715" />
+      <String warning="UNLOCALIZED" name="phoneSkype" value="1 (888) 189-1280" />
+      <String warning="UNLOCALIZED" name="phoneUK" value="1 (808) 189-1280" />
+      <String warning="UNLOCALIZED" name="phoneUS" value="1 (888) 572-5876" />
+      <String warning="UNLOCALIZED" name="quality" value="Overall support quality:" />
+      <String warning="UNLOCALIZED" name="sendMessageButton" value="Send Message" />
+      <String warning="UNLOCALIZED" name="sendMessageButtonHint" value="Get answer in 24 hours" />
+      <String warning="UNLOCALIZED" name="startLiveChatButton" value="Start Live Chat" />
+      <String warning="UNLOCALIZED" name="startLiveChatButtonHint" value="24/7 {ProductName} Expert" />
+      <String warning="UNLOCALIZED" name="timeliness" value="Timeliness of answers:" />
+      <String warning="UNLOCALIZED" name="title" value="Contact" />
+      <String warning="UNLOCALIZED" name="titleAU" value="Australia" />
+      <String warning="UNLOCALIZED" name="titleSkype" value="Skype" />
+      <String warning="UNLOCALIZED" name="titleUK" value="UK" />
+      <String warning="UNLOCALIZED" name="titleUS" value="USA" />
+      <String warning="UNLOCALIZED" name="yourMacIsOffline" value="YOUR MAC IS OFFLINE" />
+    </LiveSupportContactResources>
+    <LiveSupportHelpResources>
+      <String warning="UNLOCALIZED" name="helpTabInitialInfoContactUsText" value="Contact Us" />
+      <String warning="UNLOCALIZED" name="helpTabInitialInfoTitle" value="Choose the nature of problem" />
+      <String warning="UNLOCALIZED" name="imagePath" value="images/024.png" />
+      <String warning="UNLOCALIZED" name="title" value="Help" />
+    </LiveSupportHelpResources>
+    <MenuItemResources>
+      <String warning="UNLOCALIZED" name="AdvancedUtilitiesGroupLabel" value="ADVANCED UTILITIES" />
+      <String warning="UNLOCALIZED" name="antiTheftImage" value="images/anti-theft-navigation-icon.png" />
+      <String warning="UNLOCALIZED" name="antiTheftLabel" value="Anti Theft" />
+      <String warning="UNLOCALIZED" name="antivirusLabel" value="Antivirus" />
+      <String warning="UNLOCALIZED" name="antivirusMenuImage" value="antivirus" />
+      <String warning="UNLOCALIZED" name="applicationUpdaterMenuImage" value="updater" />
+      <String warning="UNLOCALIZED" name="applicationUpdaterMenuLabel" value="Updater" />
+      <String warning="UNLOCALIZED" name="duplicateFinderMenuImage" value="duplicates-finder" />
+      <String warning="UNLOCALIZED" name="duplicateFinderMenuLabel" value="Duplicates Finder" />
+      <String warning="UNLOCALIZED" name="eraserImage" value="eraser" />
+      <String warning="UNLOCALIZED" name="eraserMenuLabel" value="Eraser" />
+      <String warning="UNLOCALIZED" name="ExperimentalGroupLabel" value="EXPERIMENTAL" />
+      <String warning="UNLOCALIZED" name="extensionsManagerMenuImage" value="extensions" />
+      <String warning="UNLOCALIZED" name="extensionsManagerMenuLabel" value="Extensions Manager" />
+      <String warning="UNLOCALIZED" name="FindFixGroupLabel" value="FIND AND FIX" />
+      <String warning="UNLOCALIZED" name="findFixImage" value="images/find-fix-navigation-icon.png" />
+      <String warning="UNLOCALIZED" name="findFixLabel" value="Find &amp; Fix" />
+      <String warning="UNLOCALIZED" name="geekOnDemandImage" value="images/geek-on-demand-navigation-icon.png" />
+      <String warning="UNLOCALIZED" name="geekOnDemandLabel" value="Geek on Demand" />
+      <String warning="UNLOCALIZED" name="humanAssistanceLabel" value="Human Assistance" />
+      <String warning="UNLOCALIZED" name="internetSecurityLabel" value="Internet Security" />
+      <String warning="UNLOCALIZED" name="largeFilesMenuImage" value="large-and-old" />
+      <String warning="UNLOCALIZED" name="largeFilesMenuLabel" value="Large &amp; Old Files" />
+      <String warning="UNLOCALIZED" name="rootLabel" value="." />
+      <String warning="UNLOCALIZED" name="securityLabel" value="Security" />
+      <String warning="UNLOCALIZED" name="securityMenuImage" value="security" />
+      <String warning="UNLOCALIZED" name="securityMenuLabel" value="Security" />
+      <String warning="UNLOCALIZED" name="systemScanLabel" value="System Scan" />
+      <String warning="UNLOCALIZED" name="systemScanMenuImage" value="system-scan" />
+      <String warning="UNLOCALIZED" name="systemStatusGroupLabel" value="System Status Group" />
+      <String warning="UNLOCALIZED" name="systemStatusLabel" value="System Status" />
+      <String warning="UNLOCALIZED" name="systemStatusMenuImage" value="system-status" />
+      <String warning="UNLOCALIZED" name="trashCleanupMenuImage" value="trash" />
+      <String warning="UNLOCALIZED" name="trashCleanupMenuLabel" value="Trash Cleanup" />
+      <String warning="UNLOCALIZED" name="undefinedLabel" value="!!!===NONAMED===!!!" />
+      <String warning="UNLOCALIZED" name="undefinedMenuImage" value="_dummy" />
+      <String warning="UNLOCALIZED" name="uninstallerMenuImage" value="uninstaller" />
+      <String warning="UNLOCALIZED" name="uninstallerMenuLabel" value="Uninstaller" />
+    </MenuItemResources>
+    <NoInternetWindowResources>
+      <String warning="UNLOCALIZED" name="noInternetImage" value="NoInternetImage" />
+      <String warning="UNLOCALIZED" name="pleaseCheckInternet" value="Please check your internet connection to continue the Find &amp; Fix procedure." />
+      <String warning="UNLOCALIZED" name="yourMacIsOffline" value="Your Mac Is Offline" />
+    </NoInternetWindowResources>
+    <QuickHelpResources>
+      <String warning="UNLOCALIZED" name="quickHelpDoesNotHelpText" value="It Doesn't Help Me" />
+      <String warning="UNLOCALIZED" name="quickHelpGotItText" value="Okay! I Got it!" />
+      <String warning="UNLOCALIZED" name="quickHelpSolutionText" value="Solution" />
+      <String warning="UNLOCALIZED" name="quickHelpSubtitle" value="Customer Support Feature" />
+      <String warning="UNLOCALIZED" name="quickHelpTitle" value="Quick Help" />
+      <String warning="UNLOCALIZED" name="quickHelpTitleImage" value="images/icon-quick-help.png" />
+    </QuickHelpResources>
+    <RegistrationWindowResources>
+      <String warning="UNLOCALIZED" name="alreadyHaveAccount" value="Already have {ProductName} account?" />
+      <String warning="UNLOCALIZED" name="and" value="and" />
+      <String warning="UNLOCALIZED" name="back" value="Back" />
+      <String warning="UNLOCALIZED" name="byClickingYouAccept" value="By clicking Continue Fixing items you accept" />
+      <String warning="UNLOCALIZED" name="certificatesImage" value="images/signup-partners.jpg" />
+      <String warning="UNLOCALIZED" name="checkYourInbox" value="Check your Inbox and follow the instructions in the message. Please note that the message might get into Spam folder." />
+      <String warning="UNLOCALIZED" name="continueFixingItems" value="CONTINUE FIXING ITEMS" />
+      <String warning="UNLOCALIZED" name="createYou" value="Create You" />
+      <String warning="UNLOCALIZED" name="doNotHaveAnAccount" value="Don't have an account yet?" />
+      <String warning="UNLOCALIZED" name="emailIsAlreadyUsed" value="This email address is already used." />
+      <String warning="UNLOCALIZED" name="emailIsRequired" value="Email is required." />
+      <String warning="UNLOCALIZED" name="emailNotConfirmed" value="Email not confirmed." />
+      <String warning="UNLOCALIZED" name="emailNotFound" value="Email not found." />
+      <String warning="UNLOCALIZED" name="enteredCombinationIsNotValid" value="Entered combination of username and password is not valid." />
+      <String warning="UNLOCALIZED" name="enterUsernameAndPassword" value="Enter both username and password." />
+      <String warning="UNLOCALIZED" name="enterYouEmail" value="Enter your email" />
+      <String warning="UNLOCALIZED" name="enterYourPassword" value="Enter your password" />
+      <String warning="UNLOCALIZED" name="forgotPassword" value="Forgot Password?" />
+      <String warning="UNLOCALIZED" name="forgotYourPassword" value="Forgot your password?" />
+      <String warning="UNLOCALIZED" name="freeProductNameAccount" value="FREE {ProductName} Account" />
+      <String warning="UNLOCALIZED" name="freeSignUp" value="FREE SIGN UP" />
+      <String warning="UNLOCALIZED" name="logIn" value="Log In" />
+      <String warning="UNLOCALIZED" name="logInWithFacebook" value="Log In with Facebook" />
+      <String warning="UNLOCALIZED" name="privacyPolicy" value="Privacy Policy." />
+      <String warning="UNLOCALIZED" name="receiveTutorials" value="Receive tutorials, tips, and special offers" />
+      <String warning="UNLOCALIZED" name="send" value="Send" />
+      <String warning="UNLOCALIZED" name="signUpForFree" value="Sign Up for FREE" />
+      <String warning="UNLOCALIZED" name="termsOfUse" value="Terms of Use" />
+      <String warning="UNLOCALIZED" name="toAccessAllFeatures" value="to Access All {ProductName} Features" />
+      <String warning="UNLOCALIZED" name="toActivateAntiTheft" value="to Activate Anti-Theft." />
+      <String warning="UNLOCALIZED" name="toContinueFix" value="to Continue Fix" />
+      <String warning="UNLOCALIZED" name="toUseGeekOnDemand" value="to Use Geek on Demand." />
+      <String warning="UNLOCALIZED" name="unknownError" value="Unknown error" />
+      <String warning="UNLOCALIZED" name="wrongEmailAddress" value="Wrong email address." />
+    </RegistrationWindowResources>
+    <SecurityResources>
+      <String warning="UNLOCALIZED" name="activate" value="Activate" />
+      <String warning="UNLOCALIZED" name="activated" value="Activated" />
+    </SecurityResources>
+    <SystemStatusResources>
+      <String warning="UNLOCALIZED" name="activatedImage" value="images/activated-account.png" />
+      <String warning="UNLOCALIZED" name="activateProduct" value="Activate {ProductName}" />
+      <String warning="UNLOCALIZED" name="activateYourLicense" value="Activate your license" />
+      <String warning="UNLOCALIZED" name="changePassword" value="Change Password" />
+      <String warning="UNLOCALIZED" name="cleaning" value="Cleaning" />
+      <String warning="UNLOCALIZED" name="continueToLiveReview" value="Continue to Live Review" />
+      <String warning="UNLOCALIZED" name="createFreeAccount" value="Create a FREE account" />
+      <String warning="UNLOCALIZED" name="excellent" value="Excellent" />
+      <String warning="UNLOCALIZED" name="findFix" value="Find &amp; Fix" />
+      <String warning="UNLOCALIZED" name="fixItemsSafely" value="Fix Items Safely" />
+      <String warning="UNLOCALIZED" name="initialCount" value="?" />
+      <String warning="UNLOCALIZED" name="instantActivation" value="Instant Activation" />
+      <String warning="UNLOCALIZED" name="itemSingle" value="item" />
+      <String warning="UNLOCALIZED" name="itemsPlural" value="items" />
+      <String warning="UNLOCALIZED" name="logIn" value="Log In" />
+      <String warning="UNLOCALIZED" name="logInWithYourAccount" value="Log in with your {Company} account to access all features of {ProductName}" />
+      <String warning="UNLOCALIZED" name="logOut" value="Log Out" />
+      <String warning="UNLOCALIZED" name="macIsOfflineImage" value="images/offline-account.png" />
+      <String warning="UNLOCALIZED" name="macText" value="Mac" />
+      <String warning="UNLOCALIZED" name="manageAccount" value="Manage Account" />
+      <String warning="UNLOCALIZED" name="medium" value="Medium" />
+      <String warning="UNLOCALIZED" name="notActivatedImage" value="images/not-activated-account.png" />
+      <String warning="UNLOCALIZED" name="or" value="or" />
+      <String warning="UNLOCALIZED" name="performance" value="Performance" />
+      <String warning="UNLOCALIZED" name="rescan" value="Rescan" />
+      <String warning="UNLOCALIZED" name="security" value="Security" />
+      <String warning="UNLOCALIZED" name="serious" value="Serious" />
+      <String warning="UNLOCALIZED" name="shareResults" value="Please share the scan results with your tech expert in" />
+      <String warning="UNLOCALIZED" name="startFindFix" value="Start Find &amp; Fix" />
+      <String warning="UNLOCALIZED" name="startScan" value="Start Scan" />
+      <String warning="UNLOCALIZED" name="startToAnalyze" value="To analyze your Mac and identify any items start" />
+      <String warning="UNLOCALIZED" name="stopScan" value="Stop Scan" />
+      <String warning="UNLOCALIZED" name="systemStatus" value="SYSTEM STATUS" />
+      <String warning="UNLOCALIZED" name="unknown" value="Unknown" />
+      <String warning="UNLOCALIZED" name="useToKeepInGoodCondition" value="To keep your Mac in a good condition every 3 months use" />
+      <String warning="UNLOCALIZED" name="viewReport" value="View Expert Report and fix all found items in" />
+      <String warning="UNLOCALIZED" name="yourLicenseIsActivated" value="Your license is activated" />
+      <String warning="UNLOCALIZED" name="yourMacIsOffline" value="Your Mac Is Offline" />
+      <String warning="UNLOCALIZED" name="yourSystemStatusIs" value="Your system status is" />
+    </SystemStatusResources>
+    <UninstallerMainResources>
+      <String warning="UNLOCALIZED" name="clean" value="Clean" />
+    </UninstallerMainResources>
+    <UpdaterResources>
+      <String warning="UNLOCALIZED" name="update" value="Update" />
+    </UpdaterResources>
+  </MacCleaner2>
+</Resources>

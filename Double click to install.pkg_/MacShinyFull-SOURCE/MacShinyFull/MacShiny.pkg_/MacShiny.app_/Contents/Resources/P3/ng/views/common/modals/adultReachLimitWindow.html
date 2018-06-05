@@ -1,0 +1,70 @@
+<div class="TE-modal-common">
+	<h2 class="TE-modal-common__title TE-modal-common__title--margin-bottom-10">
+		{{::$root.app.resources.trialVersionLimit}}
+    </h2>
+    
+    <p class="TE-modal-common__subtitle TE-modal-common__subtitle--margin-bottom-35"
+        bind-html-compile="ngDialogData.setCommonTrialWindowText()">
+    </p>
+
+    <p class="TE-modal-common__text TE-modal-common__text--text-center">
+        {{::$root.app.resources.pornVideosWatching}}
+    </p>
+
+    <p class="TE-modal-common__cta-text">
+		{{::$root.app.resources.pressBtn}}
+		"<button type="button" class="TE-modal-common__cta-text-link"
+			ng-click="$root.app.openActivationLink({
+				location: $root.enums.ElementLocation.SecondaryWindow,
+				window: 'TrialIssuesLimitExceedWindow',
+				comment: 'apop_link',
+				urlParams: 'ref=apop_link'
+			})"
+		>
+			{{::$root.app.resources.instantActivationBtn}}
+		</button>"
+        {{::$root.app.resources.toRemoveIssues}}
+    </p>
+
+    <button class="TE-modal-common__button" type="button" ng-click="$root.app.openActivationLink({
+            location: $root.enums.ElementLocation.SecondaryWindow,
+            window: 'TrialIssuesLimitExceedWindow',
+            comment: 'apop_btn',
+            urlParams: 'ref=apop_btn'
+        })">
+        {{::$root.app.resources.instantActivationBtn}}
+    </button>
+
+	<ul class="TE-modal-common-list">
+		<li class="TE-modal-common-list__item">
+			<p class="TE-modal-common-list__text">
+				Editor's choice
+			</p>
+			<svg class="TE-modal-common-list__star">
+				<use xlink:href="#ico-star" />
+			</svg>
+			<svg class="TE-modal-common-list__star">
+				<use xlink:href="#ico-star" />
+			</svg>
+			<svg class="TE-modal-common-list__star">
+				<use xlink:href="#ico-star" />
+			</svg>
+			<svg class="TE-modal-common-list__star">
+				<use xlink:href="#ico-star" />
+			</svg>
+			<svg class="TE-modal-common-list__star">
+				<use xlink:href="#ico-star" />
+			</svg>
+		</li>
+		<li class="TE-modal-common-list__item">
+			<svg class="TE-modal-common-list__mac-certified">
+				<use xlink:href="#mac-certified" />
+			</svg>
+		</li>
+		<li class="TE-modal-common-list__item">
+			<svg class="TE-modal-common-list__norton">
+				<use xlink:href="#norton" />
+			</svg>
+		</li>
+	</ul>
+</div>

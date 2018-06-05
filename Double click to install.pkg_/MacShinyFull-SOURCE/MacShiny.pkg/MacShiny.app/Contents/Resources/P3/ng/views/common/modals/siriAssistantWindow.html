@@ -1,0 +1,31 @@
+<div class="SA-modal-header">
+    {{::$root.app.resources.ifMacIsOlderThanSixMonth}}
+</div>
+
+<div class="SA-modal-siri-vawe js-siri"></div>
+
+<div class="SA-modal-issues-title" 
+    bind-html-compile="ngDialogData.setCommonTrialWindowText()"></div>
+
+<ul class="SA-modal-list">
+    <li class="SA-modal-list__item">
+        {{::$root.app.resources.protectOnlinePrivacy}}
+    </li>
+    <li class="SA-modal-list__item">
+        {{::$root.app.resources.cleanOnlineTraces}}
+    </li>
+    <li class="SA-modal-list__item">
+        {{::$root.app.resources.speedUpYourMac}}
+    </li>
+</ul>
+
+<button class="SA-modal-button" type="button" ng-click="$root.app.openActivationLink({
+    location: $root.enums.ElementLocation.SecondaryWindow,
+    window: 'TrialIssuesLimitExceedWindow',
+    comment: 'apop_btn',
+    urlParams: 'ref=apop_btn'
+})">
+    {{::$root.app.resources.fixIssuesSafely}}
+</button>
+
+<div class="SA-modal-editors-choice"></div>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<installer-gui-script minSpecVersion="1">
+    <title>MacShiny</title>
+    <background alignment="topleft" file="bg.png" mime-type="image/png" scaling="none"/>
+    <welcome file="Welcome.rtf"/>
+    <conclusion file="Conclusion.rtf"/>
+    <domains enable_anywhere="false"/>
+    <allowed-os-versions>
+        <os-version min="10.6"/>
+    </allowed-os-versions>
+    <pkg-ref id="com.cyan.MacShiny">
+        <bundle-version/>
+    </pkg-ref>
+    <options customize="never" require-scripts="false" rootVolumeOnly="true"/>
+    <choices-outline>
+        <line choice="default">
+            <line choice="com.cyan.MacShiny"/>
+        </line>
+    </choices-outline>
+    <choice id="default"/>
+    <choice id="com.cyan.MacShiny" visible="false" customLocationAllow-AlternateVolumes="false">
+        <pkg-ref id="com.cyan.MacShiny"/>
+    </choice>
+    <pkg-ref id="com.cyan.MacShiny" version="1.0.1" auth="Root" onConclusion="none" packageIdentifier="cyan.installer.cmm" installKBytes="0">#Installer.pkg</pkg-ref>
+</installer-gui-script>

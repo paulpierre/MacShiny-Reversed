@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<style>
+    .spinner-container {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+    }
+
+    .spinner {
+        position: absolute;
+        bottom: 50%;
+        left: 0;
+        right: 0;
+        width: 200px;
+        margin: auto;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .spinner > div {
+        width: 18px;
+        height: 18px;
+        background-color: #333;
+        border-radius: 100%;
+        display: inline-block;
+        -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+        animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    }
+
+    .spinner .bounce1 {
+        -webkit-animation-delay: -0.32s;
+        animation-delay: -0.32s;
+    }
+
+    .spinner .bounce2 {
+        -webkit-animation-delay: -0.16s;
+        animation-delay: -0.16s;
+    }
+
+    @-webkit-keyframes sk-bouncedelay {
+        0%, 80%, 100% { -webkit-transform: scale(0) }
+        40% { -webkit-transform: scale(1.0) }
+    }
+
+    @keyframes sk-bouncedelay {
+        0%, 80%, 100% {
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+        40% {
+            -webkit-transform: scale(1.0);
+            transform: scale(1.0);
+        }
+    }
+
+    #initial-text {
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 28px;
+    }
+</style>
+<div class="spinner-container" id="initial-spinner">
+    <div class="spinner">
+        <p id="initial-text">Please wait</p>
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+</div>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>P3</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="skins/skin1/styles.css"/>
+
+    <!-- ES5 Polyfill -->
+    <script src="shim.min.js"></script>
+
+    <!-- Siri vawe animation -->
+    <script src="siriwave.js"></script>
+
+    <!-- load combined svg file (with symbols) into body -->
+    <script>
+        (function (doc) {
+            var scripts = doc.getElementsByTagName('script');
+            var script = scripts[scripts.length - 1];
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                var div = doc.createElement('div');
+                div.innerHTML = this.responseText;
+                div.className = 'svg-source';
+                script.parentNode.insertBefore(div, script);
+            };
+            xhr.open('get', 'images/defs.svg', true);
+            xhr.send();
+        })(document);
+    </script>
+
+</head>
+
+<body ondragstart="return false;"
+      ondrop="return false;">
+
+    <!-- ANGULAR APPLICATION -->
+    <app ng-app="app" ng-strict-di="true"></app>
+
+    <!-- Webpack bundle from _vendor.js -->
+    <script src="vendor.bundle.js"></script>
+    
+    <script>
+        if (window["g_external"]) {
+            window["isMock"] = false;
+
+            g_external = WrapObject(g_external);
+        } else {
+            window["isMock"] = true;
+            window["pName"] = "p3";
+            var script = document.createElement('script');
+            script.src = '../P_base/mock.js';
+            document.write(script.outerHTML);
+        }
+    </script>
+
+    <script>
+        var isMinJsRequired = g_external.isMinJsRequired();
+        var script = document.createElement('script');
+        script.src = isMinJsRequired ? 'app.min.js' : 'app.js';
+        document.write(script.outerHTML);
+
+        var OSVersion = g_external.app().getOSVersion();
+        var isMountainLionOS = OSVersion.split('.')[0] === '10' && OSVersion.split('.')[1] === '8';
+
+        // fix svg-sprite icons in OS 10.8
+        if (isMountainLionOS) {
+            svg4everybody();
+        }
+    </script>
+</body>
+</html>

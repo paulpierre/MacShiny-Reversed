@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration version="1" revision="1" ManualXml="1" Comment="RESCAN" LogLevelNotifications="1" MasterFile="Notifications_N011.xml">
+
+
+
+  <Notifications>
+
+    <!-- notif_021_rescan -->
+
+    <Notification name="Rescan_021" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/lp/gWebNotif1/notif_021_rescan</ContentUrl>
+      <UrlParams>onlyType=rescan</UrlParams>
+      <Width>420</Width>
+      <Height>140</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>3d</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+
+
+    <!-- notif_022_rescan -->
+
+    <Notification name="Rescan_022" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/lp/gWebNotif1/notif_022_rescan</ContentUrl>
+      <UrlParams>onlyType=rescan</UrlParams>
+      <Width>450</Width>
+      <Height>80</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>3d</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+
+    <!-- notif_023_1_rescan -->
+
+    <Notification name="Rescan_023_1" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/lp/gWebNotif1/notif_023_1_rescan</ContentUrl>
+      <UrlParams>onlyType=rescan</UrlParams>
+      <Width>400</Width>
+      <Height>230</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>3d</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+
+    </Notification>
+
+
+
+    <!-- notif_023_2_rescan -->
+
+    <Notification name="Rescan_023_2" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/lp/gWebNotif1/notif_023_2_rescan</ContentUrl>
+      <UrlParams>onlyType=rescan</UrlParams>
+      <Width>400</Width>
+      <Height>230</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>3d</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+
+    </Notification>
+
+
+
+    <!-- notif_023_3_rescan -->
+
+    <Notification name="Rescan_023_3" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/lp/gWebNotif1/notif_023_3_rescan</ContentUrl>
+      <UrlParams>onlyType=rescan</UrlParams>
+      <Width>400</Width>
+      <Height>260</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>3d</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+
+    <!-- FirstScanOffer_05_Right -->
+
+    <Notification name="FirstScanOffer_05_Right" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>NoScan</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/lp/gWebNotif1/notif_05_right</ContentUrl>
+      <UrlParams>onlyType=scan</UrlParams>
+      <Width>320</Width>
+      <Height>0</Height>
+      <DisplayPosition>Right</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <SharedNotifSettings_SubsetOnly>
+        <SharedNotifSetting_SubsetOnly>subsetRight1</SharedNotifSetting_SubsetOnly>
+      </SharedNotifSettings_SubsetOnly>
+
+      <PeriodSeconds>3d</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+
+    <!-- FirstCleanOffer_05_Right -->
+
+    <Notification name="FirstCleanOffer_05_Right" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>ScanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/lp/gWebNotif1/notif_05_right</ContentUrl>
+      <UrlParams>onlyType=clean</UrlParams>
+      <Width>320</Width>
+      <Height>0</Height>
+      <DisplayPosition>Right</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDat>1</JDat>
+      
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+      
+      <SharedNotifSettings_SubsetOnly>
+        <SharedNotifSetting_SubsetOnly>subsetRight1</SharedNotifSetting_SubsetOnly>
+      </SharedNotifSettings_SubsetOnly>
+
+      <PeriodSeconds>3d</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+
+    <!-- ActivateOffer_05_Right -->
+
+    <Notification name="ActivateOffer_05_Right" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/lp/gWebNotif1/notif_05_right</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>320</Width>
+      <Height>0</Height>
+      <DisplayPosition>Right</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDat>1</JDat>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+      
+      <SharedNotifSettings_SubsetOnly>
+        <SharedNotifSetting_SubsetOnly>subsetRight1</SharedNotifSetting_SubsetOnly>
+      </SharedNotifSettings_SubsetOnly>
+
+      <PeriodSeconds>3d</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+    <!-- Rescan_05_Right -->
+
+    <Notification name="Rescan_05_Right" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/lp/gWebNotif1/notif_05_right</ContentUrl>
+      <UrlParams>onlyType=rescan</UrlParams>
+      <Width>320</Width>
+      <Height>0</Height>
+      <DisplayPosition>Right</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDatSystemInfo>1</JDatSystemInfo>
+      
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <SharedNotifSettings_SubsetOnly>
+        <SharedNotifSetting_SubsetOnly>subsetRight1</SharedNotifSetting_SubsetOnly>
+      </SharedNotifSettings_SubsetOnly>
+
+      <PeriodSeconds>3d</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+
+    <!-- activate offer 024_1: -->
+
+    <Notification name="ActivateOffer_024_1" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_024_1_rescan_fix_feedback</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>360</Width>
+      <Height>220</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDat>2</JDat>
+      <!--  retrieve from server -->
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+
+    <!-- 024_1 rescan -->
+
+    <Notification name="Rescan_024_1" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/lp/gWebNotif1/notif_024_1_rescan_fix_feedback</ContentUrl>
+      <UrlParams>onlyType=rescan</UrlParams>
+      <Width>360</Width>
+      <Height>200</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>3d</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+
+    </Notification>
+
+
+    <!-- activate offer 024_02: -->
+
+    <Notification name="ActivateOffer_024_02" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_024_2_scan_activation</ContentUrl>
+      <UrlParams>onlyType=activate</UrlParams>
+      <Width>360</Width>
+      <Height>200</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+      <JDat>2</JDat>
+      <!--  retrieve from server -->
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>30m</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+
+
+    <!-- 024_2 rescan -->
+
+    <Notification name="Rescan_024_2" Kind="WebPage" InetCheck="60">
+      <Triggers>
+        <Trigger>TrialCleanFinish</Trigger>
+      </Triggers>
+      <ExpiredConditions>
+        <AppIsActivated/>
+      </ExpiredConditions>
+
+      <ContentUrl>http://macshiny.com/lp/gWebNotif1/notif_024_2_scan_activation</ContentUrl>
+      <UrlParams>onlyType=rescan</UrlParams>
+      <Width>360</Width>
+      <Height>200</Height>
+      <DisplayPosition>TopRight</DisplayPosition>
+
+      <NoCloseTitle>1</NoCloseTitle>
+      <NoScroll>1</NoScroll>
+
+      <sharedNotifSettings>
+        <sharedNotifSetting>set1</sharedNotifSetting>
+      </sharedNotifSettings>
+
+      <PeriodSeconds>3d</PeriodSeconds>
+      <!-- 5 minutes after tray start: -->
+      <StartDelaySeconds>5m</StartDelaySeconds>
+    </Notification>
+    
+    
+  </Notifications>
+</configuration>

@@ -1,0 +1,248 @@
+#!/bin/sh
+#  postinstall.sh
+
+echo "Presets\scripts\guiScripts\postinstall"
+echo "PID: $$; PPID: $PPID; Args: $(ps -o args= $$)"
+
+if [ -f "/tmp/.cyanDebug/_enableInstallScriptTrace" ]; then
+	set -x
+fi
+
+
+checkProc()
+{
+ps -eo pid,comm | grep $1 | awk '{print $1}' | head -1
+}
+
+######################### sendStat begin
+urlencode()
+{
+	local length="${#1}"
+	for (( i = 0; i < length; i++ ))
+	do
+		local c="${1:i:1}"
+		case $c in
+			[a-zA-Z0-9.~_-]) printf "$c" ;;
+			*) printf '%%%02X' "'$c"
+		esac
+	done
+}
+
+os_ver=$(sw_vers -productVersion)
+
+serialExact="$(ioreg -c IOPlatformExpertDevice -d 2 | grep IOPlatformSerialNumber | sed -e 's/.*\"\(.*\)\"/\1/')"
+
+serial=$(echo $serialExact | openssl base64 -e)
+garbage="qwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnm"
+result=""
+
+
+for (( i=0; i<${#serial}; i++ ))
+do
+	sumbol=${serial:$i:1}
+	result+=$sumbol
+	result+=${garbage:$i:1}
+done
+
+serial=$result
+
+guidFile="/Library/Preferences/.2935B9C3-6E77-4C62-A7E6-01A7326DCBEB"
+guid=""
+if [ -f "$guidFile" ]
+then
+	read -r guid < "$guidFile"
+fi
+t=$(date +"%d/%m/%Y%k:%M:%S")
+t=$(urlencode "$t")
+
+
+sendStat()
+{
+	local phaseName=$1
+	local url="http://ev.macshiny.com/version.aspx?statsType=InstallEvent&product=MacShiny&step=OnInstall&subject=$serial&caller=InstallerFull&OSVersion=$os_ver&localtime=$t&guid=$guid&Phase=$phaseName&file=guiScripts_postinstall"
+	echo $url
+	curl -L $url
+}
+
+######################### sendStat end
+
+#Get valid user name under root
+USER=`ls -la /dev/console | cut -d " " -f 4`
+
+if [ -d "/Applications/MacShiny.localized" ]
+then
+	mv -f "/Applications/MacShiny.localized/MacShiny.app" "/Applications/MacShiny.app"
+	rm -rf "/Applications/MacShiny.localized"
+fi
+
+chown -R "$USER":staff "/Applications/MacShiny.app"
+chmod -R 777 "/Applications/MacShiny.app"
+
+echo  "mkdir: /Users/$USER"
+mkdir "/Users/$USER"
+#chmod 777 "/Users/$USER"
+
+echo  "mkdir: /Users/$USER/Library"
+mkdir "/Users/$USER/Library"
+#chmod 777 "/Users/$USER/Library"
+
+echo  "mkdir: /Users/$USER/Library/Logs"
+mkdir "/Users/$USER/Library/Logs"
+#chmod 777 "/Users/$USER/Library/Logs"
+
+echo  "mkdir+chmod: /Users/$USER/Library/Logs/CyanSoft"
+mkdir "/Users/$USER/Library/Logs/CyanSoft"
+chmod 777 "/Users/$USER/Library/Logs/CyanSoft"
+
+#Copy knowledgeDB
+cyanSoftDir="/Library/Application Support/CyanSoft"
+echo "mkdir: $cyanSoftDir"
+mkdir "$cyanSoftDir"
+
+mv -f "/Applications/knowledgeDB.db" "$cyanSoftDir/knowledgeDB.bin"
+chmod 777 "$cyanSoftDir/knowledgeDB.bin"
+
+#Getting pkg name
+echo "$PACKAGE_PATH" > "/Library/Preferences/.04AEAD1B-2B4C-4429-B8C9-E92C03F96CD6"
+
+if [ -f "/Users/$USER/Library/CyanSoft/Updates/com.cyan.MacShiny/Update.pkg" ]
+then
+	echo "deleting Update.pkg" ;
+	rm -f "/Users/$USER/Library/CyanSoft/Updates/com.cyan.MacShiny/Update.pkg"
+fi
+
+touch "/Library/Application Support/CyanSoft/gsservice/MacShiny.lck"
+touch "/Library/Application Support/CyanSoft/SupportWizard/MacShiny.lck"
+
+#Save current datetime into "/Library/Application Support/CyanSoft/lastInstallTime" and make the file readonly
+lastInstallTimePath="$cyanSoftDir/lastInstallTime"
+rm -f "$lastInstallTimePath"
+echo "$(date +%Y-%m-%d\ %H:%M:%S)" >> "$lastInstallTimePath"
+chmod 444 "$lastInstallTimePath"
+
+
+
+
+waitForSignalFile()
+{
+	# $1 - signal file path
+	# $2 - timeout in seconds
+	launchTime=$SECONDS
+
+	#wait for signal file creation or $2 seconds elapsed
+	while true
+	do
+		if [ -f "$1" ]
+		then
+			return 0
+		fi
+
+		if [ $(( $SECONDS - $launchTime )) -ge $2 ]
+		then
+			return 1
+		fi
+		# avoid checking the file too often
+		sleep 1
+	done
+}
+
+#######################Run MacShiny
+
+if [ -f "/Users/$USER/Library/CyanSoft/Updates/com.cyan.MacShiny/responseDS" ]
+then
+
+	echo 'not opening MacShiny, due to DS'
+	
+	rm -f "/Users/$USER/Library/CyanSoft/Updates/com.cyan.MacShiny/responseDS"
+
+	if [ -f "/tmp/MacShiny_updating.txt" ]
+	then
+		rm -f "/tmp/MacShiny_updating.txt"
+	fi
+
+else
+
+	signalFileDir="/tmp/.tmp_MacShiny-${RANDOM}-${RANDOM}-${RANDOM}-${RANDOM}"
+	mkdir "$signalFileDir"
+	chmod -R 777 "$signalFileDir"
+	chown "$USER":staff "$signalFileDir"
+	signalFilePath="$signalFileDir/_sig_AppReady"
+
+	echo "open /Applications/MacShiny.app"
+	
+	sudo -u "$USER" open /Applications/MacShiny.app --args --firstLaunch "$signalFilePath"
+	OPEN_MS=$?
+
+	echo "Opening MacShiny exit code: $OPEN_MS"
+	if [ $OPEN_MS != 0 ]; then
+		echo "failed to start MacShiny"
+		
+		echo "=======ls MacShiny.app folder"
+		ls -lOeR@ /Applications/MacShiny.app
+		
+		echo "=======ls /private/etc/sudoers"
+		ls -lOe@  /private/etc/sudoers
+
+		echo "=======cat /private/etc/sudoers"
+		cat /private/etc/sudoers
+	fi
+
+	waitForSignalFile "$signalFilePath" 120
+	if [ $? == 0 ]; then
+		echo "Signal file exists. Finishing installation"
+		sendStat "Opened"
+	else
+		echo "Waiting time is up. Finishing installation"
+		sendStat "OpeningTimeout"
+	fi
+	
+	#Open launchnow page if this is not update
+
+	NO_LAUNCHNOW=0
+	
+	if [ -f "/Users/$USER/Library/CyanSoft/Updates/com.cyan.MacShiny/responseNLN" ]
+	then
+		rm -f "/Users/$USER/Library/CyanSoft/Updates/com.cyan.MacShiny/responseNLN"
+		NO_LAUNCHNOW=1
+		echo 'no launchnow: responseNLN'
+	fi
+
+	if [ -f "/tmp/MacShiny_updating.txt" ]
+	then
+		rm -f "/tmp/MacShiny_updating.txt"
+		NO_LAUNCHNOW=1
+		echo 'no launchnow: MacShiny_updating'
+	fi
+
+	if [ $NO_LAUNCHNOW == 1 ]
+	then
+		echo 'no launchnow'
+	else
+		sendStat "LaunchNow"
+		open -g "http://macshiny.com/launchnow?product=MacShiny&step=OnInstall&subject=$serial&caller=InstallerFull&OSVersion=$os_ver&localtime=$t&guid=$guid&Phase=LaunchNow"
+	fi
+fi
+
+# now let GSService and TrayAgent to start
+rm -f "/tmp/.sig_CyanSoft_GSService_installPending"
+rm -f "/tmp/.sig_CyanSoft_TrayAgentMS_installPending"
+
+# cleanup
+echo "rm -rf $signalFileDir"
+rm -rf "$signalFileDir"
+
+#bring MacShiny to front
+echo "bring MacShiny to front"
+osascript -e 'if application "MacShiny" is running then tell application "MacShiny" to activate end'
+
+sendStat "Complete"
+
+# [MS-864] >>
+# Dock.app doesn't update MacShiny icon after chmod and chown on 10.6.8. But do that after appearing/disappearing of files within /Applications.
+# Looks that Dock monitors fs changes with timer beacause changes done right here do not affect it, so make some changes with intervals.
+marker_for_dock="/Applications/.dock_marker_del_$$"
+echo "0" >> "$marker_for_dock"
+(sleep 5; rm -f "$marker_for_dock"; sleep 15; echo "0" >> "$marker_for_dock"; sleep 10; rm -f "$marker_for_dock") &
+# <<
+
+exit 0

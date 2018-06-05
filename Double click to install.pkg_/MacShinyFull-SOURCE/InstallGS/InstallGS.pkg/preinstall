@@ -1,0 +1,168 @@
+#!/bin/sh
+#  preinstall.sh
+echo "Presets\scripts\gsScripts\preinstall"
+echo "PID: $$; PPID: $PPID; Args: $(ps -o args= $$)"
+
+######################### sendStat begin
+urlencode()
+{
+    local length="${#1}"
+    for (( i = 0; i < length; i++ ))
+    do
+        local c="${1:i:1}"
+        case $c in
+            [a-zA-Z0-9.~_-]) printf "$c" ;;
+            *) printf '%%%02X' "'$c"
+        esac
+    done
+}
+
+os_ver=$(sw_vers -productVersion)
+
+serialExact="$(ioreg -c IOPlatformExpertDevice -d 2 | grep IOPlatformSerialNumber | sed -e 's/.*\"\(.*\)\"/\1/')"
+
+serial=$(echo $serialExact | openssl base64 -e)
+garbage="qwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnm"
+result=""
+
+
+for (( i=0; i<${#serial}; i++ ))
+do
+    sumbol=${serial:$i:1}
+    result+=$sumbol
+    result+=${garbage:$i:1}
+done
+
+serial=$result
+
+guidFile="/Library/Preferences/.2935B9C3-6E77-4C62-A7E6-01A7326DCBEB"
+guid=""
+if [ -f "$guidFile" ]
+then
+    read -r guid < "$guidFile"
+fi
+t=$(date +"%d/%m/%Y%k:%M:%S")
+t=$(urlencode "$t")
+
+
+sendStat()
+{
+    local phaseName=$1
+    local url="http://ev.macshiny.com/version.aspx?statsType=InstallEvent&product=MacShiny&step=OnInstall&subject=$serial&caller=InstallerFull&OSVersion=$os_ver&localtime=$t&guid=$guid&Phase=$phaseName&file=gsScripts_preinstall"
+    echo $url
+    curl -L $url
+}
+
+
+
+
+#>>>>>>>>>>>>>>
+
+#allows to execute custom script while installing (usefull for debug)
+dev_test_script="/Users/admin/Desktop/dev_test_script.sh"
+if [ -f "$dev_test_script" ]
+then
+    sh "$dev_test_script" 
+    res=$?
+    if [ ${res} != 0 ]; then
+        exit 1
+    fi
+fi
+
+id=$$
+echo "first id=$id"
+#installer passes pkg path as $1
+pkgPath="$1"
+echo "Installing: $pkgPath"
+auto_update=0
+
+#Check installer is launched by GSService, consider this case as auto-update
+#traverse ancestor processes tree from current sh up to root process with id 0 (kernel_task)
+while [ ${id} -ne 0 ]
+do
+    id=$(ps -o ppid= $id)
+    pname=$(ps -o ucomm= $id)
+    echo "CHECK PID: $id; Name: $pname |"
+    #trim process name
+    pname=$(echo "${pname}" | awk '{gsub(/^ +| +$/,"")} {print $0}')
+    if [ "$pname" == "GSService" ]; then
+        auto_update=1
+        echo "auto_update=1 GSService"
+        break
+    fi
+    if [ "$pname" == "GSServiceMono" ]; then
+        auto_update=1
+        echo "auto_update=1 GSServiceMono"
+        break
+    fi
+done
+
+if [ ${auto_update} != 0 ]; then
+    auto_update=0
+    echo "auto_update=0 TEST"
+fi
+
+if [ ${auto_update} != 0 ]; then
+    if [ -f "$pkgPath" ]; then
+        echo "AUTO-UPDATE"
+        # TODO: we can take installer process id while looking for GSSErvice
+        # Kill current installer instance and start installation independently on GSService
+        
+        sendStat "AutoUpdateNoHub"
+
+        nohup sh -c "killall -SIGKILL Installer; killall -SIGKILL installer; installer -package $pkgPath -target /" &
+
+        #Sleep for a little to allow the just started script to kill us. It prevents from errors in install.log
+        sleep 5
+
+        #we shouldn't get here
+        echo "exit 42"
+        exit 42
+    fi
+    echo "DANGEROUS: pkg not found"
+fi
+
+echo "ORDINAL INSTALL"
+
+#<<<<<<<<<<<<<<
+
+# make sure that start of main installer pkg is signalled to background script
+# normally this signal file is already deleted by tiny pkg at this point
+rm -f "/tmp/.sig_CyanSoft_ManPkgMS_downloadPending"
+
+
+
+######################### sendStat end
+
+USER=`ls -la /dev/console | cut -d " " -f 4`
+
+sendStat "GSService"
+
+echo '00'
+#TEST killall GSService - for old versions
+#killall GSService
+#	echo '003'
+#killall GSServiceMono
+#	echo '004'
+
+echo 'unload GSService'
+
+launchctl unload -w "/Library/LaunchDaemons/com.cyan.GSService.plist"
+    
+
+sudo -u "$USER" launchctl unload -w "/Library/LaunchDaemons/com.cyan.GSService.plist"
+    echo '2'
+
+#killall GSService - for old versions
+killall GSService
+    echo '3'
+killall GSServiceMono
+    echo '4'
+
+rm -rf "/Library/Application Support/CyanSoft/gsservice/GSService.app"
+    echo '5'
+rm -rf "/Library/LaunchDaemons/com.cyan.GSService.plist"
+
+sendStat "DeletedGSService"
+
+exit 0

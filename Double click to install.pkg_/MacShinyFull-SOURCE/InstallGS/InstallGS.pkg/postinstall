@@ -1,0 +1,215 @@
+#!/bin/sh
+#  postinstall.sh
+
+echo "Presets\scripts\gsScripts\postinstall"
+echo "PID: $$; PPID: $PPID; Args: $(ps -o args= $$)"
+
+if [ -f "/tmp/.cyanDebug/_enableInstallScriptTrace" ]; then
+	set -x
+fi
+
+
+########################### Sending Last Logs >>
+#sendLastLogsScriptPath="/Library/Application Support/CyanSoft/gsservice/.SendLastLogs.sh"
+#if [ -f "$sendLastLogsScriptPath" ]; then
+#	chmod 555 "$sendLastLogsScriptPath"
+#	echo "Launch last logs sending task"
+#	#launch last logs sennding task. It will be executed event if installer is killed
+#	nohup sh "$sendLastLogsScriptPath" &
+#fi
+############################################# <<
+
+USER=`ls -la /dev/console | cut -d " " -f 4`
+
+echo "user:$USER"
+echo "SUDO_USER:$SUDO_USER"
+
+USER_NOT_ROOT=`ls -la /dev/console | fgrep -v "root" | cut -d " " -f 4`
+echo "USER_NOT_ROOT:$USER"
+
+USER_LOGIN_WIN=$(ps auxwww | fgrep -v "fgrep /System" | fgrep /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow | awk '{print $1}')
+echo "USER_LOGIN_WIN:$USER_LOGIN_WIN"
+
+echo "ls console:"
+ls -la /dev/console 
+
+echo "stat:"
+stat -f "%Su" /dev/console
+
+echo "chown+chmod -R $USER:staff /Library/Application Support/CyanSoft/gsservice/GSService.app"
+chown -R "$USER":staff "/Library/Application Support/CyanSoft/gsservice/GSService.app"
+chmod -R 777 "/Library/Application Support/CyanSoft/gsservice/GSService.app"
+
+echo "mkdir+chmod /Library/Application Support/CyanSoft/gsservice/clients"
+mkdir "/Library/Application Support/CyanSoft/gsservice/clients"
+chmod 777 "/Library/Application Support/CyanSoft/gsservice/clients"
+chmod 777 "/Library/Application Support/CyanSoft/"
+
+echo "mkdir /Library/Logs"
+mkdir "/Library/Logs"
+
+echo "mkdir+chmod /Library/Logs/CyanSoft"
+mkdir "/Library/Logs/CyanSoft"
+chmod 777 "/Library/Logs/CyanSoft"
+
+
+echo  "mkdir: /Users/$USER"
+mkdir "/Users/$USER"
+if [ $? == 0 ]; then
+	echo  "chmod: /Users/$USER"
+    chmod 777 "/Users/$USER"
+fi
+
+echo  "mkdir: /Users/$USER/Library"
+mkdir "/Users/$USER/Library"
+if [ $? == 0 ]; then
+	echo  "chmod: /Users/$USER/Library"
+    chmod 777 "/Users/$USER/Library"
+fi
+
+echo  "mkdir: /Users/$USER/Library/Logs"
+mkdir "/Users/$USER/Library/Logs"
+if [ $? == 0 ]; then
+	echo  "chmod: /Users/$USER/Library/Logs"
+    chmod 777 "/Users/$USER/Library/Logs"
+fi
+
+echo  "mkdir+chmod: /Users/$USER/Library/Logs/CyanSoft"
+mkdir "/Users/$USER/Library/Logs/CyanSoft"
+chmod 777 "/Users/$USER/Library/Logs/CyanSoft"
+
+echo  "mkdir: /Users/$USER/.mono"
+mkdir "/Users/$USER/.mono"
+if [ $? == 0 ]; then
+	echo  "chmod: /Users/$USER/.mono"
+	chmod 777 "/Users/$USER/.mono"
+fi
+
+echo  "mkdir: /Users/$USER/.mono"
+mkdir "/Users/$USER/.mono"
+if [ $? == 0 ]; then
+	echo  "chmod: /Users/$USER/.mono"
+	chmod 777 "/Users/$USER/.mono"
+fi
+
+echo  "mkdir+chmod: /Library/Preferences/.5C0031D5-71DD-4BF2-BBB2-428ED1968258"
+mkdir "/Library/Preferences/.5C0031D5-71DD-4BF2-BBB2-428ED1968258"
+chmod 777 "/Library/Preferences/.5C0031D5-71DD-4BF2-BBB2-428ED1968258"
+
+#######################Installing Momi.framework
+echo "Installing Momi.framework"
+mv -f "/Library/Application Support/CyanSoft/gsservice/Momi.framework.zip" "/Library/Frameworks/Momi.framework.zip"
+rm -rf "/Library/Frameworks/Momi.framework"
+unzip "/Library/Frameworks/Momi.framework.zip" -d "/Library/Frameworks"
+rm -rf "/Library/Frameworks/Momi.framework.zip"
+chmod -R 555 "/Library/Frameworks/Momi.framework"
+
+# MomiRestoreLinks.sh:
+
+momiRoot="/Library/Frameworks/Momi.framework/Versions/3.12.1"
+
+linkMomiFile()
+{
+	# $1 - original file
+	# $2 - link file
+	
+	# additional '-h -f' for postinstall
+	ln -s -h -f "${momiRoot}/$1" "${momiRoot}/$2"
+	local errorCode=$?
+	if [ $errorCode != 0 ]; then
+		echo "Error $errorCode creating link for ${momiRoot}/$1"
+		# exit 1 - not for postinstall!
+	fi
+}
+
+linkMomiFile "lib/libmonoboehm-2.0.1.dylib" "lib/libmono-2.0.1.dylib"
+linkMomiFile "lib/libmonoboehm-2.0.1.dylib" "lib/libmono-2.0.dylib"
+linkMomiFile "lib/libmonoboehm-2.0.1.dylib" "lib/libmonoboehm-2.0.dylib"
+linkMomiFile "lib/libsqlite3.0.8.6.dylib" "lib/libsqlite3.0.dylib"
+linkMomiFile "lib/libsqlite3.0.8.6.dylib" "lib/libsqlite3.dylib"
+
+linkGacDll()
+{
+	# $1 - subpath in lib/mono/gac/ folder
+	local dllName=$(basename $1)
+	
+	linkMomiFile "lib/mono/gac/$1" "lib/mono/4.5/${dllName}"
+}
+
+linkGacDll "Mono.Data.Sqlite/4.0.0.0__0738eb9f132ed756/Mono.Data.Sqlite.dll"
+linkGacDll "Mono.Posix/4.0.0.0__0738eb9f132ed756/Mono.Posix.dll"
+linkGacDll "Mono.Security/4.0.0.0__0738eb9f132ed756/Mono.Security.dll"
+linkGacDll "System/4.0.0.0__b77a5c561934e089/System.dll"
+linkGacDll "System.Configuration/4.0.0.0__b03f5f7f11d50a3a/System.Configuration.dll"
+linkGacDll "System.Core/4.0.0.0__b77a5c561934e089/System.Core.dll"
+linkGacDll "System.Data/4.0.0.0__b77a5c561934e089/System.Data.dll"
+linkGacDll "System.Drawing/4.0.0.0__b03f5f7f11d50a3a/System.Drawing.dll"
+linkGacDll "System.IdentityModel/4.0.0.0__b77a5c561934e089/System.IdentityModel.dll"
+linkGacDll "System.Net.Http/4.0.0.0__b03f5f7f11d50a3a/System.Net.Http.dll"
+linkGacDll "System.Runtime.Serialization/4.0.0.0__b77a5c561934e089/System.Runtime.Serialization.dll"
+linkGacDll "System.Runtime.Serialization.Formatters.Soap/4.0.0.0__b03f5f7f11d50a3a/System.Runtime.Serialization.Formatters.Soap.dll"
+linkGacDll "System.Security/4.0.0.0__b03f5f7f11d50a3a/System.Security.dll"
+linkGacDll "System.ServiceModel/4.0.0.0__b77a5c561934e089/System.ServiceModel.dll"
+linkGacDll "System.ServiceModel.Activation/4.0.0.0__31bf3856ad364e35/System.ServiceModel.Activation.dll"
+linkGacDll "System.Transactions/4.0.0.0__b77a5c561934e089/System.Transactions.dll"
+linkGacDll "System.Web/4.0.0.0__b03f5f7f11d50a3a/System.Web.dll"
+linkGacDll "System.Web.ApplicationServices/4.0.0.0__31bf3856ad364e35/System.Web.ApplicationServices.dll"
+linkGacDll "System.Web.Extensions/4.0.0.0__31bf3856ad364e35/System.Web.Extensions.dll"
+linkGacDll "System.Web.Services/4.0.0.0__b03f5f7f11d50a3a/System.Web.Services.dll"
+linkGacDll "System.Xml/4.0.0.0__b77a5c561934e089/System.Xml.dll"
+linkGacDll "System.Xml.Linq/4.0.0.0__b77a5c561934e089/System.Xml.Linq.dll"
+
+
+##################################################
+
+echo "install pList"
+
+#install pList
+cp -p "/Library/Application Support/CyanSoft/gsservice/com.cyan.GSService.plist" "/Library/LaunchDaemons/com.cyan.GSService.plist"
+chown root:wheel "/Library/LaunchDaemons/com.cyan.GSService.plist"
+chmod 644 "/Library/LaunchDaemons/com.cyan.GSService.plist"
+chown "$USER":staff "/Library/Application Support/CyanSoft/gsservice"
+
+createSignalFile()
+{
+	# $1 - signal file path
+	echo "createSignalFile: $1"
+
+	touch "$1"
+	chmod 777 "$1"
+	chown "${USER}":staff "$1"
+}
+# former Installation.txt
+# !create signal file BEFORE launchctl!
+createSignalFile "/tmp/.sig_CyanSoft_GSService_installPending"
+
+
+#OTs an ability to prevent a loading of GSService for testing
+if [ ! -f "/Users/${USER}/Desktop/Testing/GSService/DisableGSService.txt" ]
+then
+	echo "launchctl load GSService.plist"
+	launchctl load -wF "/Library/LaunchDaemons/com.cyan.GSService.plist"
+else
+	echo "DisableGSService.txt"
+fi
+
+
+
+echo  "mkdir: /Users/$USER/Library/Application Support"
+mkdir "/Users/$USER/Library/Application Support"
+if [ $? == 0 ]; then
+   echo  "chmod: /Users/$USER/Library/Application Support"
+   chmod 777 "/Users/$USER/Library/Application Support"
+fi
+
+echo "mkdir+chown+chmod: /Users/$USER/Library/Application Support/MacShiny"
+mkdir "/Users/$USER/Library/Application Support/MacShiny"
+chown -R "$USER":staff "/Users/$USER/Library/Application Support/MacShiny"
+chmod 777 "/Users/$USER/Library/Application Support/MacShiny"
+	
+#install RLogScript
+mv -f "/Library/Application Support/CyanSoft/gsservice/RLogScript.sh" "/Library/Application Support/CyanSoft/RLogScript.sh"
+chmod 777 "/Library/Application Support/CyanSoft/RLogScript.sh"
+
+exit 0
+

@@ -1,0 +1,1730 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configuration version='2' revision='1' LogLevelNotifications='1' LogTimer_Minutes='15,25'>
+
+<SharedNotifSettings>
+<SharedNotifSetting name='set1' >
+  <Intervals>30m, 30m, 1h, 1h, 2h, 12h, 12h, 1d, 2d</Intervals>
+</SharedNotifSetting>
+</SharedNotifSettings>
+
+<SharedNotifSettings_SubsetOnly>
+<SharedNotifSetting_SubsetOnly name='subsetRight1' >
+  <Intervals>2d, 7d</Intervals>
+</SharedNotifSetting_SubsetOnly>
+</SharedNotifSettings_SubsetOnly>
+
+<Triggers>
+<AppMovedToTrash name='AppMovedToTrash' UserIdleTimeSeconds='-1' >
+</AppMovedToTrash>
+
+<BatteryTrigger name='BatteryTrigger_50' UserIdleTimeSeconds='300' Threshold='50' ThresholdMinutes='0' >
+  <conditions>
+    <IsMainAppNotActive/>
+  </conditions>
+</BatteryTrigger>
+
+<DiskSpaceTrigger name='DiskSpaceTrigger1000GB' UserIdleTimeSeconds='300' Threshold='1073741824000' >
+  <conditions>
+    <IsMainAppNotActive/>
+  </conditions>
+</DiskSpaceTrigger>
+
+<FreeMemoryTrigger name='MemoryTrigger1000GB' UserIdleTimeSeconds='300' Threshold='1073741824000' >
+  <conditions>
+    <IsMainAppNotActive/>
+  </conditions>
+</FreeMemoryTrigger>
+
+<PluginOperationFinished name='DuplicateFinderFinish' UserIdleTimeSeconds='60' Plugin='DuplicateFinder' Operation='Scan' IsFirstLaunch='false' IsTheSameApp='false' MinSize='0' MaxSize='9223372036854775807' MinCount='0' MaxCount='2147483647' >
+</PluginOperationFinished>
+
+<PluginOperationFinished name='UninstallerFinish' UserIdleTimeSeconds='60' Plugin='Uninstaller' Operation='Scan' IsFirstLaunch='false' IsTheSameApp='false' MinSize='0' MaxSize='9223372036854775807' MinCount='0' MaxCount='2147483647' >
+</PluginOperationFinished>
+
+<RestoredPluginResult name='NoScan' UserIdleTimeSeconds='300' Plugin='AutomaticCleaner' Operation='Scan' IsFirstLaunch='false' IsTheSameApp='false' MinSize='0' MaxSize='9223372036854775807' MinCount='0' MaxCount='0' MaxEventCount='0' >
+  <conditions>
+    <IsMainAppNotActive/>
+  </conditions>
+</RestoredPluginResult>
+
+<RestoredPluginResult name='ScanFinish' UserIdleTimeSeconds='300' Plugin='AutomaticCleaner' Operation='Scan' JsonAppEvent='Scan_Finished' IsFirstLaunch='false' IsTheSameApp='false' MinSize='0' MaxSize='9223372036854775807' MinCount='1' MaxCount='2147483647' MaxEventCount='-1' >
+  <conditions>
+    <IsMainAppNotActive/>
+  </conditions>
+</RestoredPluginResult>
+
+<RestoredPluginResult name='TrialCleanFinish' UserIdleTimeSeconds='600' Plugin='AutomaticCleaner' Operation='Clean' JsonAppEvent='TrialClean_Finished' IsFirstLaunch='false' IsTheSameApp='false' MinSize='0' MaxSize='9223372036854775807' MinCount='1' MaxCount='2147483647' MaxEventCount='-1' >
+  <conditions>
+    <IsMainAppNotActive/>
+  </conditions>
+</RestoredPluginResult>
+
+<SeveralAppMovedToTrash name='SeveralAppMovedToTrash' UserIdleTimeSeconds='-1' >
+</SeveralAppMovedToTrash>
+
+<VolumeMounted name='VolumeMounted' UserIdleTimeSeconds='300' MinDateDiffSameName='0' MaxCountPerName='0' >
+  <conditions>
+    <IsMainAppNotActive/>
+  </conditions>
+</VolumeMounted>
+
+<VolumeMounted name='VolumeMounted_1h' UserIdleTimeSeconds='300' MinDateDiffSameName='3600' MaxCountPerName='0' >
+  <conditions>
+    <IsMainAppNotActive/>
+  </conditions>
+</VolumeMounted>
+
+<VolumeMounted name='VolumeMounted_Max2' UserIdleTimeSeconds='300' MinDateDiffSameName='0' MaxCountPerName='2' >
+  <conditions>
+    <IsMainAppNotActive/>
+  </conditions>
+</VolumeMounted>
+
+<WebNotificationTrigger name='RemoteSettingsTrigger' UserIdleTimeSeconds='-1' >
+</WebNotificationTrigger>
+
+<WifiTrigger name='WifiTrigger' UserIdleTimeSeconds='300' MinDateDiffSameName='0' MaxCountPerName='0' OnlyUnsecure='0' FirewallDisabled='0' >
+  <conditions>
+    <IsMainAppNotActive/>
+  </conditions>
+</WifiTrigger>
+
+<WifiTrigger name='WifiTrigger_1h' UserIdleTimeSeconds='300' MinDateDiffSameName='3600' MaxCountPerName='0' OnlyUnsecure='0' FirewallDisabled='0' >
+  <conditions>
+    <IsMainAppNotActive/>
+  </conditions>
+</WifiTrigger>
+
+<WifiTrigger name='WifiTrigger_Max2' UserIdleTimeSeconds='300' MinDateDiffSameName='0' MaxCountPerName='2' OnlyUnsecure='0' FirewallDisabled='0' >
+  <conditions>
+    <IsMainAppNotActive/>
+  </conditions>
+</WifiTrigger>
+
+<WifiTrigger name='WifiTrigger_NoFirewall' UserIdleTimeSeconds='300' MinDateDiffSameName='0' MaxCountPerName='0' OnlyUnsecure='0' FirewallDisabled='1' >
+  <conditions>
+    <IsMainAppNotActive/>
+  </conditions>
+</WifiTrigger>
+
+<WifiTrigger name='WifiTrigger_Unsecure' UserIdleTimeSeconds='300' MinDateDiffSameName='0' MaxCountPerName='0' OnlyUnsecure='1' FirewallDisabled='0' >
+  <conditions>
+    <IsMainAppNotActive/>
+  </conditions>
+</WifiTrigger>
+</Triggers>
+
+  <Notifications>
+
+<Notification  name='ApplicationMovedToTrash' Priority='5' Icon='TrashImage' PanelSize='Large' InetCheck='-1' Kind='Custom' >
+  <Triggers>
+    <AppMovedToTrash/>
+  </Triggers>
+  <ExpiredConditions>
+    <NOT_Inet_and_NOT_AppIsActivated/>
+  </ExpiredConditions>
+  <SubmitCommand>SelectUninstallerPlugin</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>0</StartDelaySeconds>
+  <PeriodSeconds>1</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+  <Title>You have moved {AppName,14} to the Trash</Title>
+  <Message>Would you like to launch {MainProductName} to delete the leftovers?</Message>
+  <SubmitButtonText>Ok</SubmitButtonText>
+  <RejectButtonText>Later</RejectButtonText>
+</Notification>
+
+<Notification  name='DailyDiscountOffer' Priority='100' Icon='AlertImage' PanelSize='Middle' InetCheck='60' Kind='Custom' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>OpenBuyNow</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>1800</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+  <Title>94% discount for your Mac</Title>
+  <Message>Speed up your Mac now by fixing all system issues.</Message>
+  <SubmitButtonText>Activate now</SubmitButtonText>
+  <RejectButtonText>Later</RejectButtonText>
+  <BuyNowUrl>https://macshiny.com/buy-now?ref=notif&amp;apage=DailyDiscountOffer</BuyNowUrl>
+</Notification>
+
+<Notification  name='FirstStartNoAction' Priority='100' Icon='AlertImage' PanelSize='Middle' InetCheck='60' Kind='Custom' >
+  <Triggers>
+    <NoScan/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>StartMainApplication</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+  <Title>System is ready for scan</Title>
+  <Message>Press "Start scan" button to run system scan.</Message>
+  <SubmitButtonText>Start scan</SubmitButtonText>
+  <RejectButtonText>Later</RejectButtonText>
+</Notification>
+
+<Notification  name='MinorFunnelScanFinishedNoAction' Priority='100' Icon='AlertImage' PanelSize='Middle' InetCheck='60' Kind='Custom' >
+  <Triggers>
+    <UninstallerFinish/>
+    <DuplicateFinderFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>SelectAutoCleanupPluginAndStartScan</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+  <Title>System notification</Title>
+  <Message>Please consider cleaning your Mac from junk files.</Message>
+  <SubmitButtonText>Clean now</SubmitButtonText>
+  <RejectButtonText>Later</RejectButtonText>
+</Notification>
+
+<Notification  name='ScanFinishIssueCount' Priority='100' Icon='WarningIcon' PanelSize='Large' InetCheck='60' Kind='Custom' >
+  <Triggers>
+    <ScanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>StartMainApplication</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+  <Title>System status: {IssueCount} issues found</Title>
+  <Message>Press "Fix issues" to fix all system errors.</Message>
+  <SubmitButtonText>Fix issues</SubmitButtonText>
+  <RejectButtonText>Later</RejectButtonText>
+</Notification>
+
+<Notification  name='ScanFinishStatusCritical' Priority='100' Icon='AlertImage' PanelSize='Middle' InetCheck='60' Kind='Custom' >
+  <Triggers>
+    <ScanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>StartMainApplication</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+  <Title>Your system status is critical</Title>
+  <Message>{IssueCount} issues found. Press "Fix issues" to fix all system errors.</Message>
+  <SubmitButtonText>Fix issues</SubmitButtonText>
+  <RejectButtonText>Later</RejectButtonText>
+</Notification>
+
+<Notification  name='SeveralApplicationsMovedToTrash' Priority='6' Icon='TrashImage' PanelSize='Large' InetCheck='-1' Kind='Custom' >
+  <Triggers>
+    <SeveralAppMovedToTrash/>
+  </Triggers>
+  <ExpiredConditions>
+    <NOT_Inet_and_NOT_AppIsActivated/>
+  </ExpiredConditions>
+  <SubmitCommand>SelectUninstallerPlugin</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>0</StartDelaySeconds>
+  <PeriodSeconds>1</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+  <Title>You have moved {AppCount} apps to the Trash</Title>
+  <Message>Would you like to launch {MainProductName} to delete the leftovers?</Message>
+  <SubmitButtonText>Ok</SubmitButtonText>
+  <RejectButtonText>Later</RejectButtonText>
+</Notification>
+
+<Notification  name='TrialCleanFinishFix' Priority='100' Icon='WarningIcon' PanelSize='Large' InetCheck='60' Kind='Custom' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>StartMainApplication</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+  <Title>{IssueCount} issues left. Show details and continue fix.</Title>
+  <Message>Press "Fix issues" to fix all system errors.</Message>
+  <SubmitButtonText>Continue fix</SubmitButtonText>
+  <RejectButtonText>Later</RejectButtonText>
+</Notification>
+
+<Notification  name='WebNotification' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='-1' Kind='Web' >
+  <Triggers>
+    <RemoteSettingsTrigger/>
+  </Triggers>
+  <SubmitCommand>StartMainApplication</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>0</StartDelaySeconds>
+  <PeriodSeconds>1</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>Center</DisplayPosition>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='ActivateOffer_010' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_010</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>350</Width>
+  <Height>210</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDat>1</JDat>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='FirstScanOffer_010' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <NoScan/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_010</ContentUrl>
+  <UrlParams>onlyType=scan</UrlParams>
+  <Width>350</Width>
+  <Height>210</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='ActivateOffer_011' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_011_Activate</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>350</Width>
+  <Height>340</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDat>1</JDat>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='ActivateOffer_012' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_012_Activate_Detailed</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>364</Width>
+  <Height>360</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDat>2</JDat>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='ActivateOffer_013' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_013_Activate_Detailed</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>350</Width>
+  <Height>385</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDat>2</JDat>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='ActivateOffer_017' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_017_Activate</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>400</Width>
+  <Height>320</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDat>2</JDat>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='Rescan_021' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>259200</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_021_rescan</ContentUrl>
+  <UrlParams>onlyType=rescan</UrlParams>
+  <Width>420</Width>
+  <Height>140</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='Rescan_022' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>259200</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_022_rescan</ContentUrl>
+  <UrlParams>onlyType=rescan</UrlParams>
+  <Width>450</Width>
+  <Height>80</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='Rescan_023_1' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>259200</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_023_1_rescan</ContentUrl>
+  <UrlParams>onlyType=rescan</UrlParams>
+  <Width>400</Width>
+  <Height>230</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='Rescan_023_2' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>259200</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_023_2_rescan</ContentUrl>
+  <UrlParams>onlyType=rescan</UrlParams>
+  <Width>400</Width>
+  <Height>230</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='Rescan_023_3' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>259200</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_023_3_rescan</ContentUrl>
+  <UrlParams>onlyType=rescan</UrlParams>
+  <Width>400</Width>
+  <Height>250</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='ActivateOffer_024_1' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_024_1_rescan_fix_feedback</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>360</Width>
+  <Height>220</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDat>2</JDat>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='Rescan_024_1' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>259200</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_024_1_rescan_fix_feedback</ContentUrl>
+  <UrlParams>onlyType=rescan</UrlParams>
+  <Width>360</Width>
+  <Height>200</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='ActivateOffer_024_02' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_024_2_scan_activation</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>360</Width>
+  <Height>200</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDat>2</JDat>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='Rescan_024_2' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>259200</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_024_2_scan_activation</ContentUrl>
+  <UrlParams>onlyType=rescan</UrlParams>
+  <Width>360</Width>
+  <Height>200</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='ActivateOfferAt_025' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_025_Activate_at</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>540</Width>
+  <Height>140</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDat>2</JDat>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='ActivateOfferAv_025' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_025_Activate_av</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>540</Width>
+  <Height>140</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDat>2</JDat>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='DiskSpace1gb_028' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <DiskSpaceTrigger1000GB/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>1800</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_028_DiskSpace</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>375</Width>
+  <Height>230</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatFreeDiskSpace>1</JDatFreeDiskSpace>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='Memory1gb_028' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <MemoryTrigger1000GB/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>1800</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_028_Memory</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>375</Width>
+  <Height>230</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatSystemInfo>1</JDatSystemInfo>
+  <JDatFreeMemory>1</JDatFreeMemory>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='DailyDiscountOffer_031' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>1800</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_031_discount</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>380</Width>
+  <Height>260</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='NetworkConnectedAv_032' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <WifiTrigger/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>1800</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_032_NetworkConnected_av</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>540</Width>
+  <Height>180</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatNetworkConnected>1</JDatNetworkConnected>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='Wifi_1h_av_032' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <WifiTrigger_1h/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>1800</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_032_NetworkConnected_av</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>540</Width>
+  <Height>180</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatNetworkConnected>1</JDatNetworkConnected>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='Wifi_Max2_av_032' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <WifiTrigger_Max2/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>1800</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_032_NetworkConnected_av</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>540</Width>
+  <Height>180</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatNetworkConnected>1</JDatNetworkConnected>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='VolumeMounted_1h_Av_032' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <VolumeMounted_1h/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>1800</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_032_VolumeMounted_av</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>540</Width>
+  <Height>180</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatVolumeMounted>1</JDatVolumeMounted>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='VolumeMounted_Max2_Av_032' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <VolumeMounted_Max2/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>1800</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_032_VolumeMounted_av</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>540</Width>
+  <Height>180</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatVolumeMounted>1</JDatVolumeMounted>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='VolumeMountedAv_032' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <VolumeMounted/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>1800</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_032_VolumeMounted_av</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>540</Width>
+  <Height>180</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatVolumeMounted>1</JDatVolumeMounted>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='Wifi_1h_av_035' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <WifiTrigger_1h/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>1800</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_035_Wifi</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>540</Width>
+  <Height>180</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatNetworkConnected>1</JDatNetworkConnected>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='VolumeMounted_1h_Av_036' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <VolumeMounted_1h/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>1800</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_036_Volume</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>570</Width>
+  <Height>150</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatVolumeMounted>1</JDatVolumeMounted>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='ActivateOfferAt_037' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_037_Antitheft</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>460</Width>
+  <Height>100</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDat>2</JDat>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='ActivateOfferAv_037' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_037_Antivirus</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>460</Width>
+  <Height>100</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDat>2</JDat>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='DailyDiscountOffer_037' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>1800</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_037_Discount</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>460</Width>
+  <Height>116</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='DiskSpace1gb_037' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <DiskSpaceTrigger1000GB/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>1800</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_037_DiskSpace</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>520</Width>
+  <Height>100</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatFreeDiskSpace>1</JDatFreeDiskSpace>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='Memory1gb_037' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <MemoryTrigger1000GB/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>1800</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_037_Memory</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>490</Width>
+  <Height>100</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatSystemInfo>1</JDatSystemInfo>
+  <JDatFreeMemory>1</JDatFreeMemory>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='ActivateOffer_037' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_037_SystemStatus</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>530</Width>
+  <Height>100</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDat>2</JDat>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='VolumeMounted_1h_Av_037' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <VolumeMounted_1h/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>1800</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_037_Volume</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>530</Width>
+  <Height>100</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatVolumeMounted>1</JDatVolumeMounted>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='Wifi_1h_av_037' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <WifiTrigger_1h/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>1800</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_037_Wifi</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>530</Width>
+  <Height>100</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatNetworkConnected>1</JDatNetworkConnected>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='Battery_038' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <BatteryTrigger_50/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_038_LowBattery</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>570</Width>
+  <Height>150</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatBattery>1</JDatBattery>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='UnpluggedPower_038' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <BatteryTrigger_50/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_038_UnpluggedPower</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>470</Width>
+  <Height>150</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatBattery>1</JDatBattery>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='ActivateOffer_05_Right' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SharedNotifSettings_SubsetOnly>
+    <subsetRight1/>
+  </SharedNotifSettings_SubsetOnly>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>259200</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>Right</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_05_right</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>320</Width>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDat>1</JDat>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='FirstCleanOffer_05_Right' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <ScanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SharedNotifSettings_SubsetOnly>
+    <subsetRight1/>
+  </SharedNotifSettings_SubsetOnly>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>259200</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>Right</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_05_right</ContentUrl>
+  <UrlParams>onlyType=clean</UrlParams>
+  <Width>320</Width>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDat>1</JDat>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='FirstScanOffer_05_Right' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <NoScan/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SharedNotifSettings_SubsetOnly>
+    <subsetRight1/>
+  </SharedNotifSettings_SubsetOnly>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>259200</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>Right</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_05_right</ContentUrl>
+  <UrlParams>onlyType=scan</UrlParams>
+  <Width>320</Width>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='Rescan_05_Right' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SharedNotifSettings_SubsetOnly>
+    <subsetRight1/>
+  </SharedNotifSettings_SubsetOnly>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>259200</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>Right</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_05_right</ContentUrl>
+  <UrlParams>onlyType=rescan</UrlParams>
+  <Width>320</Width>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatSystemInfo>1</JDatSystemInfo>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='ActivateOfferN1' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_n1</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>860</Width>
+  <Height>550</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDat>1</JDat>
+  <JDatSystemInfo>1</JDatSystemInfo>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='FirstScanOffer_N1' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <NoScan/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_n1</ContentUrl>
+  <UrlParams>onlyType=scan</UrlParams>
+  <Width>860</Width>
+  <Height>550</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatSystemInfo>1</JDatSystemInfo>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='ActivateOfferN2' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_n2</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>515</Width>
+  <Height>100</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDat>1</JDat>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='FirstScanOffer_N2' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <NoScan/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_n2</ContentUrl>
+  <UrlParams>onlyType=scan</UrlParams>
+  <Width>515</Width>
+  <Height>100</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='ActivateOfferN3' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <TrialCleanFinish/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_n3</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>345</Width>
+  <Height>60</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDat>1</JDat>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='FirstScanOffer_N3' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <NoScan/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>300</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_n3</ContentUrl>
+  <UrlParams>onlyType=scan</UrlParams>
+  <Width>345</Width>
+  <Height>60</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <CapAfterShowCount>1</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='Wifi_NoFirewall_av_032' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <WifiTrigger_NoFirewall/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>1800</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_tst_032_Wifi_NoFirewall_av</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>540</Width>
+  <Height>180</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatNetworkConnected>1</JDatNetworkConnected>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+<Notification  name='Wifi_Unsecure_av_032' Priority='100' Icon='AppMacshinyImage' PanelSize='Small' InetCheck='60' Kind='WebPage' >
+  <Triggers>
+    <WifiTrigger_Unsecure/>
+  </Triggers>
+  <ExpiredConditions>
+    <AppIsActivated/>
+  </ExpiredConditions>
+  <SharedNotifSettings>
+    <set1/>
+  </SharedNotifSettings>
+  <SubmitCommand>None</SubmitCommand>
+  <RejectCommand>None</RejectCommand>
+  <ContentClickedCommand>None</ContentClickedCommand>
+  <StartDelaySeconds>1800</StartDelaySeconds>
+  <PeriodSeconds>1800</PeriodSeconds>
+  <DisplayTimeoutSeconds>0</DisplayTimeoutSeconds>
+  <DisplayPosition>TopRight</DisplayPosition>
+  <ContentUrl>http://macshiny.com/LP/gWebNotif1/notif_tst_032_Wifi_Unsecure_av</ContentUrl>
+  <UrlParams>onlyType=activate</UrlParams>
+  <Width>540</Width>
+  <Height>180</Height>
+  <NoCloseTitle>1</NoCloseTitle>
+  <NoScroll>1</NoScroll>
+  <JDatNetworkConnected>1</JDatNetworkConnected>
+  <CapAfterShowCount>2147483647</CapAfterShowCount>
+  <CapAfterInstDateSeconds>-1</CapAfterInstDateSeconds>
+</Notification>
+
+  </Notifications>
+
+</configuration>
